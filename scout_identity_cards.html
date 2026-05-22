@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Moonlight Voices – Scout Identity Cards</title>
+<style>
+  /* ── SCREEN PREVIEW ─────────────────────────────────────── */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Georgia', serif;
+    background: #f0e6f6;
+    padding: 20px;
+  }
+
+  h1.deck-title {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    color: #4A235A;
+    font-size: 22px;
+    margin-bottom: 6px;
+    letter-spacing: 2px;
+  }
+  p.deck-subtitle {
+    text-align: center;
+    color: #888;
+    font-size: 12px;
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif;
+  }
+
+  .page {
+    width: 8.5in;
+    min-height: 11in;
+    background: white;
+    margin: 0 auto 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 2.75in);
+    grid-template-rows: repeat(2, 4.75in);
+    gap: 0.375in;
+    padding: 0.5625in 1.125in;
+    page-break-after: always;
+  }
+
+  /* ── CARD ───────────────────────────────────────────────── */
+  .card {
+    width: 2.75in;
+    height: 4.75in;
+    border: 1.5px solid #E91E8C;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(233,30,140,0.15);
+  }
+
+  /* Type banner */
+  .card-type-banner {
+    background: linear-gradient(135deg, #E91E8C, #C2185B);
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 8px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-align: center;
+    padding: 5px 8px 4px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+  .card-type-banner .star { font-size: 10px; }
+  .card-num {
+    margin-left: auto;
+    font-size: 7px;
+    opacity: 0.8;
+    font-weight: normal;
+    letter-spacing: 0;
+  }
+
+  /* Card body */
+  .card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 8px 9px 7px;
+    overflow: hidden;
+  }
+
+  /* Title area */
+  .card-title {
+    font-family: 'Georgia', serif;
+    font-size: 13px;
+    font-weight: bold;
+    color: #1A1A2E;
+    text-align: center;
+    line-height: 1.2;
+    margin-bottom: 3px;
+  }
+  .card-descriptor {
+    font-family: Arial, sans-serif;
+    font-size: 7.5px;
+    color: #E91E8C;
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 6px;
+    letter-spacing: 0.3px;
+  }
+
+  /* Divider */
+  .divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #E91E8C, transparent);
+    margin-bottom: 7px;
+    flex-shrink: 0;
+  }
+
+  /* Sections */
+  .section {
+    margin-bottom: 5px;
+    flex-shrink: 0;
+  }
+  .section-label {
+    font-family: Arial, sans-serif;
+    font-size: 6.5px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #E91E8C;
+    text-transform: uppercase;
+    margin-bottom: 1.5px;
+  }
+  .section-text {
+    font-family: Arial, sans-serif;
+    font-size: 7.5px;
+    color: #333;
+    line-height: 1.35;
+  }
+
+  /* Reflection section */
+  .section.reflection {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-top: 0.5px solid #f0c0de;
+    padding-top: 5px;
+    margin-top: 2px;
+  }
+  .section.reflection .section-text {
+    font-style: italic;
+    color: #4A235A;
+    font-size: 7.5px;
+  }
+
+  /* Card footer */
+  .card-footer {
+    background: #FDE8F5;
+    padding: 4px 9px;
+    text-align: center;
+    flex-shrink: 0;
+    border-top: 1px solid #f0c0de;
+  }
+  .card-footer span {
+    font-family: Arial, sans-serif;
+    font-size: 7px;
+    color: #E91E8C;
+    letter-spacing: 1px;
+  }
+
+  /* ── PRINT ──────────────────────────────────────────────── */
+  @media print {
+    body { background: white; padding: 0; }
+    h1.deck-title, p.deck-subtitle { display: none; }
+    .page {
+      margin: 0;
+      box-shadow: none;
+      page-break-after: always;
+    }
+    .card { box-shadow: none; }
+  }
+
+
+/* ═══════════════════════════════════════════════════════════
+   RENAISSANCE × SAILOR MOON — DECORATIVE REDESIGN
+   ═══════════════════════════════════════════════════════════ */
+
+/* Parchment ground + celestial star-dot constellation pattern */
+.card {
+  background-color:  #FFFDF6 !important;
+  background-image:
+    radial-gradient(circle, rgba(194,24,91,0.09) 0.65px, transparent 0.65px),
+    radial-gradient(ellipse at 50% 5%,   #FCE4EC99 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 95%,  #FCE4EC66 0%, transparent 40%);
+  background-size: 13px 13px, 100% 100%, 100% 100% !important;
+  box-shadow:
+    inset 0 0 0 4.5px #FFFDF6,
+    inset 0 0 0 6.5px rgba(194,24,91,0.22),
+    0 3px 14px rgba(0,0,0,0.14) !important;
+  position: relative !important;
+}
+
+/* Four ✦ corner ornaments */
+.c {
+  position: absolute;
+  font-size: 8pt;
+  color: #C2185B;
+  opacity: 0.52;
+  z-index: 20;
+  pointer-events: none;
+  line-height: 1;
+  font-family: Georgia, serif;
+}
+.tl { top: 7px;    left:  8px; }
+.tr { top: 7px;    right: 8px; }
+.bl { bottom: 7px; left:  8px; }
+.br { bottom: 7px; right: 8px; }
+
+/* Planetary watermark (☽ ♄ ♃ ☿ ♀) */
+.card-watermark {
+  position:   absolute;
+  top:  50%;
+  left: 50%;
+  transform:  translate(-50%, -48%) rotate(-12deg);
+  font-size:  70pt;
+  color:      #C2185B;
+  opacity:    0.045;
+  pointer-events: none;
+  z-index: 1;
+  line-height: 1;
+  user-select: none;
+  font-family: Georgia, 'Times New Roman', serif;
+  white-space: nowrap;
+}
+
+/* Ornate ─── ✦ ─── divider (replaces plain .divider) */
+.ornate-div {
+  text-align:     center;
+  font-size:      6.5pt;
+  letter-spacing: 0.18em;
+  flex-shrink:    0;
+  opacity:        0.60;
+  margin:         3px 0 2px;
+  color:          #C2185B;
+  font-family:    Georgia, serif;
+}
+.divider { display: none !important; }
+
+/* Richer banner — deep illuminated gradient */
+.card-type-banner {
+  background: linear-gradient(135deg,
+    #880E4F 0%,
+    #C2185B      38%,
+    #C2185B      62%,
+    #880E4F 100%) !important;
+  padding: 6px 9px !important;
+  letter-spacing: 0.13em !important;
+  border-bottom: 1px solid rgba(255,255,255,0.28) !important;
+  position: relative;
+  z-index: 5;
+}
+
+/* Elegant serif section labels */
+.section-label {
+  font-family: 'Palatino Linotype', Georgia, serif !important;
+  font-size:   6pt !important;
+  font-weight: bold !important;
+  letter-spacing: 0.18em !important;
+  color: #880E4F !important;
+  text-transform: uppercase !important;
+}
+
+/* Warm serif body text */
+.section-text {
+  font-family: Georgia, 'Palatino Linotype', serif !important;
+  font-size:   7.5pt !important;
+  line-height: 1.48 !important;
+  color: #261212 !important;
+}
+
+/* Stronger title */
+.card-title {
+  font-family: 'Palatino Linotype', Georgia, serif !important;
+  font-size:   12pt !important;
+  color: #880E4F !important;
+  letter-spacing: 0.02em !important;
+  margin-bottom: 2px !important;
+}
+.card-descriptor {
+  font-family: Georgia, serif !important;
+  font-size:   7pt !important;
+  color: #C2185B !important;
+  letter-spacing: 0.04em !important;
+}
+
+/* Reflection box — illuminated margin note */
+.section.reflection {
+  background: linear-gradient(135deg, #FCE4EC, #FFFDF6 80%) !important;
+  border-left: 2.5px solid #C2185B !important;
+  border-radius: 0 5px 5px 0 !important;
+  padding: 5px 6px !important;
+  margin-top: 3px !important;
+}
+.section.reflection .section-text {
+  font-style: italic !important;
+  color: #880E4F !important;
+}
+
+/* Warm gradient footer */
+.card-footer {
+  background: linear-gradient(to right, #FCE4EC, #F48FB166, #FCE4EC) !important;
+  border-top: 1px solid #F48FB1 !important;
+  padding: 4px 9px !important;
+  position: relative;
+  z-index: 5;
+}
+.card-footer, .card-footer span {
+  font-family: 'Palatino Linotype', Georgia, serif !important;
+  font-size:   5pt !important;
+  color: #880E4F !important;
+  letter-spacing: 0.16em !important;
+}
+
+/* Crystal Wisdom card — green overrides */
+.card.crystal {
+  background-color: #FFFDF6 !important;
+  background-image:
+    radial-gradient(circle, rgba(29,106,57,0.09) 0.65px, transparent 0.65px),
+    radial-gradient(ellipse at 50% 5%,  #E8F5EE99 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 95%, #E8F5EE66 0%, transparent 40%);
+  background-size: 13px 13px, 100% 100%, 100% 100% !important;
+  box-shadow:
+    inset 0 0 0 4.5px #FFFDF6,
+    inset 0 0 0 6.5px rgba(29,106,57,0.22),
+    0 3px 14px rgba(0,0,0,0.14) !important;
+}
+.card.crystal .c { color: #1D6A39 !important; }
+.card.crystal .card-watermark { color: #1D6A39 !important; }
+
+/* Luna Facilitator card — silver/indigo overrides */
+.card.luna {
+  background-color: #FDFCFF !important;
+  background-image:
+    radial-gradient(circle, rgba(74,85,104,0.09) 0.65px, transparent 0.65px),
+    radial-gradient(ellipse at 50% 5%, rgba(240,241,243,0.7) 0%, transparent 50%);
+  background-size: 13px 13px, 100% 100% !important;
+  box-shadow:
+    inset 0 0 0 4.5px #FDFCFF,
+    inset 0 0 0 6.5px rgba(74,85,104,0.22),
+    0 3px 14px rgba(0,0,0,0.14) !important;
+}
+.card.luna .c { color: #5C6470 !important; }
+.card.luna .card-watermark { color: #5C6470 !important; }
+
+/* Courage pip override — keep gold */
+.pip { border-color: #B8860B !important; }
+.pip.filled { background: #C9A227 !important; }
+
+/* Audience tag overrides — keep category colours */
+.aud-scout { background: #E91E8C !important; color: white !important; }
+.aud-all   { background: #1565C0 !important; color: white !important; }
+.aud-obs   { background: #B8860B !important; color: white !important; }
+
+@media print {
+  body { background: white !important; padding: 0 !important; gap: 0 !important; }
+  h1, p, h1.section-title { display: none !important; }
+  .page {
+    margin: 0 !important;
+    box-shadow: none !important;
+    page-break-after: always !important;
+    break-after: page !important;
+  }
+  .card { box-shadow: none !important; }
+}
+</style>
+</head>
+<body>
+<h1 class="deck-title">★ MOONLIGHT VOICES ★ — Scout Identity Cards</h1>
+<p class="deck-subtitle">28 cards · Tarot size (2.75" × 4.75") · Print on letter paper · Cut along card borders · Recommended: card stock</p>
+<!-- ═══════════════ PAGE 1 ═══════════════ -->
+<div class="page">
+<!-- Card 1 -->
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span class="star">★</span> SCOUT IDENTITY <span class="card-num">01 / 28</span></div>
+<div class="card-body">
+<div class="card-title">The Invisible Illness</div>
+<div class="card-descriptor">Living with chronic pain that others cannot see</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">Identity</div>
+<div class="section-text">You live with fibromyalgia — a chronic pain condition that is completely invisible to those around you.</div>
+</div>
+<div class="section">
+<div class="section-label">Daily Reality</div>
+<div class="section-text">You manage constant pain and fatigue while performing at full capacity at work. Most colleagues have no idea. Calling in sick feels like a moral failure you can never quite afford.</div>
+</div>
+<div class="section">
+<div class="section-label">Inner World</div>
+<div class="section-text">You fear being labelled weak or dramatic. You have learned to mask your pain so completely that even people close to you forget — and that forgetting sometimes hurts more than the pain.</div>
+</div>
+<div class="section reflection">
+<div class="section-label">Reflection Prompt</div>
+<div class="section-text">"What would it mean to no longer have to hide part of yourself at work?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<!-- Card 2 -->
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span class="star">★</span> SCOUT IDENTITY <span class="card-num">02 / 28</span></div>
+<div class="card-body">
+<div class="card-title">The New American</div>
+<div class="card-descriptor">Rebuilding a professional identity in a new country</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">Identity</div>
+<div class="section-text">You immigrated 3 years ago from Venezuela as a qualified engineer. Your accent is thick; your credentials are doubted.</div>
+</div>
+<div class="section">
+<div class="section-label">Daily Reality</div>
+<div class="section-text">You spend extra energy translating — not just language, but cultural norms, workplace codes, and unspoken rules that everyone else absorbed growing up here.</div>
+</div>
+<div class="section">
+<div class="section-label">Inner World</div>
+<div class="section-text">You feel pride and grief simultaneously. You've built a new life but lost the version of yourself who felt effortlessly competent — who knew, without thinking, how to belong.</div>
+</div>
+<div class="section reflection">
+<div class="section-label">Reflection Prompt</div>
+<div class="section-text">"What do people never ask about the experience of starting over in a new country?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<!-- Card 3 -->
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span class="star">★</span> SCOUT IDENTITY <span class="card-num">03 / 28</span></div>
+<div class="card-body">
+<div class="card-title">The First in the Family</div>
+<div class="card-descriptor">First-generation university student carrying family dreams</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">Identity</div>
+<div class="section-text">You are the first in your family to attend university. Your parents work multiple jobs; you carry their dreams alongside your own.</div>
+</div>
+<div class="section">
+<div class="section-label">Daily Reality</div>
+<div class="section-text">You navigate campus and professional life without a roadmap. Terms like "networking," "office hours," and "internship pipelines" were not in your vocabulary growing up.</div>
+</div>
+<div class="section">
+<div class="section-label">Inner World</div>
+<div class="section-text">You feel like a fraud who slipped in by accident. You also feel guilt every time you choose your studies over your family — and love every time you don't.</div>
+</div>
+<div class="section reflection">
+<div class="section-label">Reflection Prompt</div>
+<div class="section-text">"What does it feel like to build a life your parents dreamed of but cannot fully picture?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<!-- Card 4 -->
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span class="star">★</span> SCOUT IDENTITY <span class="card-num">04 / 28</span></div>
+<div class="card-body">
+<div class="card-title">The Late Returner</div>
+<div class="card-descriptor">Re-entering the workforce after years as a caregiver</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">Identity</div>
+<div class="section-text">You are 56 and re-entering the workforce after 8 years caring for ageing parents, then your spouse through cancer.</div>
+</div>
+<div class="section">
+<div class="section-label">Daily Reality</div>
+<div class="section-text">Technology has transformed your industry. Younger colleagues don't look at you when presenting ideas. HR sees your resume gap before they see you.</div>
+</div>
+<div class="section">
+<div class="section-label">Inner World</div>
+<div class="section-text">You feel erased. You also carry profound wisdom about loss, endurance, and what actually matters — none of which fits on a CV or shows up in an algorithm.</div>
+</div>
+<div class="section reflection">
+<div class="section-label">Reflection Prompt</div>
+<div class="section-text">"What is the cost to an organisation of overlooking someone like you?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+</div><!-- end page 1 -->
+<!-- ═══════════════ PAGE 2 ═══════════════ -->
+<div class="page">
+<!-- Card 5 -->
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span class="star">★</span> SCOUT IDENTITY <span class="card-num">05 / 28</span></div>
+<div class="card-body">
+<div class="card-title">The Quiet Processor</div>
+<div class="card-descriptor">Neurodivergent adult — ADHD and dyslexia</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">Identity</div>
+<div class="section-text">You are neurodivergent — diagnosed with ADHD and dyslexia as an adult. You are highly creative and see patterns others consistently miss.</div>
+</div>
+<div class="section">
+<div class="section-label">Daily Reality</div>
+<div class="section-text">Open-plan offices are sensory chaos. Written reports take you three times longer. Back-to-back meetings drain you by noon — yet no one sees this, because your output stays strong.</div>
+</div>
+<div class="section">
+<div class="section-label">Inner World</div>
+<div class="section-text">You spent 30 years believing you were lazy or stupid. The diagnosis was both a relief and a grief — for all the years you didn't know, and all you endured because of it.</div>
+</div>
+<div class="section reflection">
+<div class="section-label">Reflection Prompt</div>
+<div class="section-text">"Which systems in your workplace were designed for brains like yours? Which weren't?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<!-- Card 6 -->
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span class="star">★</span> SCOUT IDENTITY <span class="card-num">06 / 28</span></div>
+<div class="card-body">
+<div class="card-title">The Trailblazer</div>
+<div class="card-descriptor">Black woman in senior leadership</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">Identity</div>
+<div class="section-text">You are a Black woman in a senior leadership role — one of only two people of colour in your organisation's top tier.</div>
+</div>
+<div class="section">
+<div class="section-label">Daily Reality</div>
+<div class="section-text">Every meeting, you are watched — for whether you're "too assertive," "too quiet," or "too emotional." Your white male peers receive a benefit of the doubt you must earn, repeatedly.</div>
+</div>
+<div class="section">
+<div class="section-label">Inner World</div>
+<div class="section-text">The labour of being a symbol, a proof point, and a leader simultaneously is exhausting. You carry the weight of everyone who doesn't yet look like you at the table.</div>
+</div>
+<div class="section reflection">
+<div class="section-label">Reflection Prompt</div>
+<div class="section-text">"What would it look like to lead in a world where you weren't simultaneously making history?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<!-- Card 7 -->
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span class="star">★</span> SCOUT IDENTITY <span class="card-num">07 / 28</span></div>
+<div class="card-body">
+<div class="card-title">The Hidden Self</div>
+<div class="card-descriptor">LGBTQ+ person in an unsafe professional context</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">Identity</div>
+<div class="section-text">You are gay and closeted at work. You live in a country where LGBTQ+ rights offer limited legal protection, and your workplace culture is conservative.</div>
+</div>
+<div class="section">
+<div class="section-label">Daily Reality</div>
+<div class="section-text">You carefully curate everything you share. You say "my partner," not "my boyfriend." Monday morning small talk about weekends is a minefield you navigate with precision every week.</div>
+</div>
+<div class="section">
+<div class="section-label">Inner World</div>
+<div class="section-text">You are not ashamed of who you are. But survival requires a version of you that doesn't fully exist at work — and the gap between the two versions is its own kind of loneliness.</div>
+</div>
+<div class="section reflection">
+<div class="section-label">Reflection Prompt</div>
+<div class="section-text">"What does it cost a person to perform a different version of themselves every single working day?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<!-- Card 8 -->
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span class="star">★</span> SCOUT IDENTITY <span class="card-num">08 / 28</span></div>
+<div class="card-body">
+<div class="card-title">The Faithful</div>
+<div class="card-descriptor">Muslim woman who wears the hijab</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">Identity</div>
+<div class="section-text">You are a Muslim woman who wears the hijab. Your faith is central to your identity, your values, and your deepest joy.</div>
+</div>
+<div class="section">
+<div class="section-label">Daily Reality</div>
+<div class="section-text">Colleagues make assumptions before you speak. You are asked whether you are "allowed" to do certain things. You are tokenised as the Muslim perspective when diversity is on the agenda.</div>
+</div>
+<div class="section">
+<div class="section-label">Inner World</div>
+<div class="section-text">You are frustrated that faith is seen as a contradiction to intelligence or modernity. You are also fiercely proud — of your community, your practice, and your refusal to shrink.</div>
+</div>
+<div class="section reflection">
+<div class="section-label">Reflection Prompt</div>
+<div class="section-text">"What would it look like to be seen as a full human being, rather than a symbol of your religion?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+</div><!-- end page 2 -->
+<!-- ═══════════════ PAGE 3 ═══════════════ -->
+<div class="page">
+<!-- Card 9 -->
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span class="star">★</span> SCOUT IDENTITY <span class="card-num">09 / 28</span></div>
+<div class="card-body">
+<div class="card-title">The Pioneer</div>
+<div class="card-descriptor">Non-binary person in a traditional industry</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">Identity</div>
+<div class="section-text">You are non-binary in a traditional, conservative industry. You use they/them pronouns, and this is not a preference — it is who you are.</div>
+</div>
+<div class="section">
+<div class="section-label">Daily Reality</div>
+<div class="section-text">Your pronoun corrections are forgotten within days. Bathrooms are a daily calculation. Job application forms ask for Mr. or Mrs. HR's system has no third option.</div>
+</div>
+<div class="section">
+<div class="section-label">Inner World</div>
+<div class="section-text">You are simultaneously navigating identity, workplace politics, and the exhaustion of educating everyone around you — while also just trying to do your job well.</div>
+</div>
+<div class="section reflection">
+<div class="section-label">Reflection Prompt</div>
+<div class="section-text">"What would it feel like to exist in a workplace that remembered you without needing to be reminded?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<!-- Card 10 -->
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span class="star">★</span> SCOUT IDENTITY <span class="card-num">10 / 28</span></div>
+<div class="card-body">
+<div class="card-title">The Anchor</div>
+<div class="card-descriptor">Single parent raising children alone</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">Identity</div>
+<div class="section-text">You are a single mother of two (ages 5 and 8). Childcare is your second full-time job — one that pays nothing and ends never.</div>
+</div>
+<div class="section">
+<div class="section-label">Daily Reality</div>
+<div class="section-text">School drop-off conflicts with morning stand-ups. You leave at 5pm and the guilt follows you out the door. "Flexibility" at your company means working at midnight.</div>
+</div>
+<div class="section">
+<div class="section-label">Inner World</div>
+<div class="section-text">You love your children fiercely. You also grieve the professional ambition that existed before their needs became everything — and the person you were before you became everything to them.</div>
+</div>
+<div class="section reflection">
+<div class="section-label">Reflection Prompt</div>
+<div class="section-text">"What does 'having it all' actually look like from where you stand?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<!-- Card 11 -->
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span class="star">★</span> SCOUT IDENTITY <span class="card-num">11 / 28</span></div>
+<div class="card-body">
+<div class="card-title">The Visible Body</div>
+<div class="card-descriptor">Wheelchair user navigating inaccessible spaces</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">Identity</div>
+<div class="section-text">You are a wheelchair user in a building that was retrofitted for accessibility as an afterthought — which means you feel that afterthought every single day.</div>
+</div>
+<div class="section">
+<div class="section-label">Daily Reality</div>
+<div class="section-text">Ramps are at back entrances. Lifts break down with unsettling frequency. Meeting rooms on upper floors are unreachable. Your access needs are framed as logistical inconveniences.</div>
+</div>
+<div class="section">
+<div class="section-label">Inner World</div>
+<div class="section-text">You are tired of being expected to be grateful for the minimum. You are more than your chair. You are also an expert in systems designed around someone else's body.</div>
+</div>
+<div class="section reflection">
+<div class="section-label">Reflection Prompt</div>
+<div class="section-text">"What does it mean to navigate a world that was designed around someone else's body?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<!-- Card 12 -->
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span class="star">★</span> SCOUT IDENTITY <span class="card-num">12 / 28</span></div>
+<div class="card-body">
+<div class="card-title">The Rebuilder</div>
+<div class="card-descriptor">Refugee professional with unrecognised credentials</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">Identity</div>
+<div class="section-text">You arrived as a refugee 5 years ago. In your home country, you were a surgeon. Here, your credentials are not recognised and recertification takes years.</div>
+</div>
+<div class="section">
+<div class="section-label">Daily Reality</div>
+<div class="section-text">You work in hospital administration while your expertise sits unused. Colleagues don't know they're working alongside someone who supervised doctoral students and performed complex surgeries.</div>
+</div>
+<div class="section">
+<div class="section-label">Inner World</div>
+<div class="section-text">You are not starting from zero — you are starting from negative. Every day you rebuild something that should never have been dismantled. You chose this path. That doesn't make it hurt less.</div>
+</div>
+<div class="section reflection">
+<div class="section-label">Reflection Prompt</div>
+<div class="section-text">"What does it mean to be seen as a newcomer when you are, in fact, a veteran?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+</div><!-- end page 3 -->
+<!-- ═══════════════ PAGE 4 ═══════════════ -->
+<div class="page">
+<!-- Card 13 -->
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span class="star">★</span> SCOUT IDENTITY <span class="card-num">13 / 28</span></div>
+<div class="card-body">
+<div class="card-title">The Young Veteran</div>
+<div class="card-descriptor">Young professional in an age-biased workplace</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">Identity</div>
+<div class="section-text">You are 27 years old in an organisation that equates age with expertise. You have more relevant experience in your field than several people twice your age.</div>
+</div>
+<div class="section">
+<div class="section-label">Daily Reality</div>
+<div class="section-text">Your ideas are regularly prefaced with "Yes but you're quite young..." Your questions in meetings are answered as if you're the newest intern rather than a specialist.</div>
+</div>
+<div class="section">
+<div class="section-label">Inner World</div>
+<div class="section-text">You are learning to hold confidence and patience simultaneously. You are also learning how much quiet prejudice exists around age — in both directions — and how rarely it is named.</div>
+</div>
+<div class="section reflection">
+<div class="section-label">Reflection Prompt</div>
+<div class="section-text">"What assumptions are made about what you know — based on when you were born?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<!-- Card 14 -->
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span class="star">★</span> SCOUT IDENTITY <span class="card-num">14 / 28</span></div>
+<div class="card-body">
+<div class="card-title">The Translator</div>
+<div class="card-descriptor">First-generation adult navigating two worlds</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">Identity</div>
+<div class="section-text">Your parents are immigrants. You are the family's primary English speaker, cultural navigator, and crisis interpreter.</div>
+</div>
+<div class="section">
+<div class="section-label">Daily Reality</div>
+<div class="section-text">You take time off to accompany parents to doctor's appointments, courts, and banks. This invisible labour never appears on anyone's radar at work — it simply absorbs your leave.</div>
+</div>
+<div class="section">
+<div class="section-label">Inner World</div>
+<div class="section-text">You carry two cultures, two sets of expectations, and two versions of who you are supposed to be. The translation is never just about words — it is about identity, every single day.</div>
+</div>
+<div class="section reflection">
+<div class="section-label">Reflection Prompt</div>
+<div class="section-text">"What would it mean for your organisation to truly see the full scope of what you carry?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<!-- Card 15 -->
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span class="star">★</span> SCOUT IDENTITY <span class="card-num">15 / 28</span></div>
+<div class="card-body">
+<div class="card-title">The Weather Report</div>
+<div class="card-descriptor">Experiencing racial microaggressions daily</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">Identity</div>
+<div class="section-text">You are a person of colour who experiences racial microaggressions on a near-daily basis at work — comments that are individually small and collectively immense.</div>
+</div>
+<div class="section">
+<div class="section-label">Daily Reality</div>
+<div class="section-text">The incidents are minor: a mispronunciation, a confused look, an assumption, an "exotic" comment. Each one is survivable. The accumulation — over months, over years — is not small.</div>
+</div>
+<div class="section">
+<div class="section-label">Inner World</div>
+<div class="section-text">You have developed a running mental calculation: Is this worth addressing? Will I be heard? What will it cost me? The calculation itself is the cost — invisible labour on top of the insult.</div>
+</div>
+<div class="section reflection">
+<div class="section-label">Reflection Prompt</div>
+<div class="section-text">"What is the cumulative weight of something that 'doesn't mean anything' when it happens every day?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<!-- Card 16 -->
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span class="star">★</span> SCOUT IDENTITY <span class="card-num">16 / 28</span></div>
+<div class="card-body">
+<div class="card-title">The Mental Weather</div>
+<div class="card-descriptor">High-functioning person living with depression and anxiety</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">Identity</div>
+<div class="section-text">You live with depression and anxiety. You are highly functioning — your output is strong, your affect is professional. No one at work knows.</div>
+</div>
+<div class="section">
+<div class="section-label">Daily Reality</div>
+<div class="section-text">Some mornings, getting out of bed is a victory. On those days, showing up and performing is invisible heroism. No one sees the war that happened before the workday began.</div>
+</div>
+<div class="section">
+<div class="section-label">Inner World</div>
+<div class="section-text">You are terrified of disclosure. You have heard the jokes. You know how mental illness is perceived. You perform "fine" relentlessly — and the performance is its own kind of exhausting.</div>
+</div>
+<div class="section reflection">
+<div class="section-label">Reflection Prompt</div>
+<div class="section-text">"What would need to change in your workplace for someone like you to feel safe asking for help?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+</div><!-- end page 4 -->
+<!-- ═══════════════ PAGE 5 ═══════════════ -->
+<div class="page">
+<!-- Card 17 -->
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span class="star">★</span> SCOUT IDENTITY <span class="card-num">17 / 28</span></div>
+<div class="card-body">
+<div class="card-title">The Underestimated</div>
+<div class="card-descriptor">Woman of colour in a male-dominated technical field</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">Identity</div>
+<div class="section-text">You are a woman of colour on an engineering team that is 94% male and predominantly white. You are among the most technically skilled people on the team.</div>
+</div>
+<div class="section">
+<div class="section-label">Daily Reality</div>
+<div class="section-text">Your code is reviewed more harshly. Your technical suggestions require more evidence than your colleagues'. Credit for your ideas sometimes migrates to others without acknowledgment.</div>
+</div>
+<div class="section">
+<div class="section-label">Inner World</div>
+<div class="section-text">You came here because you love what you do. You are learning to love it despite a system that frequently reminds you — in small, deniable ways — that you were not who they pictured.</div>
+</div>
+<div class="section reflection">
+<div class="section-label">Reflection Prompt</div>
+<div class="section-text">"What has it cost you to prove yourself in a room that started by doubting you?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<!-- Card 18 -->
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span class="star">★</span> SCOUT IDENTITY <span class="card-num">18 / 28</span></div>
+<div class="card-body">
+<div class="card-title">The Unread Book</div>
+<div class="card-descriptor">Working-class background in a professional environment</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">Identity</div>
+<div class="section-text">You grew up in poverty and are now in a professional environment where class backgrounds are never discussed — as though they don't exist, rather than as though they don't matter.</div>
+</div>
+<div class="section">
+<div class="section-label">Daily Reality</div>
+<div class="section-text">Networking happens at expensive restaurants. Team bonding includes golf and ski trips. You smile and find excuses. The distance between where you're from and where you are is a daily negotiation.</div>
+</div>
+<div class="section">
+<div class="section-label">Inner World</div>
+<div class="section-text">Imposter syndrome has a specific address for you — a specific kitchen, a specific school. You know things about resilience that no elite institution teaches. No one here asks about that knowledge.</div>
+</div>
+<div class="section reflection">
+<div class="section-label">Reflection Prompt</div>
+<div class="section-text">"What would it look like if class were a genuine part of the DEI conversation at your organisation?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<!-- Card 19 -->
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span class="star">★</span> SCOUT IDENTITY <span class="card-num">19 / 28</span></div>
+<div class="card-body">
+<div class="card-title">The Two Worlds</div>
+<div class="card-descriptor">Mixed-race person navigating imposed racial categories</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">Identity</div>
+<div class="section-text">You are mixed-race — one Black parent, one white parent. You don't fit cleanly into the racial categories your workplace, your country, or your forms ask you to choose between.</div>
+</div>
+<div class="section">
+<div class="section-label">Daily Reality</div>
+<div class="section-text">White colleagues assume you're white. Black colleagues ask which side you're "more" of. You are constantly being sorted by others according to a binary that has never described you.</div>
+</div>
+<div class="section">
+<div class="section-label">Inner World</div>
+<div class="section-text">You have always existed between worlds. That in-between place is not a lack — it is its own country, with its own language, and you know it better than anyone who sorted you ever will.</div>
+</div>
+<div class="section reflection">
+<div class="section-label">Reflection Prompt</div>
+<div class="section-text">"What is it like to have your identity assigned to you, rather than lived by you?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<!-- Card 20 -->
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span class="star">★</span> SCOUT IDENTITY <span class="card-num">20 / 28</span></div>
+<div class="card-body">
+<div class="card-title">The Silent Veteran</div>
+<div class="card-descriptor">Military veteran transitioning to civilian professional life</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">Identity</div>
+<div class="section-text">You are a veteran transitioning to civilian work. You have PTSD that is managed but present — a companion you have learned to live alongside.</div>
+</div>
+<div class="section">
+<div class="section-label">Daily Reality</div>
+<div class="section-text">Loud sudden sounds, open-plan chaos, authority structures that feel wrong — civilian workplaces are a different kind of terrain to navigate, with fewer maps and no clear chain of command.</div>
+</div>
+<div class="section">
+<div class="section-label">Inner World</div>
+<div class="section-text">You served, often at profound cost. Now you are learning a new language, new rules, a new definition of yourself. Strength means something specific where you've been. Here, it is misunderstood.</div>
+</div>
+<div class="section reflection">
+<div class="section-label">Reflection Prompt</div>
+<div class="section-text">"What does your workplace assume strength looks like? How does that compare to what you know it actually is?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+</div><!-- end page 5 -->
+<!-- ═══════════════ PAGE 6 ═══════════════ -->
+<div class="page">
+<!-- Card 21 -->
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span class="star">★</span> SCOUT IDENTITY <span class="card-num">21 / 28</span></div>
+<div class="card-body">
+<div class="card-title">The Language of Loss</div>
+<div class="card-descriptor">Indigenous person in a workplace that uses culture as metaphor</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">Identity</div>
+<div class="section-text">You are an Indigenous person working in an organisation that regularly uses your culture's language and imagery without acknowledgment, understanding, or permission.</div>
+</div>
+<div class="section">
+<div class="section-label">Daily Reality</div>
+<div class="section-text">"Tribe," "pow-wow," and "off the reservation" appear in meeting notes. Land acknowledgments are read without understanding. Your living culture is used as a metaphor for other people's strategy.</div>
+</div>
+<div class="section">
+<div class="section-label">Inner World</div>
+<div class="section-text">You carry the weight of history alongside the demands of the present. You are here. Your community survived centuries for you to be here. That matters more than any job title — but it doesn't pay the bills.</div>
+</div>
+<div class="section reflection">
+<div class="section-label">Reflection Prompt</div>
+<div class="section-text">"What would genuine acknowledgment of your culture look like — not as a disclaimer, but as a daily practice?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<!-- Card 22 -->
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span class="star">★</span> SCOUT IDENTITY <span class="card-num">22 / 28</span></div>
+<div class="card-body">
+<div class="card-title">The Quiet Hours</div>
+<div class="card-descriptor">Deaf professional in a hearing-centred workplace</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">Identity</div>
+<div class="section-text">You are Deaf and use sign language as your primary language. Spoken English is your second language. Deafness is not a deficit — it is a culture, a community, and a way of being.</div>
+</div>
+<div class="section">
+<div class="section-label">Daily Reality</div>
+<div class="section-text">Meetings happen without interpreters. Captioning is an afterthought, added after complaint. "Just read my lips" is offered as a solution by people who have never tried to communicate that way.</div>
+</div>
+<div class="section">
+<div class="section-label">Inner World</div>
+<div class="section-text">You live in a rich language and culture that hearing people rarely see or seek to understand. The barriers are not yours — they are choices made by a system that defined "normal" without consulting you.</div>
+</div>
+<div class="section reflection">
+<div class="section-label">Reflection Prompt</div>
+<div class="section-text">"What assumptions does your workplace make about what communication looks like — and who it is for?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<!-- Card 23 -->
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span class="star">★</span> SCOUT IDENTITY <span class="card-num">23 / 28</span></div>
+<div class="card-body">
+<div class="card-title">The Caregiver Returns</div>
+<div class="card-descriptor">Professional re-entering work after caregiving leave</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">Identity</div>
+<div class="section-text">You paused your career for 6 years to care full-time for a family member with a degenerative illness. You are now re-entering a field that has transformed in your absence.</div>
+</div>
+<div class="section">
+<div class="section-label">Daily Reality</div>
+<div class="section-text">Your resume has a "gap." Interviewers treat your caregiving as absence — rather than as six years of crisis management, advocacy, and extraordinary endurance under impossible conditions.</div>
+</div>
+<div class="section">
+<div class="section-label">Inner World</div>
+<div class="section-text">You are exhausted in ways that have no professional vocabulary. You are also fiercer and more patient than you were before. The gap in your resume contains more growth than any job title could.</div>
+</div>
+<div class="section reflection">
+<div class="section-label">Reflection Prompt</div>
+<div class="section-text">"What skills did you gain during your caregiving years that your field doesn't yet have a category for?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<!-- Card 24 -->
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span class="star">★</span> SCOUT IDENTITY <span class="card-num">24 / 28</span></div>
+<div class="card-body">
+<div class="card-title">The Sandwich Generation</div>
+<div class="card-descriptor">Caring for both children and an ageing parent</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">Identity</div>
+<div class="section-text">You are 44, caring for both your teenage children and your 78-year-old parent who has dementia. You are being pulled in three directions simultaneously, without pause.</div>
+</div>
+<div class="section">
+<div class="section-label">Daily Reality</div>
+<div class="section-text">Your performance is consistent. Your bandwidth is invisible to your employer. No wellness initiative accounts for the specific weight of loving people who need you in ways that cannot be scheduled.</div>
+</div>
+<div class="section">
+<div class="section-label">Inner World</div>
+<div class="section-text">You love all of them. You are also running on fumes that no retreat will replenish. The invisible labour is cumulative and enormous, and you carry it with a smile because the alternative is unthinkable.</div>
+</div>
+<div class="section reflection">
+<div class="section-label">Reflection Prompt</div>
+<div class="section-text">"What would it look like for an employer to genuinely support working caregivers — not just on paper?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+</div><!-- end page 6 -->
+<!-- ═══════════════ PAGE 7 ═══════════════ -->
+<div class="page">
+<!-- Card 25 -->
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span class="star">★</span> SCOUT IDENTITY <span class="card-num">25 / 28</span></div>
+<div class="card-body">
+<div class="card-title">The New Majority</div>
+<div class="card-descriptor">Latina professional underrepresented in her organisation's upper tiers</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">Identity</div>
+<div class="section-text">You are Latina — one of many in your city, one of very few in your company's professional tiers. Your community is everywhere outside these walls and almost nowhere inside them.</div>
+</div>
+<div class="section">
+<div class="section-label">Daily Reality</div>
+<div class="section-text">Your name is mispronounced at roll-call and in introductions. You are asked to speak for all Latino people. Leadership looks nothing like you — and everyone behaves as if this is coincidental.</div>
+</div>
+<div class="section">
+<div class="section-label">Inner World</div>
+<div class="section-text">You are navigating between the community you come from and the institution you now represent. Both deserve the full, unedited version of you. Most days, you give pieces of yourself to each.</div>
+</div>
+<div class="section reflection">
+<div class="section-label">Reflection Prompt</div>
+<div class="section-text">"What is the gap between how your organisation talks about diversity and what you experience every day?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<!-- Card 26 -->
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span class="star">★</span> SCOUT IDENTITY <span class="card-num">26 / 28</span></div>
+<div class="card-body">
+<div class="card-title">The Overqualified</div>
+<div class="card-descriptor">Highly credentialled professional in an entry-level role</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">Identity</div>
+<div class="section-text">You hold a PhD from a respected university in your home country. Here, your qualifications are unrecognised, and you work in entry-level roles while the process of assessment continues.</div>
+</div>
+<div class="section">
+<div class="section-label">Daily Reality</div>
+<div class="section-text">You manage data entry while your expertise sits unused. Colleagues don't know they are working alongside someone who supervised doctoral students and published internationally.</div>
+</div>
+<div class="section">
+<div class="section-label">Inner World</div>
+<div class="section-text">You chose this country. You chose this path. The erasure of your professional self is a quiet grief you carry alongside your ambition. You refuse to let the grief win — but it is real.</div>
+</div>
+<div class="section reflection">
+<div class="section-label">Reflection Prompt</div>
+<div class="section-text">"What does it mean to be seen as less than you are for reasons entirely outside your control?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<!-- Card 27 -->
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span class="star">★</span> SCOUT IDENTITY <span class="card-num">27 / 28</span></div>
+<div class="card-body">
+<div class="card-title">The Body in the Room</div>
+<div class="card-descriptor">Visibly plus-sized person in a body-policing workplace</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">Identity</div>
+<div class="section-text">You are visibly plus-sized in a workplace culture that equates body size with discipline, health, and professional credibility. Your body is a topic of discussion you never invited.</div>
+</div>
+<div class="section">
+<div class="section-label">Daily Reality</div>
+<div class="section-text">Chairs are too small. Comments about "healthy" office snacks are directed your way. Fitness challenges are framed as team participation — opting out is quietly noted as a character flaw.</div>
+</div>
+<div class="section">
+<div class="section-label">Inner World</div>
+<div class="section-text">Your body is not an invitation for commentary. You are learning to separate your worth from others' discomfort with your size — slowly, and against a great deal of daily resistance.</div>
+</div>
+<div class="section reflection">
+<div class="section-label">Reflection Prompt</div>
+<div class="section-text">"Whose body is the implicit standard in your workplace? What happens to everyone who doesn't fit it?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<!-- Card 28 -->
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span class="star">★</span> SCOUT IDENTITY <span class="card-num">28 / 28</span></div>
+<div class="card-body">
+<div class="card-title">The Class Ceiling</div>
+<div class="card-descriptor">Working-class accent and identity in elite professional culture</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">Identity</div>
+<div class="section-text">You are working class — your accent, references, and cultural touchstones mark you as different in a professional environment where class is the one axis no one discusses.</div>
+</div>
+<div class="section">
+<div class="section-label">Daily Reality</div>
+<div class="section-text">"Cultural fit" is often code for class compatibility. You monitor your speech in interviews. You've learned to code-switch across class lines — an exhaustion that rarely earns acknowledgment or credit.</div>
+</div>
+<div class="section">
+<div class="section-label">Inner World</div>
+<div class="section-text">You sometimes feel like a spy in a world not built for you. You know things about community, resilience, and survival that no elite school teaches. You wonder, sometimes, if you've traded one world for a colder one.</div>
+</div>
+<div class="section reflection">
+<div class="section-label">Reflection Prompt</div>
+<div class="section-text">"What does belonging feel like when the world you now belong to is one you had to rebuild yourself to enter?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+</div><!-- end page 7 -->
+</body>
+</html>

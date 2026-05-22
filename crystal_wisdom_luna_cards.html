@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Moonlight Voices — Crystal Wisdom &amp; Luna Facilitator Cards</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f0f4f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px;
+    gap: 32px;
+  }
+
+  h1.section-title {
+    font-family: Georgia, serif;
+    font-size: 1.5rem;
+    color: #1D6A39;
+    text-align: center;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-bottom: 2px solid #1D6A39;
+    padding-bottom: 8px;
+    width: 100%;
+    max-width: 6.5in;
+  }
+
+  h1.section-title.luna-title {
+    color: #5C6470;
+    border-color: #5C6470;
+  }
+
+  .page {
+    width: 8.5in;
+    height: 11in;
+    background: white;
+    display: grid;
+    grid-template-columns: repeat(2, 2.75in);
+    grid-template-rows: repeat(2, 4.75in);
+    gap: 0.375in;
+    padding: 0.5625in 1.125in;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+  }
+
+  /* ═══════════ CRYSTAL WISDOM CARD ═══════════ */
+  .card.crystal {
+    width: 2.75in;
+    height: 4.75in;
+    background: white;
+    border: 1.5px solid #b2d8c4;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 8px rgba(29,106,57,0.10);
+  }
+
+  .card.crystal .card-type-banner {
+    background: #1D6A39;
+    color: white;
+    font-size: 5.2pt;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 4px 7px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .card.crystal .card-type-banner .gem {
+    font-size: 7pt;
+  }
+
+  .card.crystal .card-num {
+    font-size: 4.8pt;
+    opacity: 0.85;
+  }
+
+  .card.crystal .card-body {
+    padding: 8px 8px 4px 8px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    overflow: hidden;
+  }
+
+  .card.crystal .card-title {
+    font-family: Georgia, serif;
+    font-size: 9.5pt;
+    font-weight: 700;
+    color: #1D6A39;
+    line-height: 1.2;
+    text-align: center;
+    padding-bottom: 4px;
+  }
+
+  .card.crystal .divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #1D6A39, transparent);
+    margin: 2px 0;
+    flex-shrink: 0;
+  }
+
+  .card.crystal .section {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex-shrink: 0;
+  }
+
+  .card.crystal .section.research {
+    flex-shrink: 1;
+    overflow: hidden;
+  }
+
+  .card.crystal .section-label {
+    font-size: 5.2pt;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #145227;
+  }
+
+  .card.crystal .section-text {
+    font-size: 6.2pt;
+    color: #2d2d2d;
+    line-height: 1.45;
+  }
+
+  .card.crystal .research-box {
+    background: #E8F5EE;
+    border-left: 2.5px solid #1D6A39;
+    border-radius: 0 4px 4px 0;
+    padding: 4px 5px;
+    font-size: 5.8pt;
+    color: #1a3d2a;
+    line-height: 1.4;
+    font-style: italic;
+    overflow: hidden;
+  }
+
+  .card.crystal .question-box {
+    background: #1D6A39;
+    border-radius: 5px;
+    padding: 5px 6px;
+    font-size: 6pt;
+    color: white;
+    line-height: 1.4;
+    font-style: italic;
+    font-family: Georgia, serif;
+    flex-shrink: 0;
+  }
+
+  .card.crystal .question-label {
+    font-size: 4.8pt;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #a8e0c0;
+    margin-bottom: 2px;
+    font-style: normal;
+    font-family: 'Segoe UI', Arial, sans-serif;
+  }
+
+  .card.crystal .card-footer {
+    background: #f0f8f4;
+    border-top: 1px solid #b2d8c4;
+    padding: 2px 7px;
+    font-size: 4pt;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: #1D6A39;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  /* ═══════════ LUNA FACILITATOR CARD ═══════════ */
+  .card.luna {
+    width: 2.75in;
+    height: 4.75in;
+    background: white;
+    border: 1.5px solid #cdd2d8;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 8px rgba(92,100,112,0.12);
+  }
+
+  .card.luna .card-type-banner {
+    background: linear-gradient(135deg, #3d4450 0%, #5C6470 100%);
+    color: white;
+    font-size: 5.2pt;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 4px 7px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .card.luna .card-num {
+    font-size: 4.8pt;
+    opacity: 0.85;
+  }
+
+  .card.luna .card-body {
+    padding: 8px 8px 4px 8px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    overflow: hidden;
+  }
+
+  .card.luna .card-title {
+    font-family: Georgia, serif;
+    font-size: 9.5pt;
+    font-weight: 700;
+    color: #3d4450;
+    line-height: 1.2;
+    text-align: center;
+    padding-bottom: 4px;
+  }
+
+  .card.luna .moon-icon {
+    text-align: center;
+    font-size: 10pt;
+    color: #888;
+    margin: -2px 0 2px 0;
+    flex-shrink: 0;
+  }
+
+  .card.luna .divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #888, transparent);
+    margin: 1px 0;
+    flex-shrink: 0;
+  }
+
+  .card.luna .section {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex-shrink: 0;
+  }
+
+  .card.luna .section.flex-shrink {
+    flex-shrink: 1;
+    overflow: hidden;
+  }
+
+  .card.luna .section-label {
+    font-size: 5.2pt;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #5C6470;
+  }
+
+  .card.luna .section-text {
+    font-size: 6pt;
+    color: #2d2d2d;
+    line-height: 1.45;
+  }
+
+  .card.luna .say-box {
+    background: #f0f1f3;
+    border-left: 2.5px solid #5C6470;
+    border-radius: 0 4px 4px 0;
+    padding: 4px 5px;
+    font-size: 5.8pt;
+    color: #2a2d33;
+    line-height: 1.4;
+    font-style: italic;
+    overflow: hidden;
+  }
+
+  .card.luna .note-box {
+    background: #3d4450;
+    border-radius: 5px;
+    padding: 5px 6px;
+    font-size: 5.8pt;
+    color: #e8eaf0;
+    line-height: 1.4;
+    flex-shrink: 0;
+  }
+
+  .card.luna .note-label {
+    font-size: 4.8pt;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #adb5c0;
+    margin-bottom: 2px;
+  }
+
+  .card.luna .card-footer {
+    background: #f5f6f7;
+    border-top: 1px solid #cdd2d8;
+    padding: 2px 7px;
+    font-size: 4pt;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: #5C6470;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  /* ═══ PRINT ═══ */
+  @media print {
+    body { background: white; padding: 0; gap: 0; }
+    h1.section-title { display: none; }
+    .page {
+      box-shadow: none;
+      page-break-after: always;
+      break-after: page;
+    }
+  }
+
+
+/* ═══════════════════════════════════════════════════════════
+   RENAISSANCE × SAILOR MOON — DECORATIVE REDESIGN
+   ═══════════════════════════════════════════════════════════ */
+
+/* Parchment ground + celestial star-dot constellation pattern */
+.card {
+  background-color:  #FFFDF6 !important;
+  background-image:
+    radial-gradient(circle, rgba(29,106,57,0.09) 0.65px, transparent 0.65px),
+    radial-gradient(ellipse at 50% 5%,   #E8F5EE99 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 95%,  #E8F5EE66 0%, transparent 40%);
+  background-size: 13px 13px, 100% 100%, 100% 100% !important;
+  box-shadow:
+    inset 0 0 0 4.5px #FFFDF6,
+    inset 0 0 0 6.5px rgba(29,106,57,0.22),
+    0 3px 14px rgba(0,0,0,0.14) !important;
+  position: relative !important;
+}
+
+/* Four ✦ corner ornaments */
+.c {
+  position: absolute;
+  font-size: 8pt;
+  color: #1D6A39;
+  opacity: 0.52;
+  z-index: 20;
+  pointer-events: none;
+  line-height: 1;
+  font-family: Georgia, serif;
+}
+.tl { top: 7px;    left:  8px; }
+.tr { top: 7px;    right: 8px; }
+.bl { bottom: 7px; left:  8px; }
+.br { bottom: 7px; right: 8px; }
+
+/* Planetary watermark (☽ ♄ ♃ ☿ ♀) */
+.card-watermark {
+  position:   absolute;
+  top:  50%;
+  left: 50%;
+  transform:  translate(-50%, -48%) rotate(-12deg);
+  font-size:  70pt;
+  color:      #1D6A39;
+  opacity:    0.045;
+  pointer-events: none;
+  z-index: 1;
+  line-height: 1;
+  user-select: none;
+  font-family: Georgia, 'Times New Roman', serif;
+  white-space: nowrap;
+}
+
+/* Ornate ─── ✦ ─── divider (replaces plain .divider) */
+.ornate-div {
+  text-align:     center;
+  font-size:      6.5pt;
+  letter-spacing: 0.18em;
+  flex-shrink:    0;
+  opacity:        0.60;
+  margin:         3px 0 2px;
+  color:          #1D6A39;
+  font-family:    Georgia, serif;
+}
+.divider { display: none !important; }
+
+/* Richer banner — deep illuminated gradient */
+.card-type-banner {
+  background: linear-gradient(135deg,
+    #0a3318 0%,
+    #1D6A39      38%,
+    #1D6A39      62%,
+    #0a3318 100%) !important;
+  padding: 6px 9px !important;
+  letter-spacing: 0.13em !important;
+  border-bottom: 1px solid rgba(255,255,255,0.28) !important;
+  position: relative;
+  z-index: 5;
+}
+
+/* Elegant serif section labels */
+.section-label {
+  font-family: 'Palatino Linotype', Georgia, serif !important;
+  font-size:   6pt !important;
+  font-weight: bold !important;
+  letter-spacing: 0.18em !important;
+  color: #0a3318 !important;
+  text-transform: uppercase !important;
+}
+
+/* Warm serif body text */
+.section-text {
+  font-family: Georgia, 'Palatino Linotype', serif !important;
+  font-size:   7.5pt !important;
+  line-height: 1.48 !important;
+  color: #261212 !important;
+}
+
+/* Stronger title */
+.card-title {
+  font-family: 'Palatino Linotype', Georgia, serif !important;
+  font-size:   12pt !important;
+  color: #0a3318 !important;
+  letter-spacing: 0.02em !important;
+  margin-bottom: 2px !important;
+}
+.card-descriptor {
+  font-family: Georgia, serif !important;
+  font-size:   7pt !important;
+  color: #1D6A39 !important;
+  letter-spacing: 0.04em !important;
+}
+
+/* Reflection box — illuminated margin note */
+.section.reflection {
+  background: linear-gradient(135deg, #E8F5EE, #FFFDF6 80%) !important;
+  border-left: 2.5px solid #1D6A39 !important;
+  border-radius: 0 5px 5px 0 !important;
+  padding: 5px 6px !important;
+  margin-top: 3px !important;
+}
+.section.reflection .section-text {
+  font-style: italic !important;
+  color: #0a3318 !important;
+}
+
+/* Warm gradient footer */
+.card-footer {
+  background: linear-gradient(to right, #E8F5EE, #81C99566, #E8F5EE) !important;
+  border-top: 1px solid #81C995 !important;
+  padding: 4px 9px !important;
+  position: relative;
+  z-index: 5;
+}
+.card-footer, .card-footer span {
+  font-family: 'Palatino Linotype', Georgia, serif !important;
+  font-size:   5pt !important;
+  color: #0a3318 !important;
+  letter-spacing: 0.16em !important;
+}
+
+/* Crystal Wisdom card — green overrides */
+.card.crystal {
+  background-color: #FFFDF6 !important;
+  background-image:
+    radial-gradient(circle, rgba(29,106,57,0.09) 0.65px, transparent 0.65px),
+    radial-gradient(ellipse at 50% 5%,  #E8F5EE99 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 95%, #E8F5EE66 0%, transparent 40%);
+  background-size: 13px 13px, 100% 100%, 100% 100% !important;
+  box-shadow:
+    inset 0 0 0 4.5px #FFFDF6,
+    inset 0 0 0 6.5px rgba(29,106,57,0.22),
+    0 3px 14px rgba(0,0,0,0.14) !important;
+}
+.card.crystal .c { color: #1D6A39 !important; }
+.card.crystal .card-watermark { color: #1D6A39 !important; }
+
+/* Luna Facilitator card — silver/indigo overrides */
+.card.luna {
+  background-color: #FDFCFF !important;
+  background-image:
+    radial-gradient(circle, rgba(74,85,104,0.09) 0.65px, transparent 0.65px),
+    radial-gradient(ellipse at 50% 5%, rgba(240,241,243,0.7) 0%, transparent 50%);
+  background-size: 13px 13px, 100% 100% !important;
+  box-shadow:
+    inset 0 0 0 4.5px #FDFCFF,
+    inset 0 0 0 6.5px rgba(74,85,104,0.22),
+    0 3px 14px rgba(0,0,0,0.14) !important;
+}
+.card.luna .c { color: #5C6470 !important; }
+.card.luna .card-watermark { color: #5C6470 !important; }
+
+/* Courage pip override — keep gold */
+.pip { border-color: #B8860B !important; }
+.pip.filled { background: #C9A227 !important; }
+
+/* Audience tag overrides — keep category colours */
+.aud-scout { background: #E91E8C !important; color: white !important; }
+.aud-all   { background: #1565C0 !important; color: white !important; }
+.aud-obs   { background: #B8860B !important; color: white !important; }
+
+@media print {
+  body { background: white !important; padding: 0 !important; gap: 0 !important; }
+  h1, p, h1.section-title { display: none !important; }
+  .page {
+    margin: 0 !important;
+    box-shadow: none !important;
+    page-break-after: always !important;
+    break-after: page !important;
+  }
+  .card { box-shadow: none !important; }
+}
+</style>
+</head>
+<body>
+<!-- ══════════════════════════════════════════════════
+     CRYSTAL WISDOM CARDS — 18 cards, pages 1–5
+══════════════════════════════════════════════════ -->
+<h1 class="section-title">✦ Crystal Wisdom Cards ✦ (1–18)</h1>
+<!-- PAGE 1: cards 01–04 -->
+<div class="page">
+<!-- Card 01: Intersectionality -->
+<div class="card crystal"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♀</div>
+<div class="card-type-banner"><span><span class="gem">◆</span> Crystal Wisdom</span><span class="card-num">01 / 18</span></div>
+<div class="card-body">
+<div class="card-title">Intersectionality</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">What It Is</div>
+<div class="section-text">The way multiple aspects of a person's social identities — race, gender, class, disability, religion — combine to create unique experiences of discrimination and privilege that cannot be understood by examining one identity alone.</div>
+</div>
+<div class="section research">
+<div class="section-label">The Research</div>
+<div class="research-box">Dr. Kimberlé Crenshaw coined this term in 1989, showing that Black women faced discrimination distinct from racism against Black men and sexism against white women — their experience sat at the intersection of both, invisible to systems designed for only one.</div>
+</div>
+<div class="question-box">
+<div class="question-label">The Question</div>
+        When you think about a colleague facing challenges — are you seeing their whole person, or only one part of their identity?
+      </div>
+</div>
+<div class="card-footer">Moonlight Voices ✦ DEI Card Game</div>
+</div>
+<!-- Card 02: Code-Switching -->
+<div class="card crystal"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♀</div>
+<div class="card-type-banner"><span><span class="gem">◆</span> Crystal Wisdom</span><span class="card-num">02 / 18</span></div>
+<div class="card-body">
+<div class="card-title">Code-Switching</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">What It Is</div>
+<div class="section-text">The practice of adjusting your language, tone, appearance, and behaviour to fit the dominant culture of a space — often done by people from marginalized groups to be accepted, respected, or simply safe.</div>
+</div>
+<div class="section research">
+<div class="section-label">The Research</div>
+<div class="research-box">A 2019 Harvard Business Review study found 75% of Black professionals actively code-switch at work. The emotional labour required creates chronic stress that impacts performance, wellbeing, and sense of belonging over time.</div>
+</div>
+<div class="question-box">
+<div class="question-label">The Question</div>
+        What parts of yourself have you hidden or adjusted to be taken seriously at work? What would it mean to not have to?
+      </div>
+</div>
+<div class="card-footer">Moonlight Voices ✦ DEI Card Game</div>
+</div>
+<!-- Card 03: Allyship vs. Performative Allyship -->
+<div class="card crystal"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♀</div>
+<div class="card-type-banner"><span><span class="gem">◆</span> Crystal Wisdom</span><span class="card-num">03 / 18</span></div>
+<div class="card-body">
+<div class="card-title">Allyship vs. Performative Allyship</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">What It Is</div>
+<div class="section-text">True allyship involves consistent, behind-the-scenes action that challenges inequity and centres those most affected. Performative allyship prioritizes the ally's visibility over the actual needs of the marginalized group.</div>
+</div>
+<div class="section research">
+<div class="section-label">The Research</div>
+<div class="research-box">Research shows that performative diversity gestures (rainbow logos, one-day training) can reduce genuine commitment via a "moral licensing" effect — people feel absolved without doing the real, sustained work.</div>
+</div>
+<div class="question-box">
+<div class="question-label">The Question</div>
+        Think of a time you supported a cause. Was it driven by genuine impact — or by how it made you look? What would deeper action look like?
+      </div>
+</div>
+<div class="card-footer">Moonlight Voices ✦ DEI Card Game</div>
+</div>
+<!-- Card 04: The Broken Rung -->
+<div class="card crystal"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♀</div>
+<div class="card-type-banner"><span><span class="gem">◆</span> Crystal Wisdom</span><span class="card-num">04 / 18</span></div>
+<div class="card-body">
+<div class="card-title">The Broken Rung</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">What It Is</div>
+<div class="section-text">The first promotion from individual contributor to manager is where gender and racial gaps are largest. When women and people of colour are passed over at this critical step, underrepresentation compounds at every level above.</div>
+</div>
+<div class="section research">
+<div class="section-label">The Research</div>
+<div class="research-box">McKinsey's Women in the Workplace 2023 found that for every 100 men promoted to manager, only 87 women were promoted — and only 73 women of colour. This single gap is the primary driver of underrepresentation in senior leadership.</div>
+</div>
+<div class="question-box">
+<div class="question-label">The Question</div>
+        Who in your team is being overlooked for their first step up? What assumptions might be quietly shaping those decisions?
+      </div>
+</div>
+<div class="card-footer">Moonlight Voices ✦ DEI Card Game</div>
+</div>
+</div><!-- end page 1 -->
+<!-- PAGE 2: cards 05–08 -->
+<div class="page">
+<!-- Card 05: Microaggressions -->
+<div class="card crystal"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♀</div>
+<div class="card-type-banner"><span><span class="gem">◆</span> Crystal Wisdom</span><span class="card-num">05 / 18</span></div>
+<div class="card-body">
+<div class="card-title">Microaggressions</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">What It Is</div>
+<div class="section-text">Everyday, subtle, often unintentional communications that send denigrating messages to members of marginalized groups. They are "micro" in each instance but carry significant cumulative psychological weight.</div>
+</div>
+<div class="section research">
+<div class="section-label">The Research</div>
+<div class="research-box">Research by Dr. Derald Wing Sue shows microaggressions cause more psychological harm than overt discrimination — partly because their subtlety makes them hard to name, prove, or address, leaving targets constantly second-guessing themselves.</div>
+</div>
+<div class="question-box">
+<div class="question-label">The Question</div>
+        Have you ever dismissed something as "not a big deal" that someone told you hurt them? What gets in the way of simply believing them?
+      </div>
+</div>
+<div class="card-footer">Moonlight Voices ✦ DEI Card Game</div>
+</div>
+<!-- Card 06: Psychological Safety -->
+<div class="card crystal"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♀</div>
+<div class="card-type-banner"><span><span class="gem">◆</span> Crystal Wisdom</span><span class="card-num">06 / 18</span></div>
+<div class="card-body">
+<div class="card-title">Psychological Safety</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">What It Is</div>
+<div class="section-text">The shared belief that a team is safe for interpersonal risk-taking — that you can speak up, make mistakes, ask questions, and disagree without fear of punishment, humiliation, or exclusion.</div>
+</div>
+<div class="section research">
+<div class="section-label">The Research</div>
+<div class="research-box">Google's Project Aristotle (2016) studied 180 teams and found psychological safety was the single most important factor in team effectiveness — more than talent, skills, or individual brilliance combined.</div>
+</div>
+<div class="question-box">
+<div class="question-label">The Question</div>
+        In your team, who speaks freely — and who stays quiet? What might explain the difference?
+      </div>
+</div>
+<div class="card-footer">Moonlight Voices ✦ DEI Card Game</div>
+</div>
+<!-- Card 07: Stereotype Threat -->
+<div class="card crystal"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♀</div>
+<div class="card-type-banner"><span><span class="gem">◆</span> Crystal Wisdom</span><span class="card-num">07 / 18</span></div>
+<div class="card-body">
+<div class="card-title">Stereotype Threat</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">What It Is</div>
+<div class="section-text">The psychological experience of being at risk of confirming a negative stereotype about your social group — which itself impairs performance, creating a self-fulfilling cycle of underachievement.</div>
+</div>
+<div class="section research">
+<div class="section-label">The Research</div>
+<div class="research-box">Steele &amp; Aronson (1995) showed that simply reminding Black students of their race before a test significantly lowered scores — even when all students were equally capable. The threat, not the gap, created the gap.</div>
+</div>
+<div class="question-box">
+<div class="question-label">The Question</div>
+        Can you recall a moment when you felt you had to "represent" your entire group? How did that pressure change you?
+      </div>
+</div>
+<div class="card-footer">Moonlight Voices ✦ DEI Card Game</div>
+</div>
+<!-- Card 08: Affinity Bias -->
+<div class="card crystal"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♀</div>
+<div class="card-type-banner"><span><span class="gem">◆</span> Crystal Wisdom</span><span class="card-num">08 / 18</span></div>
+<div class="card-body">
+<div class="card-title">Affinity Bias</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">What It Is</div>
+<div class="section-text">The unconscious tendency to favour people who are like us — who share our background, interests, communication style, or appearance. Often called the "mini-me" bias in hiring and promotion decisions.</div>
+</div>
+<div class="section research">
+<div class="section-label">The Research</div>
+<div class="research-box">Studies show hiring managers spend 30% more time reviewing CVs from candidates with names similar to their own. This bias explains why homogeneous organisations tend to stay homogeneous even without explicit discrimination.</div>
+</div>
+<div class="question-box">
+<div class="question-label">The Question</div>
+        Who in your life automatically gets the benefit of the doubt from you? What do they have in common with you?
+      </div>
+</div>
+<div class="card-footer">Moonlight Voices ✦ DEI Card Game</div>
+</div>
+</div><!-- end page 2 -->
+<!-- PAGE 3: cards 09–12 -->
+<div class="page">
+<!-- Card 09: Proximity Bias -->
+<div class="card crystal"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♀</div>
+<div class="card-type-banner"><span><span class="gem">◆</span> Crystal Wisdom</span><span class="card-num">09 / 18</span></div>
+<div class="card-body">
+<div class="card-title">Proximity Bias</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">What It Is</div>
+<div class="section-text">The tendency for leaders to favour employees they can physically see — in the office, in the same city, visible in meetings — over remote or quieter workers, regardless of actual performance or output.</div>
+</div>
+<div class="section research">
+<div class="section-label">The Research</div>
+<div class="research-box">Post-pandemic research shows remote workers — disproportionately caregivers, people with disabilities, and those in lower cost-of-living areas — receive fewer promotions and lower performance ratings than in-office peers doing equivalent work.</div>
+</div>
+<div class="question-box">
+<div class="question-label">The Question</div>
+        How do you ensure your assessment of someone's contribution isn't shaped by how often you physically see them?
+      </div>
+</div>
+<div class="card-footer">Moonlight Voices ✦ DEI Card Game</div>
+</div>
+<!-- Card 10: The Double Bind -->
+<div class="card crystal"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♀</div>
+<div class="card-type-banner"><span><span class="gem">◆</span> Crystal Wisdom</span><span class="card-num">10 / 18</span></div>
+<div class="card-body">
+<div class="card-title">The Double Bind</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">What It Is</div>
+<div class="section-text">The impossible situation where women and marginalised leaders face competing expectations — if assertive, they're "aggressive"; if warm, they're "not leadership material." There is no acceptable way to exist under this standard.</div>
+</div>
+<div class="section research">
+<div class="section-label">The Research</div>
+<div class="research-box">A 2007 Catalyst report found women leaders were penalised whether they adopted stereotypically "male" traits (seen as cold) or "female" traits (seen as weak). Men faced no equivalent penalty for the same behaviours.</div>
+</div>
+<div class="question-box">
+<div class="question-label">The Question</div>
+        Have you ever judged someone's leadership style differently based on their identity? What was the standard you were actually applying?
+      </div>
+</div>
+<div class="card-footer">Moonlight Voices ✦ DEI Card Game</div>
+</div>
+<!-- Card 11: Imposter Syndrome -->
+<div class="card crystal"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♀</div>
+<div class="card-type-banner"><span><span class="gem">◆</span> Crystal Wisdom</span><span class="card-num">11 / 18</span></div>
+<div class="card-body">
+<div class="card-title">Imposter Syndrome</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">What It Is</div>
+<div class="section-text">The persistent internalized belief that you don't deserve your success — that you're a fraud who will soon be "found out" — despite clear objective evidence of your competence and achievements.</div>
+</div>
+<div class="section research">
+<div class="section-label">The Research</div>
+<div class="research-box">Originally studied in high-achieving women by Clance &amp; Imes (1978), imposter syndrome affects 70% of people — but is significantly more intense for those from marginalised backgrounds, where systemic exclusion has created genuine external barriers that make doubt feel rational.</div>
+</div>
+<div class="question-box">
+<div class="question-label">The Question</div>
+        What's one thing you've dismissed as "luck" that you actually worked hard for? What would it mean to claim it fully?
+      </div>
+</div>
+<div class="card-footer">Moonlight Voices ✦ DEI Card Game</div>
+</div>
+<!-- Card 12: Covering -->
+<div class="card crystal"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♀</div>
+<div class="card-type-banner"><span><span class="gem">◆</span> Crystal Wisdom</span><span class="card-num">12 / 18</span></div>
+<div class="card-body">
+<div class="card-title">Covering</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">What It Is</div>
+<div class="section-text">The act of downplaying a stigmatized identity to avoid drawing attention to it — not hiding who you are entirely, but toning it down to fit in. Examples: not mentioning a partner, hiding an accommodation need, masking a mental health condition.</div>
+</div>
+<div class="section research">
+<div class="section-label">The Research</div>
+<div class="research-box">Professor Kenji Yoshino found that 61% of employees cover at work — including 45% of straight white men, who cover less-visible stigmatized identities like mental health, socioeconomic background, or religion.</div>
+</div>
+<div class="question-box">
+<div class="question-label">The Question</div>
+        What do you tone down about yourself at work? What might it free in others if you let it show?
+      </div>
+</div>
+<div class="card-footer">Moonlight Voices ✦ DEI Card Game</div>
+</div>
+</div><!-- end page 3 -->
+<!-- PAGE 4: cards 13–16 -->
+<div class="page">
+<!-- Card 13: The Glass Cliff -->
+<div class="card crystal"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♀</div>
+<div class="card-type-banner"><span><span class="gem">◆</span> Crystal Wisdom</span><span class="card-num">13 / 18</span></div>
+<div class="card-body">
+<div class="card-title">The Glass Cliff</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">What It Is</div>
+<div class="section-text">The phenomenon where women and minorities are more likely to be appointed to leadership positions during crises — set up to lead when failure is most likely, then blamed when things go wrong, despite not creating the conditions they inherited.</div>
+</div>
+<div class="section research">
+<div class="section-label">The Research</div>
+<div class="research-box">Ryan &amp; Haslam (2005) analyzed FTSE 100 companies and found women were disproportionately appointed to boards of companies experiencing stock decline — placed in charge of problems they didn't create, with less support than their predecessors received.</div>
+</div>
+<div class="question-box">
+<div class="question-label">The Question</div>
+        When a "diversity hire" fails, what story gets told? And what story should actually be told?
+      </div>
+</div>
+<div class="card-footer">Moonlight Voices ✦ DEI Card Game</div>
+</div>
+<!-- Card 14: Sponsorship vs. Mentorship -->
+<div class="card crystal"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♀</div>
+<div class="card-type-banner"><span><span class="gem">◆</span> Crystal Wisdom</span><span class="card-num">14 / 18</span></div>
+<div class="card-body">
+<div class="card-title">Sponsorship vs. Mentorship</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">What It Is</div>
+<div class="section-text">A mentor offers advice; a sponsor takes action. Sponsors use their own political capital to advocate — recommending people for opportunities, defending them when they're not in the room, putting their reputation behind someone's advancement.</div>
+</div>
+<div class="section research">
+<div class="section-label">The Research</div>
+<div class="research-box">Research by Sylvia Ann Hewlett shows women and minorities are over-mentored and under-sponsored. Those with sponsors are 23% more likely to be promoted — but underrepresented groups receive sponsorship at far lower rates than equally-performing white men.</div>
+</div>
+<div class="question-box">
+<div class="question-label">The Question</div>
+        Is there someone you mentor? Have you ever truly sponsored them — spoken up for them in a room they weren't in?
+      </div>
+</div>
+<div class="card-footer">Moonlight Voices ✦ DEI Card Game</div>
+</div>
+<!-- Card 15: The Confidence Gap -->
+<div class="card crystal"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♀</div>
+<div class="card-type-banner"><span><span class="gem">◆</span> Crystal Wisdom</span><span class="card-num">15 / 18</span></div>
+<div class="card-body">
+<div class="card-title">The Confidence Gap</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">What It Is</div>
+<div class="section-text">Women systematically underestimate their abilities while men overestimate theirs — leading to fewer applications, less aggressive negotiation, and holding back qualified ideas. This gap is the product of socialization, not capability.</div>
+</div>
+<div class="section research">
+<div class="section-label">The Research</div>
+<div class="research-box">A Hewlett-Packard internal study found women apply for jobs only when they meet 100% of the criteria; men apply at 60%. The issue is not ability — it is a learned belief that worthiness must be complete before asking for anything.</div>
+</div>
+<div class="question-box">
+<div class="question-label">The Question</div>
+        What have you not applied for, asked for, or raised your hand for because you felt "not quite ready"? What would you tell a friend in that same spot?
+      </div>
+</div>
+<div class="card-footer">Moonlight Voices ✦ DEI Card Game</div>
+</div>
+<!-- Card 16: Belonging Uncertainty -->
+<div class="card crystal"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♀</div>
+<div class="card-type-banner"><span><span class="gem">◆</span> Crystal Wisdom</span><span class="card-num">16 / 18</span></div>
+<div class="card-body">
+<div class="card-title">Belonging Uncertainty</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">What It Is</div>
+<div class="section-text">The chronic, exhausting experience of questioning whether you truly belong — whether your presence is wanted, whether you were included by mistake, and whether each small setback confirms you don't fit.</div>
+</div>
+<div class="section research">
+<div class="section-label">The Research</div>
+<div class="research-box">Gregory Walton's research shows that belonging uncertainty is significantly more intense for underrepresented groups — because ambiguous signals (a cold email, a cancelled meeting) that others interpret neutrally are filtered through the lens of potential exclusion.</div>
+</div>
+<div class="question-box">
+<div class="question-label">The Question</div>
+        Have you ever felt you needed to "earn" your place in a room that others entered freely? What did that feel like?
+      </div>
+</div>
+<div class="card-footer">Moonlight Voices ✦ DEI Card Game</div>
+</div>
+</div><!-- end page 4 -->
+<!-- PAGE 5: cards 17–18 + 2 blank -->
+<div class="page">
+<!-- Card 17: Emotional Tax -->
+<div class="card crystal"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♀</div>
+<div class="card-type-banner"><span><span class="gem">◆</span> Crystal Wisdom</span><span class="card-num">17 / 18</span></div>
+<div class="card-body">
+<div class="card-title">Emotional Tax</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">What It Is</div>
+<div class="section-text">The heightened vigilance and resulting drain experienced by people from marginalized groups as they navigate workplaces not designed with them in mind — constantly managing perceptions, anticipating bias, and remaining "on guard."</div>
+</div>
+<div class="section research">
+<div class="section-label">The Research</div>
+<div class="research-box">Catalyst research found 58% of employees from underrepresented groups reported feeling "on guard" to protect against bias at work. This vigilance reduces cognitive bandwidth available for actual work by as much as 20%.</div>
+</div>
+<div class="question-box">
+<div class="question-label">The Question</div>
+        How much of your energy at work goes toward doing the work — and how much goes toward managing how you're perceived while doing it?
+      </div>
+</div>
+<div class="card-footer">Moonlight Voices ✦ DEI Card Game</div>
+</div>
+<!-- Card 18: Culture Add vs. Culture Fit -->
+<div class="card crystal"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♀</div>
+<div class="card-type-banner"><span><span class="gem">◆</span> Crystal Wisdom</span><span class="card-num">18 / 18</span></div>
+<div class="card-body">
+<div class="card-title">Culture Add vs. Culture Fit</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">What It Is</div>
+<div class="section-text">"Culture fit" hiring selects for similarity to the existing team, systematically excluding diverse candidates. "Culture add" hiring selects for people who bring new perspectives, experiences, and approaches that genuinely strengthen the team.</div>
+</div>
+<div class="section research">
+<div class="section-label">The Research</div>
+<div class="research-box">"Culture fit" is one of the most commonly cited rejection reasons in hiring — and is highly correlated with race, gender, and class similarity to the hiring manager. It is, in practice, a bias amplifier dressed in neutral language.</div>
+</div>
+<div class="question-box">
+<div class="question-label">The Question</div>
+        When you say someone "isn't a fit" — fit with what? Fit with whom? And who benefits from the team staying the same?
+      </div>
+</div>
+<div class="card-footer">Moonlight Voices ✦ DEI Card Game</div>
+</div>
+<!-- Blank card slot 1 -->
+<div class="card crystal" style="background: #f8fcf9; border-style: dashed; opacity: 0.4;"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♀</div>
+<div class="card-body" style="align-items:center; justify-content:center; height:100%;">
+<div style="color:#1D6A39; font-size:7pt; text-align:center; margin-top:60%;">[ Notes ]</div>
+</div>
+</div>
+<!-- Blank card slot 2 -->
+<div class="card crystal" style="background: #f8fcf9; border-style: dashed; opacity: 0.4;"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♀</div>
+<div class="card-body" style="align-items:center; justify-content:center; height:100%;">
+<div style="color:#1D6A39; font-size:7pt; text-align:center; margin-top:60%;">[ Notes ]</div>
+</div>
+</div>
+</div><!-- end page 5 -->
+<!-- ══════════════════════════════════════════════════
+     LUNA FACILITATOR CARDS — 12 cards, pages 6–8
+══════════════════════════════════════════════════ -->
+<h1 class="section-title luna-title">☽ Luna Facilitator Cards ☽ (1–12)</h1>
+<!-- PAGE 6: cards 01–04 -->
+<div class="page">
+<!-- Luna Card 01: Pause & Check In -->
+<div class="card luna"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span>☽ Luna Facilitator</span><span class="card-num">01 / 12</span></div>
+<div class="card-body">
+<div class="card-title">Pause &amp; Check In</div>
+<div class="moon-icon">· · ·</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">When to Use</div>
+<div class="section-text">The energy in the room has shifted — someone looks withdrawn, the conversation has become tense, or a card has clearly landed harder than expected.</div>
+</div>
+<div class="section flex-shrink">
+<div class="section-label">What to Say</div>
+<div class="say-box">"Before we continue — I want to pause and check in with the group. How is everyone sitting with what just came up? We can take a breath, a moment, or a break — whatever we need."</div>
+</div>
+<div class="note-box">
+<div class="note-label">Facilitator Note</div>
+        Don't rush past hard moments. The pause itself communicates that emotions are real and honoured here. You don't need to fix anything — just name that you see it.
+      </div>
+</div>
+<div class="card-footer">Moonlight Voices ✦ DEI Card Game</div>
+</div>
+<!-- Luna Card 02: Shift the Lens -->
+<div class="card luna"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span>☽ Luna Facilitator</span><span class="card-num">02 / 12</span></div>
+<div class="card-body">
+<div class="card-title">Shift the Lens</div>
+<div class="moon-icon">· · ·</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">When to Use</div>
+<div class="section-text">The conversation is stuck in one perspective, or dominant voices are crowding out others. Use to invite the group to see the same situation from a different angle.</div>
+</div>
+<div class="section flex-shrink">
+<div class="section-label">What to Say</div>
+<div class="say-box">"We've been hearing one perspective on this. I'd like to invite us to zoom out — if you were [a different identity/role], how might this feel? What would be different about your experience?"</div>
+</div>
+<div class="note-box">
+<div class="note-label">Facilitator Note</div>
+        Name the shift explicitly. People need permission to step outside their own frame — this prompt gives it. Resist the urge to provide the answer yourself.
+      </div>
+</div>
+<div class="card-footer">Moonlight Voices ✦ DEI Card Game</div>
+</div>
+<!-- Luna Card 03: Honour the Silence -->
+<div class="card luna"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span>☽ Luna Facilitator</span><span class="card-num">03 / 12</span></div>
+<div class="card-body">
+<div class="card-title">Honour the Silence</div>
+<div class="moon-icon">· · ·</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">When to Use</div>
+<div class="section-text">No one is speaking. The silence might be discomfort, deep thinking, or the weight of something just shared. Do not fill it prematurely.</div>
+</div>
+<div class="section flex-shrink">
+<div class="section-label">What to Say</div>
+<div class="say-box">"Let's just sit with this for a moment." [Wait 10–15 seconds] "Silence is also an answer sometimes. Is there anything stirring that wants to be said?"</div>
+</div>
+<div class="note-box">
+<div class="note-label">Facilitator Note</div>
+        Western work culture treats silence as a problem. In this game it is data. Count to fifteen before speaking again. The most important things are often just below the surface.
+      </div>
+</div>
+<div class="card-footer">Moonlight Voices ✦ DEI Card Game</div>
+</div>
+<!-- Luna Card 04: Bridge to Action -->
+<div class="card luna"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span>☽ Luna Facilitator</span><span class="card-num">04 / 12</span></div>
+<div class="card-body">
+<div class="card-title">Bridge to Action</div>
+<div class="moon-icon">· · ·</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">When to Use</div>
+<div class="section-text">The group has had a meaningful reflection but the conversation is ending without landing anywhere — floating in the abstract without connecting to real-world application.</div>
+</div>
+<div class="section flex-shrink">
+<div class="section-label">What to Say</div>
+<div class="say-box">"This has been a powerful exchange. Before we move on — what's one thing each of us could actually do differently this week? It doesn't have to be big. Just real."</div>
+</div>
+<div class="note-box">
+<div class="note-label">Facilitator Note</div>
+        Reflection without action is incomplete. Keep it personal and specific — "the organization should" is not enough. "I will" is the goal.
+      </div>
+</div>
+<div class="card-footer">Moonlight Voices ✦ DEI Card Game</div>
+</div>
+</div><!-- end page 6 -->
+<!-- PAGE 7: cards 05–08 -->
+<div class="page">
+<!-- Luna Card 05: The Compassionate Redirect -->
+<div class="card luna"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span>☽ Luna Facilitator</span><span class="card-num">05 / 12</span></div>
+<div class="card-body">
+<div class="card-title">The Compassionate Redirect</div>
+<div class="moon-icon">· · ·</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">When to Use</div>
+<div class="section-text">A player has said something that may unintentionally cause harm — an assumption, a generalisation, or a comment that centres the wrong perspective. Redirect without shaming.</div>
+</div>
+<div class="section flex-shrink">
+<div class="section-label">What to Say</div>
+<div class="say-box">"I want to gently hold space for another view — [name], I heard you say [X]. I wonder if we might also consider [Y perspective]. What do others think?"</div>
+</div>
+<div class="note-box">
+<div class="note-label">Facilitator Note</div>
+        Your job is to protect the container, not punish players. The redirect should feel like an invitation, not a correction. Name what you're doing — don't pretend you're not steering.
+      </div>
+</div>
+<div class="card-footer">Moonlight Voices ✦ DEI Card Game</div>
+</div>
+<!-- Luna Card 06: Name the Dynamic -->
+<div class="card luna"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span>☽ Luna Facilitator</span><span class="card-num">06 / 12</span></div>
+<div class="card-body">
+<div class="card-title">Name the Dynamic</div>
+<div class="moon-icon">· · ·</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">When to Use</div>
+<div class="section-text">Something is happening that everyone can feel but no one is saying — a power imbalance, dominant voices, visible discomfort, or an unspoken tension in the room.</div>
+</div>
+<div class="section flex-shrink">
+<div class="section-label">What to Say</div>
+<div class="say-box">"I want to name something I'm noticing. It seems like [observation — not judgment]. Does that land for others? Is this something we want to talk about?"</div>
+</div>
+<div class="note-box">
+<div class="note-label">Facilitator Note</div>
+        Naming the dynamic often releases it. You don't have to solve it — surfacing it gives the group agency. Use "I notice," not "you are." Be curious, not declarative.
+      </div>
+</div>
+<div class="card-footer">Moonlight Voices ✦ DEI Card Game</div>
+</div>
+<!-- Luna Card 07: Amplify & Credit -->
+<div class="card luna"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span>☽ Luna Facilitator</span><span class="card-num">07 / 12</span></div>
+<div class="card-body">
+<div class="card-title">Amplify &amp; Credit</div>
+<div class="moon-icon">· · ·</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">When to Use</div>
+<div class="section-text">An important point was made but overlooked, interrupted, or attributed to someone else — a common experience for women, introverts, and people of colour in group settings.</div>
+</div>
+<div class="section flex-shrink">
+<div class="section-label">What to Say</div>
+<div class="say-box">"[Name] said something important I want to make sure we heard: [restate their point]. Can we stay with that for a moment?"</div>
+</div>
+<div class="note-box">
+<div class="note-label">Facilitator Note</div>
+        This is one of the most powerful and underused facilitation moves. Do it in real time, do it consistently — it teaches the whole group how to amplify. Model what you want to see.
+      </div>
+</div>
+<div class="card-footer">Moonlight Voices ✦ DEI Card Game</div>
+</div>
+<!-- Luna Card 08: Hold the Space -->
+<div class="card luna"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span>☽ Luna Facilitator</span><span class="card-num">08 / 12</span></div>
+<div class="card-body">
+<div class="card-title">Hold the Space</div>
+<div class="moon-icon">· · ·</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">When to Use</div>
+<div class="section-text">Someone is sharing something deeply personal or emotional. Resist every impulse to problem-solve, reassure, redirect, or move the group forward too quickly.</div>
+</div>
+<div class="section flex-shrink">
+<div class="section-label">What to Say</div>
+<div class="say-box">"Thank you for trusting us with that. You don't need to explain or justify anything. We're here." [Pause. Let others respond before facilitating further.]</div>
+</div>
+<div class="note-box">
+<div class="note-label">Facilitator Note</div>
+        The most important skill here is subtraction — remove your facilitation impulse. People who share vulnerability need to feel received, not managed. Stay a beat longer than feels comfortable.
+      </div>
+</div>
+<div class="card-footer">Moonlight Voices ✦ DEI Card Game</div>
+</div>
+</div><!-- end page 7 -->
+<!-- PAGE 8: cards 09–12 -->
+<div class="page">
+<!-- Luna Card 09: The Graceful Exit -->
+<div class="card luna"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span>☽ Luna Facilitator</span><span class="card-num">09 / 12</span></div>
+<div class="card-body">
+<div class="card-title">The Graceful Exit</div>
+<div class="moon-icon">· · ·</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">When to Use</div>
+<div class="section-text">A player is visibly struggling — overwhelmed, tearful, or needs to step back from a topic. Offer an exit with full dignity, no pressure, no spotlight.</div>
+</div>
+<div class="section flex-shrink">
+<div class="section-label">What to Say</div>
+<div class="say-box">"It's completely okay to step back from this card. Passing is always a valid choice here. [Name], would you like to take a breath — or is there something else you need right now?"</div>
+</div>
+<div class="note-box">
+<div class="note-label">Facilitator Note</div>
+        Never force engagement. The act of offering a genuine exit — and meaning it — is itself a message about the safety of this space. If someone steps out, check on them privately, not publicly.
+      </div>
+</div>
+<div class="card-footer">Moonlight Voices ✦ DEI Card Game</div>
+</div>
+<!-- Luna Card 10: Zoom Out -->
+<div class="card luna"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span>☽ Luna Facilitator</span><span class="card-num">10 / 12</span></div>
+<div class="card-body">
+<div class="card-title">Zoom Out</div>
+<div class="moon-icon">· · ·</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">When to Use</div>
+<div class="section-text">The conversation has become very individual — focused on one story or one person's experience. Use to connect the personal to the systemic without dismissing what was shared.</div>
+</div>
+<div class="section flex-shrink">
+<div class="section-label">What to Say</div>
+<div class="say-box">"What [name] just shared is so important — and I'm curious: does this feel like one person's story, or does it point to something bigger? Have others seen or felt something similar?"</div>
+</div>
+<div class="note-box">
+<div class="note-label">Facilitator Note</div>
+        The move from "this happened to me" to "this is a pattern" is where DEI learning accelerates. Don't make this move too early — let the personal land first. Then widen the lens.
+      </div>
+</div>
+<div class="card-footer">Moonlight Voices ✦ DEI Card Game</div>
+</div>
+<!-- Luna Card 11: The Breathing Room -->
+<div class="card luna"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span>☽ Luna Facilitator</span><span class="card-num">11 / 12</span></div>
+<div class="card-body">
+<div class="card-title">The Breathing Room</div>
+<div class="moon-icon">· · ·</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">When to Use</div>
+<div class="section-text">The conversation has been intense for a sustained period. The group needs a moment of levity or release before they can continue going deeper.</div>
+</div>
+<div class="section flex-shrink">
+<div class="section-label">What to Say</div>
+<div class="say-box">"We've been sitting in something heavy — and that takes real courage. Let's take sixty seconds. Stretch, breathe, shake it off — whatever you need. Then we'll come back together."</div>
+</div>
+<div class="note-box">
+<div class="note-label">Facilitator Note</div>
+        Regulate the emotional temperature of the room. Hard conversations require energy; people need recovery time or they shut down. A break is not a failure of the session — it is care for the group.
+      </div>
+</div>
+<div class="card-footer">Moonlight Voices ✦ DEI Card Game</div>
+</div>
+<!-- Luna Card 12: Close the Circle -->
+<div class="card luna"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☽</div>
+<div class="card-type-banner"><span>☽ Luna Facilitator</span><span class="card-num">12 / 12</span></div>
+<div class="card-body">
+<div class="card-title">Close the Circle</div>
+<div class="moon-icon">· · ·</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">When to Use</div>
+<div class="section-text">At the end of the session, or when a major conversation arc is completing and needs to land with intention before the group parts ways.</div>
+</div>
+<div class="section flex-shrink">
+<div class="section-label">What to Say</div>
+<div class="say-box">"We're coming to the end of our time. Before we close — I'd like each person to share one word or one sentence: what are you taking with you from today?"</div>
+</div>
+<div class="note-box">
+<div class="note-label">Facilitator Note</div>
+        Closing rituals matter. Go around the circle in order — no cross-talk until everyone has spoken. End with gratitude. What happened here was real, and it deserves a proper ending.
+      </div>
+</div>
+<div class="card-footer">Moonlight Voices ✦ DEI Card Game</div>
+</div>
+</div><!-- end page 8 -->
+</body>
+</html>

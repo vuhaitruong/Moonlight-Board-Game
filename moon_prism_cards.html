@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Moonlight Voices – Moon Prism Reflection Cards</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Georgia', serif; background: #d6eaf8; padding: 20px; }
+  h1.deck-title { font-family: Arial, sans-serif; text-align: center; color: #0D3B6E; font-size: 22px; margin-bottom: 6px; letter-spacing: 2px; }
+  p.deck-subtitle { text-align: center; color: #888; font-size: 12px; margin-bottom: 20px; font-family: Arial, sans-serif; }
+
+  .page {
+    width: 8.5in; min-height: 11in; background: white;
+    margin: 0 auto 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 2.75in);
+    grid-template-rows: repeat(2, 4.75in);
+    gap: 0.375in;
+    padding: 0.5625in 1.125in;
+    page-break-after: always;
+  }
+
+  .card {
+    width: 2.75in; height: 4.75in;
+    border: 1.5px solid #1A6FA8;
+    border-radius: 10px; overflow: hidden;
+    display: flex; flex-direction: column;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(26,111,168,0.15);
+  }
+
+  .card-type-banner {
+    background: linear-gradient(135deg, #1A6FA8, #0D3B6E);
+    color: white;
+    font-family: Arial, sans-serif; font-size: 8px; font-weight: bold;
+    letter-spacing: 1.5px; text-align: center;
+    padding: 5px 8px 4px; text-transform: uppercase;
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    flex-shrink: 0;
+  }
+  .card-type-banner .moon { font-size: 10px; }
+  .card-num { margin-left: auto; font-size: 7px; opacity: 0.8; font-weight: normal; letter-spacing: 0; }
+
+  /* Audience tag */
+  .audience-bar {
+    background: #EBF5FB;
+    border-bottom: 1px solid #AED6F1;
+    padding: 3px 9px;
+    display: flex; align-items: center; gap: 5px;
+    flex-shrink: 0;
+  }
+  .aud-tag {
+    font-family: Arial, sans-serif; font-size: 6.5px; font-weight: bold;
+    letter-spacing: 0.8px; text-transform: uppercase;
+    padding: 2px 5px; border-radius: 8px;
+  }
+  .aud-scout { background: #E91E8C; color: white; }
+  .aud-all { background: #1A6FA8; color: white; }
+  .aud-obs { background: #A07C00; color: white; }
+
+  .card-body { flex: 1; display: flex; flex-direction: column; padding: 8px 9px 0px; overflow: hidden; }
+
+  .card-title { font-family: 'Georgia', serif; font-size: 12.5px; font-weight: bold; color: #1A1A2E; text-align: center; line-height: 1.25; margin-bottom: 3px; }
+  .card-descriptor { font-family: Arial, sans-serif; font-size: 7px; color: #1A6FA8; text-align: center; font-style: italic; margin-bottom: 6px; }
+
+  .divider { height: 1px; background: linear-gradient(to right, transparent, #1A6FA8, transparent); margin-bottom: 7px; flex-shrink: 0; }
+
+  /* Main prompt — large and prominent */
+  .main-prompt {
+    background: #EBF5FB;
+    border-left: 3px solid #1A6FA8;
+    padding: 8px 8px;
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 8px;
+    flex-shrink: 0;
+  }
+  .main-prompt p {
+    font-family: 'Georgia', serif;
+    font-size: 8.5px;
+    font-style: italic;
+    color: #0D3B6E;
+    line-height: 1.4;
+  }
+
+  .section { margin-bottom: 5px; flex-shrink: 0; }
+  .section-label { font-family: Arial, sans-serif; font-size: 6.5px; font-weight: bold; letter-spacing: 1px; color: #1A6FA8; text-transform: uppercase; margin-bottom: 1.5px; }
+  .section-text { font-family: Arial, sans-serif; font-size: 7.5px; color: #444; line-height: 1.35; }
+
+  /* Follow-up question */
+  .section.followup {
+    flex: 1; display: flex; flex-direction: column;
+    border-top: 0.5px solid #AED6F1; padding-top: 5px; margin-top: 3px;
+  }
+  .section.followup .section-text { font-style: italic; color: #1A6FA8; font-size: 7.5px; }
+
+  /* Safety note */
+  .safety-note {
+    background: #EBF5FB; padding: 4px 9px; text-align: center;
+    flex-shrink: 0; border-top: 1px solid #AED6F1;
+  }
+  .safety-note span { font-family: Arial, sans-serif; font-size: 6.5px; color: #1A6FA8; letter-spacing: 0.5px; }
+
+  @media print {
+    body { background: white; padding: 0; }
+    h1.deck-title, p.deck-subtitle { display: none; }
+    .page { margin: 0; box-shadow: none; page-break-after: always; }
+    .card { box-shadow: none; }
+  }
+
+
+/* ═══════════════════════════════════════════════════════════
+   RENAISSANCE × SAILOR MOON — DECORATIVE REDESIGN
+   ═══════════════════════════════════════════════════════════ */
+
+/* Parchment ground + celestial star-dot constellation pattern */
+.card {
+  background-color:  #FFFDF6 !important;
+  background-image:
+    radial-gradient(circle, rgba(21,101,192,0.09) 0.65px, transparent 0.65px),
+    radial-gradient(ellipse at 50% 5%,   #E3F2FD99 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 95%,  #E3F2FD66 0%, transparent 40%);
+  background-size: 13px 13px, 100% 100%, 100% 100% !important;
+  box-shadow:
+    inset 0 0 0 4.5px #FFFDF6,
+    inset 0 0 0 6.5px rgba(21,101,192,0.22),
+    0 3px 14px rgba(0,0,0,0.14) !important;
+  position: relative !important;
+}
+
+/* Four ✦ corner ornaments */
+.c {
+  position: absolute;
+  font-size: 8pt;
+  color: #1565C0;
+  opacity: 0.52;
+  z-index: 20;
+  pointer-events: none;
+  line-height: 1;
+  font-family: Georgia, serif;
+}
+.tl { top: 7px;    left:  8px; }
+.tr { top: 7px;    right: 8px; }
+.bl { bottom: 7px; left:  8px; }
+.br { bottom: 7px; right: 8px; }
+
+/* Planetary watermark (☽ ♄ ♃ ☿ ♀) */
+.card-watermark {
+  position:   absolute;
+  top:  50%;
+  left: 50%;
+  transform:  translate(-50%, -48%) rotate(-12deg);
+  font-size:  70pt;
+  color:      #1565C0;
+  opacity:    0.045;
+  pointer-events: none;
+  z-index: 1;
+  line-height: 1;
+  user-select: none;
+  font-family: Georgia, 'Times New Roman', serif;
+  white-space: nowrap;
+}
+
+/* Ornate ─── ✦ ─── divider (replaces plain .divider) */
+.ornate-div {
+  text-align:     center;
+  font-size:      6.5pt;
+  letter-spacing: 0.18em;
+  flex-shrink:    0;
+  opacity:        0.60;
+  margin:         3px 0 2px;
+  color:          #1565C0;
+  font-family:    Georgia, serif;
+}
+.divider { display: none !important; }
+
+/* Richer banner — deep illuminated gradient */
+.card-type-banner {
+  background: linear-gradient(135deg,
+    #003c8f 0%,
+    #1565C0      38%,
+    #1565C0      62%,
+    #003c8f 100%) !important;
+  padding: 6px 9px !important;
+  letter-spacing: 0.13em !important;
+  border-bottom: 1px solid rgba(255,255,255,0.28) !important;
+  position: relative;
+  z-index: 5;
+}
+
+/* Elegant serif section labels */
+.section-label {
+  font-family: 'Palatino Linotype', Georgia, serif !important;
+  font-size:   6pt !important;
+  font-weight: bold !important;
+  letter-spacing: 0.18em !important;
+  color: #003c8f !important;
+  text-transform: uppercase !important;
+}
+
+/* Warm serif body text */
+.section-text {
+  font-family: Georgia, 'Palatino Linotype', serif !important;
+  font-size:   7.5pt !important;
+  line-height: 1.48 !important;
+  color: #261212 !important;
+}
+
+/* Stronger title */
+.card-title {
+  font-family: 'Palatino Linotype', Georgia, serif !important;
+  font-size:   12pt !important;
+  color: #003c8f !important;
+  letter-spacing: 0.02em !important;
+  margin-bottom: 2px !important;
+}
+.card-descriptor {
+  font-family: Georgia, serif !important;
+  font-size:   7pt !important;
+  color: #1565C0 !important;
+  letter-spacing: 0.04em !important;
+}
+
+/* Reflection box — illuminated margin note */
+.section.reflection {
+  background: linear-gradient(135deg, #E3F2FD, #FFFDF6 80%) !important;
+  border-left: 2.5px solid #1565C0 !important;
+  border-radius: 0 5px 5px 0 !important;
+  padding: 5px 6px !important;
+  margin-top: 3px !important;
+}
+.section.reflection .section-text {
+  font-style: italic !important;
+  color: #003c8f !important;
+}
+
+/* Warm gradient footer */
+.card-footer {
+  background: linear-gradient(to right, #E3F2FD, #90CAF966, #E3F2FD) !important;
+  border-top: 1px solid #90CAF9 !important;
+  padding: 4px 9px !important;
+  position: relative;
+  z-index: 5;
+}
+.card-footer, .card-footer span {
+  font-family: 'Palatino Linotype', Georgia, serif !important;
+  font-size:   5pt !important;
+  color: #003c8f !important;
+  letter-spacing: 0.16em !important;
+}
+
+/* Crystal Wisdom card — green overrides */
+.card.crystal {
+  background-color: #FFFDF6 !important;
+  background-image:
+    radial-gradient(circle, rgba(29,106,57,0.09) 0.65px, transparent 0.65px),
+    radial-gradient(ellipse at 50% 5%,  #E8F5EE99 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 95%, #E8F5EE66 0%, transparent 40%);
+  background-size: 13px 13px, 100% 100%, 100% 100% !important;
+  box-shadow:
+    inset 0 0 0 4.5px #FFFDF6,
+    inset 0 0 0 6.5px rgba(29,106,57,0.22),
+    0 3px 14px rgba(0,0,0,0.14) !important;
+}
+.card.crystal .c { color: #1D6A39 !important; }
+.card.crystal .card-watermark { color: #1D6A39 !important; }
+
+/* Luna Facilitator card — silver/indigo overrides */
+.card.luna {
+  background-color: #FDFCFF !important;
+  background-image:
+    radial-gradient(circle, rgba(74,85,104,0.09) 0.65px, transparent 0.65px),
+    radial-gradient(ellipse at 50% 5%, rgba(240,241,243,0.7) 0%, transparent 50%);
+  background-size: 13px 13px, 100% 100% !important;
+  box-shadow:
+    inset 0 0 0 4.5px #FDFCFF,
+    inset 0 0 0 6.5px rgba(74,85,104,0.22),
+    0 3px 14px rgba(0,0,0,0.14) !important;
+}
+.card.luna .c { color: #5C6470 !important; }
+.card.luna .card-watermark { color: #5C6470 !important; }
+
+/* Courage pip override — keep gold */
+.pip { border-color: #B8860B !important; }
+.pip.filled { background: #C9A227 !important; }
+
+/* Audience tag overrides — keep category colours */
+.aud-scout { background: #E91E8C !important; color: white !important; }
+.aud-all   { background: #1565C0 !important; color: white !important; }
+.aud-obs   { background: #B8860B !important; color: white !important; }
+
+@media print {
+  body { background: white !important; padding: 0 !important; gap: 0 !important; }
+  h1, p, h1.section-title { display: none !important; }
+  .page {
+    margin: 0 !important;
+    box-shadow: none !important;
+    page-break-after: always !important;
+    break-after: page !important;
+  }
+  .card { box-shadow: none !important; }
+}
+</style>
+</head>
+<body>
+<h1 class="deck-title">○ MOONLIGHT VOICES ○ — Moon Prism Reflection Cards</h1>
+<p class="deck-subtitle">32 cards · Tarot size (2.75" × 4.75") · All responses are voluntary — passing is always honoured · Print on card stock</p>
+<!-- PAGE 1 -->
+<div class="page">
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☿</div>
+<div class="card-type-banner"><span class="moon">○</span> MOON PRISM REFLECTION <span class="card-num">01 / 32</span></div>
+<div class="audience-bar"><span class="aud-tag aud-all">Everyone</span><span style="font-family:Arial;font-size:6.5px;color:#888">All players respond</span></div>
+<div class="card-body">
+<div class="card-title">The Feeling of Belonging</div>
+<div class="card-descriptor">On what it means to truly be welcomed, not just tolerated</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="main-prompt"><p>"Describe a moment when you felt truly included — not just present, but genuinely welcome. What made that possible? Who made it possible?"</p></div>
+<div class="section">
+<div class="section-label">Facilitator Note</div>
+<div class="section-text">Invite people to be specific. General answers ("when I felt accepted") are less useful than concrete ones ("when she remembered my name the second time we met").</div>
+</div>
+<div class="section followup">
+<div class="section-label">Deepening Question</div>
+<div class="section-text">"What specifically did someone do — or not do — that created that feeling? Could you replicate that for someone else this week?"</div>
+</div>
+</div>
+<div class="safety-note"><span>○ Passing is always a valid choice · All voices are honoured ○</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☿</div>
+<div class="card-type-banner"><span class="moon">○</span> MOON PRISM REFLECTION <span class="card-num">02 / 32</span></div>
+<div class="audience-bar"><span class="aud-tag aud-all">Everyone</span><span style="font-family:Arial;font-size:6.5px;color:#888">All players respond</span></div>
+<div class="card-body">
+<div class="card-title">The Hidden Assumption</div>
+<div class="card-descriptor">On what people believe about you without asking</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="main-prompt"><p>"What is one assumption people regularly make about you — based on how you look, sound, or where you're from — that you wish they wouldn't?"</p></div>
+<div class="section">
+<div class="section-label">Facilitator Note</div>
+<div class="section-text">Create space for people to name assumptions without having to justify why they're wrong. The assumption itself is the point, not the rebuttal.</div>
+</div>
+<div class="section followup">
+<div class="section-label">Deepening Question</div>
+<div class="section-text">"What does it feel like to be met by that assumption before you've even spoken? What would you want the person to ask instead?"</div>
+</div>
+</div>
+<div class="safety-note"><span>○ Passing is always a valid choice · All voices are honoured ○</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☿</div>
+<div class="card-type-banner"><span class="moon">○</span> MOON PRISM REFLECTION <span class="card-num">03 / 32</span></div>
+<div class="audience-bar"><span class="aud-tag aud-all">Everyone</span><span style="font-family:Arial;font-size:6.5px;color:#888">All players respond</span></div>
+<div class="card-body">
+<div class="card-title">The Privilege Moment</div>
+<div class="card-descriptor">On when you first noticed an advantage you hadn't earned</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="main-prompt"><p>"Think of a moment when you first became aware of a privilege you hold — something you had access to that others didn't, through no special effort of your own. What happened in that moment?"</p></div>
+<div class="section">
+<div class="section-label">Facilitator Note</div>
+<div class="section-text">Reassure the group that privilege is not about blame — it's about awareness. The goal is not guilt but honest seeing.</div>
+</div>
+<div class="section followup">
+<div class="section-label">Deepening Question</div>
+<div class="section-text">"What did you do with that awareness? What could you do with it now?"</div>
+</div>
+</div>
+<div class="safety-note"><span>○ Passing is always a valid choice · All voices are honoured ○</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☿</div>
+<div class="card-type-banner"><span class="moon">○</span> MOON PRISM REFLECTION <span class="card-num">04 / 32</span></div>
+<div class="audience-bar"><span class="aud-tag aud-scout">Scout Role</span><span style="font-family:Arial;font-size:6.5px;color:#888">Speak from your Scout identity</span></div>
+<div class="card-body">
+<div class="card-title">The Cost of Hiding</div>
+<div class="card-descriptor">On what it takes to conceal part of yourself</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="main-prompt"><p>"From the perspective of your Scout identity — what part of yourself would you most need to conceal at work, and what does that daily concealment cost you?"</p></div>
+<div class="section">
+<div class="section-label">Facilitator Note</div>
+<div class="section-text">After Scout role players speak, invite observers: "Has anyone experienced something similar — not necessarily the same identity, but the same feeling of having to hide part of yourself?"</div>
+</div>
+<div class="section followup">
+<div class="section-label">Deepening Question</div>
+<div class="section-text">"What would need to exist in a workplace for that concealment to no longer feel necessary?"</div>
+</div>
+</div>
+<div class="safety-note"><span>○ Passing is always a valid choice · All voices are honoured ○</span></div>
+</div>
+</div><!-- page 1 -->
+<!-- PAGE 2 -->
+<div class="page">
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☿</div>
+<div class="card-type-banner"><span class="moon">○</span> MOON PRISM REFLECTION <span class="card-num">05 / 32</span></div>
+<div class="audience-bar"><span class="aud-tag aud-all">Everyone</span><span style="font-family:Arial;font-size:6.5px;color:#888">All players respond</span></div>
+<div class="card-body">
+<div class="card-title">Fit In vs. Belong</div>
+<div class="card-descriptor">On the difference between performance and presence</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="main-prompt"><p>"What is the difference — in your body, your energy, your mood — between days when you feel like you belong somewhere, and days when you're just fitting in?"</p></div>
+<div class="section">
+<div class="section-label">Facilitator Note</div>
+<div class="section-text">Brené Brown's distinction is useful here: "Fitting in is about assessing a situation and becoming who you need to be. Belonging doesn't require you to change who you are."</div>
+</div>
+<div class="section followup">
+<div class="section-label">Deepening Question</div>
+<div class="section-text">"How much of your working day is spent belonging — and how much is spent fitting in? What drives the difference?"</div>
+</div>
+</div>
+<div class="safety-note"><span>○ Passing is always a valid choice · All voices are honoured ○</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☿</div>
+<div class="card-type-banner"><span class="moon">○</span> MOON PRISM REFLECTION <span class="card-num">06 / 32</span></div>
+<div class="audience-bar"><span class="aud-tag aud-scout">Scout Role</span><span style="font-family:Arial;font-size:6.5px;color:#888">Speak from your Scout identity</span></div>
+<div class="card-body">
+<div class="card-title">The Unasked Question</div>
+<div class="card-descriptor">On what people never think to ask</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="main-prompt"><p>"From your Scout identity's perspective — what is something you would want people to understand about your experience that they never think to ask about?"</p></div>
+<div class="section">
+<div class="section-label">Facilitator Note</div>
+<div class="section-text">This prompt often surfaces the most surprising and humanising content in the session. Give players enough time. Silence before an answer is not discomfort — it's thinking.</div>
+</div>
+<div class="section followup">
+<div class="section-label">Deepening Question</div>
+<div class="section-text">"Why do you think people don't ask? Is it fear, unawareness, or something else?"</div>
+</div>
+</div>
+<div class="safety-note"><span>○ Passing is always a valid choice · All voices are honoured ○</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☿</div>
+<div class="card-type-banner"><span class="moon">○</span> MOON PRISM REFLECTION <span class="card-num">07 / 32</span></div>
+<div class="audience-bar"><span class="aud-tag aud-all">Everyone</span><span style="font-family:Arial;font-size:6.5px;color:#888">All players respond</span></div>
+<div class="card-body">
+<div class="card-title">The Person Who Saw You</div>
+<div class="card-descriptor">On a moment of genuine recognition</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="main-prompt"><p>"Name one person — in any context, at any point in your life — who made you feel genuinely seen. Not praised or congratulated: truly seen. What did they do, specifically, that created that feeling?"</p></div>
+<div class="section">
+<div class="section-label">Facilitator Note</div>
+<div class="section-text">This prompt often becomes the most emotional in the session. It is also the most actionable — because seeing someone is a skill that can be learned and practised.</div>
+</div>
+<div class="section followup">
+<div class="section-label">Deepening Question</div>
+<div class="section-text">"Is that something you do for others? Who in your life might be waiting for someone to see them the way that person saw you?"</div>
+</div>
+</div>
+<div class="safety-note"><span>○ Passing is always a valid choice · All voices are honoured ○</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☿</div>
+<div class="card-type-banner"><span class="moon">○</span> MOON PRISM REFLECTION <span class="card-num">08 / 32</span></div>
+<div class="audience-bar"><span class="aud-tag aud-all">Everyone</span><span style="font-family:Arial;font-size:6.5px;color:#888">All players respond</span></div>
+<div class="card-body">
+<div class="card-title">The Silence Tax</div>
+<div class="card-descriptor">On what it costs to say nothing</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="main-prompt"><p>"Think of a time when you witnessed something unfair — at work, in a group, in a public setting — and said nothing. What kept you silent? What did that silence cost you?"</p></div>
+<div class="section">
+<div class="section-label">Facilitator Note</div>
+<div class="section-text">Many people carry guilt about past silence. Reframe this as learning, not judgment. The goal is understanding the forces that silence us — so we can work against them.</div>
+</div>
+<div class="section followup">
+<div class="section-label">Deepening Question</div>
+<div class="section-text">"What would have needed to be different — in you, or in the environment — for you to have spoken up in that moment?"</div>
+</div>
+</div>
+<div class="safety-note"><span>○ Passing is always a valid choice · All voices are honoured ○</span></div>
+</div>
+</div><!-- page 2 -->
+<!-- PAGE 3 -->
+<div class="page">
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☿</div>
+<div class="card-type-banner"><span class="moon">○</span> MOON PRISM REFLECTION <span class="card-num">09 / 32</span></div>
+<div class="audience-bar"><span class="aud-tag aud-scout">Scout Role</span><span style="font-family:Arial;font-size:6.5px;color:#888">Speak from your Scout identity</span></div>
+<div class="card-body">
+<div class="card-title">The Daily Calculation</div>
+<div class="card-descriptor">On the mental maths of navigating bias</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="main-prompt"><p>"From your Scout identity — describe the internal calculation you make before speaking up about something that affects you. What factors go into it? How long does it take? What is the cost of making that calculation every day?"</p></div>
+<div class="section">
+<div class="section-label">Facilitator Note</div>
+<div class="section-text">This prompt makes visible the invisible cognitive tax that marginalised employees carry. Observers often find this the most eye-opening prompt in the session.</div>
+</div>
+<div class="section followup">
+<div class="section-label">Deepening Question</div>
+<div class="section-text">"What would an organisation need to do to reduce that calculation — or remove the need for it entirely?"</div>
+</div>
+</div>
+<div class="safety-note"><span>○ Passing is always a valid choice · All voices are honoured ○</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☿</div>
+<div class="card-type-banner"><span class="moon">○</span> MOON PRISM REFLECTION <span class="card-num">10 / 32</span></div>
+<div class="audience-bar"><span class="aud-tag aud-all">Everyone</span><span style="font-family:Arial;font-size:6.5px;color:#888">All players respond</span></div>
+<div class="card-body">
+<div class="card-title">The Mentor Who Changed Things</div>
+<div class="card-descriptor">On the power of a single relationship</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="main-prompt"><p>"Has anyone ever believed in your potential before you believed in it yourself — and acted on that belief? What did they say or do? What became possible because of them?"</p></div>
+<div class="section">
+<div class="section-label">Facilitator Note</div>
+<div class="section-text">If someone says they can't think of anyone, that is itself a powerful answer. Invite them to sit with it: "What might have been different if someone had believed in you that way?"</div>
+</div>
+<div class="section followup">
+<div class="section-label">Deepening Question</div>
+<div class="section-text">"Who are you in a position to play that role for right now — and are you doing it?"</div>
+</div>
+</div>
+<div class="safety-note"><span>○ Passing is always a valid choice · All voices are honoured ○</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☿</div>
+<div class="card-type-banner"><span class="moon">○</span> MOON PRISM REFLECTION <span class="card-num">11 / 32</span></div>
+<div class="audience-bar"><span class="aud-tag aud-all">Everyone</span><span style="font-family:Arial;font-size:6.5px;color:#888">All players respond</span></div>
+<div class="card-body">
+<div class="card-title">The Invisible Labour</div>
+<div class="card-descriptor">On work that is never counted or credited</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="main-prompt"><p>"What do you do at work — or in life — that is never counted, measured, or credited, but that you do anyway because it needs doing? How does it feel to carry that invisible load?"</p></div>
+<div class="section">
+<div class="section-label">Facilitator Note</div>
+<div class="section-text">This prompt works well after a Shadow Card about invisible labour. Broadening it beyond DEI to include emotional labour generally often surfaces surprising commonality across the group.</div>
+</div>
+<div class="section followup">
+<div class="section-label">Deepening Question</div>
+<div class="section-text">"What would it feel like to have that labour acknowledged — not rewarded, just seen? What would you say if someone asked?"</div>
+</div>
+</div>
+<div class="safety-note"><span>○ Passing is always a valid choice · All voices are honoured ○</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☿</div>
+<div class="card-type-banner"><span class="moon">○</span> MOON PRISM REFLECTION <span class="card-num">12 / 32</span></div>
+<div class="audience-bar"><span class="aud-tag aud-obs">Observers</span><span style="font-family:Arial;font-size:6.5px;color:#888">Directed at those watching</span></div>
+<div class="card-body">
+<div class="card-title">What Surprised You</div>
+<div class="card-descriptor">Reflecting on a perspective shift</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="main-prompt"><p>"Observing your fellow players in this Scout role — what surprised you most? What did you hear or imagine that you had not considered before this session?"</p></div>
+<div class="section">
+<div class="section-label">Facilitator Note</div>
+<div class="section-text">This prompt validates the perspective-sharing that has happened. Ensure those in Scout roles hear the impact their sharing had — it makes the vulnerability feel worthwhile.</div>
+</div>
+<div class="section followup">
+<div class="section-label">Deepening Question</div>
+<div class="section-text">"Why hadn't you considered that before? What would have helped you see it earlier?"</div>
+</div>
+</div>
+<div class="safety-note"><span>○ Passing is always a valid choice · All voices are honoured ○</span></div>
+</div>
+</div><!-- page 3 -->
+<!-- PAGE 4 -->
+<div class="page">
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☿</div>
+<div class="card-type-banner"><span class="moon">○</span> MOON PRISM REFLECTION <span class="card-num">13 / 32</span></div>
+<div class="audience-bar"><span class="aud-tag aud-all">Everyone</span><span style="font-family:Arial;font-size:6.5px;color:#888">All players respond</span></div>
+<div class="card-body">
+<div class="card-title">The Awkward Conversation</div>
+<div class="card-descriptor">On the cost of avoiding difficult discussions</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="main-prompt"><p>"Describe a conversation about race, gender, disability, or difference that you avoided because it felt too hard or too risky. What did you lose by not having it? What might have been gained?"</p></div>
+<div class="section">
+<div class="section-label">Facilitator Note</div>
+<div class="section-text">Normalise the avoidance — most people have done this. The invitation is to reflect on patterns and consider what becomes possible when we lean into discomfort rather than away from it.</div>
+</div>
+<div class="section followup">
+<div class="section-label">Deepening Question</div>
+<div class="section-text">"Is there a version of that conversation you could have now, with what you know today that you didn't know then?"</div>
+</div>
+</div>
+<div class="safety-note"><span>○ Passing is always a valid choice · All voices are honoured ○</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☿</div>
+<div class="card-type-banner"><span class="moon">○</span> MOON PRISM REFLECTION <span class="card-num">14 / 32</span></div>
+<div class="audience-bar"><span class="aud-tag aud-scout">Scout Role</span><span style="font-family:Arial;font-size:6.5px;color:#888">Speak from your Scout identity</span></div>
+<div class="card-body">
+<div class="card-title">The Dream Version</div>
+<div class="card-descriptor">On what an equitable workplace would feel like</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="main-prompt"><p>"From your Scout identity — describe what your working day would look like if your organisation got inclusion right. What would be different in the morning? In meetings? In conversations about your future?"</p></div>
+<div class="section">
+<div class="section-label">Facilitator Note</div>
+<div class="section-text">This prompt is intentionally aspirational. Let people dream without immediately asking "but how?" The vision comes first. The how comes later.</div>
+</div>
+<div class="section followup">
+<div class="section-label">Deepening Question</div>
+<div class="section-text">"What is the single biggest gap between that vision and where things stand today? Who has the power to close it?"</div>
+</div>
+</div>
+<div class="safety-note"><span>○ Passing is always a valid choice · All voices are honoured ○</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☿</div>
+<div class="card-type-banner"><span class="moon">○</span> MOON PRISM REFLECTION <span class="card-num">15 / 32</span></div>
+<div class="audience-bar"><span class="aud-tag aud-all">Everyone</span><span style="font-family:Arial;font-size:6.5px;color:#888">All players respond</span></div>
+<div class="card-body">
+<div class="card-title">The First Time You Noticed</div>
+<div class="card-descriptor">On the moment difference became visible</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="main-prompt"><p>"When was the first time you became aware that your identity — any aspect of it — made you different from those around you? How old were you? What happened? How did it shape you?"</p></div>
+<div class="section">
+<div class="section-label">Facilitator Note</div>
+<div class="section-text">This prompt often goes to childhood. Give people space. The early experiences of difference are often the most formative and the least often spoken aloud in professional settings.</div>
+</div>
+<div class="section followup">
+<div class="section-label">Deepening Question</div>
+<div class="section-text">"How does that early experience still show up in how you navigate spaces today?"</div>
+</div>
+</div>
+<div class="safety-note"><span>○ Passing is always a valid choice · All voices are honoured ○</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☿</div>
+<div class="card-type-banner"><span class="moon">○</span> MOON PRISM REFLECTION <span class="card-num">16 / 32</span></div>
+<div class="audience-bar"><span class="aud-tag aud-all">Everyone</span><span style="font-family:Arial;font-size:6.5px;color:#888">All players respond</span></div>
+<div class="card-body">
+<div class="card-title">Good Intentions, Real Harm</div>
+<div class="card-descriptor">On the gap between intent and impact</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="main-prompt"><p>"Describe a time when you caused harm — even with good intentions. How did you learn about the impact? What did you do with that knowledge? What do you wish you had done differently?"</p></div>
+<div class="section">
+<div class="section-label">Facilitator Note</div>
+<div class="section-text">Model this prompt before asking others — if you share your own example first, it creates psychological safety for others to be honest. This prompt builds accountability culture.</div>
+</div>
+<div class="section followup">
+<div class="section-label">Deepening Question</div>
+<div class="section-text">"What made it possible for you to learn about the harm — and how could more spaces be designed so that feedback can flow that honestly?"</div>
+</div>
+</div>
+<div class="safety-note"><span>○ Passing is always a valid choice · All voices are honoured ○</span></div>
+</div>
+</div><!-- page 4 -->
+<!-- PAGE 5 -->
+<div class="page">
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☿</div>
+<div class="card-type-banner"><span class="moon">○</span> MOON PRISM REFLECTION <span class="card-num">17 / 32</span></div>
+<div class="audience-bar"><span class="aud-tag aud-all">Everyone</span><span style="font-family:Arial;font-size:6.5px;color:#888">All players respond</span></div>
+<div class="card-body">
+<div class="card-title">The Strength in the Story</div>
+<div class="card-descriptor">On what adversity has given you</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="main-prompt"><p>"Without minimising the difficulty — what has navigating bias, exclusion, or adversity given you? What do you know, or who have you become, because of what you've had to survive?"</p></div>
+<div class="section">
+<div class="section-label">Facilitator Note</div>
+<div class="section-text">Be careful not to push this prompt as a silver lining. The hardship is real. This is about honouring what people have built alongside it — not because of it, but in spite of it.</div>
+</div>
+<div class="section followup">
+<div class="section-label">Deepening Question</div>
+<div class="section-text">"Does the organisation value or utilise that knowledge — the kind that can only come from experience? If not, what would it need to do differently?"</div>
+</div>
+</div>
+<div class="safety-note"><span>○ Passing is always a valid choice · All voices are honoured ○</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☿</div>
+<div class="card-type-banner"><span class="moon">○</span> MOON PRISM REFLECTION <span class="card-num">18 / 32</span></div>
+<div class="audience-bar"><span class="aud-tag aud-all">Everyone</span><span style="font-family:Arial;font-size:6.5px;color:#888">All players respond</span></div>
+<div class="card-body">
+<div class="card-title">The One Change</div>
+<div class="card-descriptor">On what your organisation most needs to do differently</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="main-prompt"><p>"If you could change one thing about how your organisation handles inclusion — one policy, one practice, one cultural norm — what would it be, and why would that one change matter most?"</p></div>
+<div class="section">
+<div class="section-label">Facilitator Note</div>
+<div class="section-text">Capture these answers. They are often the most actionable data from the entire session. Commit publicly to sharing them with leadership if you can.</div>
+</div>
+<div class="section followup">
+<div class="section-label">Deepening Question</div>
+<div class="section-text">"What is currently preventing that change? Who would need to decide to make it happen — and are any of them in this room?"</div>
+</div>
+</div>
+<div class="safety-note"><span>○ Passing is always a valid choice · All voices are honoured ○</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☿</div>
+<div class="card-type-banner"><span class="moon">○</span> MOON PRISM REFLECTION <span class="card-num">19 / 32</span></div>
+<div class="audience-bar"><span class="aud-tag aud-scout">Scout Role</span><span style="font-family:Arial;font-size:6.5px;color:#888">Speak from your Scout identity</span></div>
+<div class="card-body">
+<div class="card-title">The Joy</div>
+<div class="card-descriptor">On what is precious about your identity</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="main-prompt"><p>"From your Scout identity — what is something you love or are deeply proud of about the community, culture, or experience your identity connects you to? Something that has nothing to do with the challenges?"</p></div>
+<div class="section">
+<div class="section-label">Facilitator Note</div>
+<div class="section-text">DEI conversations can focus heavily on pain. This prompt intentionally centres joy, richness, and pride — which are equally real and often more motivating. Let it breathe.</div>
+</div>
+<div class="section followup">
+<div class="section-label">Deepening Question</div>
+<div class="section-text">"Does your workplace ever give you the opportunity to bring that part of yourself in? What would that look like?"</div>
+</div>
+</div>
+<div class="safety-note"><span>○ Passing is always a valid choice · All voices are honoured ○</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☿</div>
+<div class="card-type-banner"><span class="moon">○</span> MOON PRISM REFLECTION <span class="card-num">20 / 32</span></div>
+<div class="audience-bar"><span class="aud-tag aud-all">Everyone</span><span style="font-family:Arial;font-size:6.5px;color:#888">All players respond</span></div>
+<div class="card-body">
+<div class="card-title">The Courage Gap</div>
+<div class="card-descriptor">On knowing the right thing and not doing it</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="main-prompt"><p>"Think of a time when you knew what the right thing to do was — in a situation involving bias or exclusion — and you didn't do it anyway. What was the gap between knowing and acting?"</p></div>
+<div class="section">
+<div class="section-label">Facilitator Note</div>
+<div class="section-text">This prompt is about honest self-reflection rather than moral judgment. The gap between knowing and acting is where allyship development lives. Normalise it before inviting answers.</div>
+</div>
+<div class="section followup">
+<div class="section-label">Deepening Question</div>
+<div class="section-text">"What would have made it possible to act? What would you want to do differently if that moment came again?"</div>
+</div>
+</div>
+<div class="safety-note"><span>○ Passing is always a valid choice · All voices are honoured ○</span></div>
+</div>
+</div><!-- page 5 -->
+<!-- PAGE 6 -->
+<div class="page">
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☿</div>
+<div class="card-type-banner"><span class="moon">○</span> MOON PRISM REFLECTION <span class="card-num">21 / 32</span></div>
+<div class="audience-bar"><span class="aud-tag aud-all">Everyone</span><span style="font-family:Arial;font-size:6.5px;color:#888">All players respond</span></div>
+<div class="card-body">
+<div class="card-title">The Words We Use</div>
+<div class="card-descriptor">On language and what it signals</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="main-prompt"><p>"Has language ever been used in a way that excluded or diminished you — even casually, even by someone who meant well? What were the words? What did they communicate about how you were seen?"</p></div>
+<div class="section">
+<div class="section-label">Facilitator Note</div>
+<div class="section-text">Language questions can feel low-stakes but often surface deep feeling. Give people room to share specific words and phrases without the group immediately defending or reframing them.</div>
+</div>
+<div class="section followup">
+<div class="section-label">Deepening Question</div>
+<div class="section-text">"If you could change one word or phrase commonly used in your workplace — something that signals who belongs and who doesn't — what would it be?"</div>
+</div>
+</div>
+<div class="safety-note"><span>○ Passing is always a valid choice · All voices are honoured ○</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☿</div>
+<div class="card-type-banner"><span class="moon">○</span> MOON PRISM REFLECTION <span class="card-num">22 / 32</span></div>
+<div class="audience-bar"><span class="aud-tag aud-all">Everyone</span><span style="font-family:Arial;font-size:6.5px;color:#888">All players respond</span></div>
+<div class="card-body">
+<div class="card-title">The Honest Answer</div>
+<div class="card-descriptor">On what you'd say if you felt completely safe</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="main-prompt"><p>"If you were completely guaranteed that there would be no consequences — professional, social, or personal — what would you say about inclusion in your organisation that you currently don't say out loud?"</p></div>
+<div class="section">
+<div class="section-label">Facilitator Note</div>
+<div class="section-text">This is a high-vulnerability prompt. It should only be used when the group has built sufficient trust. The gap between what people think and what they say is itself a data point about psychological safety.</div>
+</div>
+<div class="section followup">
+<div class="section-label">Deepening Question</div>
+<div class="section-text">"What would it take for that answer to be sayable in your normal working environment? Who would need to make it safe?"</div>
+</div>
+</div>
+<div class="safety-note"><span>○ Passing is always a valid choice · All voices are honoured ○</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☿</div>
+<div class="card-type-banner"><span class="moon">○</span> MOON PRISM REFLECTION <span class="card-num">23 / 32</span></div>
+<div class="audience-bar"><span class="aud-tag aud-all">Everyone</span><span style="font-family:Arial;font-size:6.5px;color:#888">All players respond</span></div>
+<div class="card-body">
+<div class="card-title">The Letter You Never Sent</div>
+<div class="card-descriptor">On what you wished someone had known</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="main-prompt"><p>"If you could write a letter to someone who caused you harm — not to blame them, but to help them understand — what would be the one thing you most want them to know about how their actions affected you?"</p></div>
+<div class="section">
+<div class="section-label">Facilitator Note</div>
+<div class="section-text">This is a powerful but sensitive prompt. Have a Luna Facilitator Card ready. If the energy in the room becomes heavy, honour it — don't rush past it. Heavy is sometimes where the most important learning lives.</div>
+</div>
+<div class="section followup">
+<div class="section-label">Deepening Question</div>
+<div class="section-text">"What would it have meant to you if that person had been able to hear your letter? Is there anyone in your life now who needs to hear something like it from you?"</div>
+</div>
+</div>
+<div class="safety-note"><span>○ Passing is always a valid choice · All voices are honoured ○</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☿</div>
+<div class="card-type-banner"><span class="moon">○</span> MOON PRISM REFLECTION <span class="card-num">24 / 32</span></div>
+<div class="audience-bar"><span class="aud-tag aud-all">Everyone</span><span style="font-family:Arial;font-size:6.5px;color:#888">All players respond</span></div>
+<div class="card-body">
+<div class="card-title">The Commitment</div>
+<div class="card-descriptor">On what you will do differently after today</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="main-prompt"><p>"Based on what you've heard and felt in this session — name one specific thing you will do differently in the next two weeks. Not a value or an intention: an action. When, and with whom?"</p></div>
+<div class="section">
+<div class="section-label">Facilitator Note</div>
+<div class="section-text">This prompt is most powerful as a closing exercise. Write responses on a shared board if possible. Invite people to send themselves a reminder. Return to these commitments at a follow-up session.</div>
+</div>
+<div class="section followup">
+<div class="section-label">Deepening Question</div>
+<div class="section-text">"What would make it easier to hold yourself to that commitment? Would it help to share it with someone in this room as an accountability partner?"</div>
+</div>
+</div>
+<div class="safety-note"><span>○ Passing is always a valid choice · All voices are honoured ○</span></div>
+</div>
+</div><!-- page 6 -->
+<!-- PAGE 7 -->
+<div class="page">
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☿</div>
+<div class="card-type-banner"><span class="moon">○</span> MOON PRISM REFLECTION <span class="card-num">25 / 32</span></div>
+<div class="audience-bar"><span class="aud-tag aud-all">Everyone</span><span style="font-family:Arial;font-size:6.5px;color:#888">All players respond</span></div>
+<div class="card-body">
+<div class="card-title">The Ripple</div>
+<div class="card-descriptor">On how inclusion — or exclusion — spreads</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="main-prompt"><p>"Think of a time when you witnessed someone being genuinely included — welcomed, listened to, given space. How did it affect the atmosphere in the room? How did it affect you?"</p></div>
+<div class="section">
+<div class="section-label">Facilitator Note</div>
+<div class="section-text">Inclusion is contagious. So is exclusion. This prompt helps people see that every act of inclusion has a ripple — and invites them to consider the scale of their own potential impact.</div>
+</div>
+<div class="section followup">
+<div class="section-label">Deepening Question</div>
+<div class="section-text">"What would happen if every person in this room created one moment like that for someone else this week? What would that add up to?"</div>
+</div>
+</div>
+<div class="safety-note"><span>○ Passing is always a valid choice · All voices are honoured ○</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☿</div>
+<div class="card-type-banner"><span class="moon">○</span> MOON PRISM REFLECTION <span class="card-num">26 / 32</span></div>
+<div class="audience-bar"><span class="aud-tag aud-scout">Scout Role</span><span style="font-family:Arial;font-size:6.5px;color:#888">Speak from your Scout identity</span></div>
+<div class="card-body">
+<div class="card-title">The Superpower</div>
+<div class="card-descriptor">On what your identity gives you that others may not have</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="main-prompt"><p>"From your Scout identity — what perspective, skill, or way of seeing the world do you carry that others around you may not? What does your experience give you that could be genuinely valuable to a team, if that team knew to ask for it?"</p></div>
+<div class="section">
+<div class="section-label">Facilitator Note</div>
+<div class="section-text">This prompt reframes diversity from burden to asset — not to dismiss difficulty, but to surface the genuine and often untapped value that diverse experiences bring to teams and organisations.</div>
+</div>
+<div class="section followup">
+<div class="section-label">Deepening Question</div>
+<div class="section-text">"Is your organisation currently drawing on that perspective? If not, what would need to change for it to do so?"</div>
+</div>
+</div>
+<div class="safety-note"><span>○ Passing is always a valid choice · All voices are honoured ○</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☿</div>
+<div class="card-type-banner"><span class="moon">○</span> MOON PRISM REFLECTION <span class="card-num">27 / 32</span></div>
+<div class="audience-bar"><span class="aud-tag aud-all">Everyone</span><span style="font-family:Arial;font-size:6.5px;color:#888">All players respond</span></div>
+<div class="card-body">
+<div class="card-title">The Unfinished Story</div>
+<div class="card-descriptor">On what still needs to change</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="main-prompt"><p>"DEI work is often described as a 'journey.' But some people have been on this journey their entire lives — not by choice. What is one thing you think should have changed by now, but hasn't? Who is responsible for that gap?"</p></div>
+<div class="section">
+<div class="section-label">Facilitator Note</div>
+<div class="section-text">This prompt may produce frustration or urgency. That is appropriate. Don't rush to solutions or comfort. Let the weight of what hasn't changed sit in the room for a moment before moving forward.</div>
+</div>
+<div class="section followup">
+<div class="section-label">Deepening Question</div>
+<div class="section-text">"What would it take for that change to happen in your lifetime? Is there a version of that change you could contribute to, starting now?"</div>
+</div>
+</div>
+<div class="safety-note"><span>○ Passing is always a valid choice · All voices are honoured ○</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☿</div>
+<div class="card-type-banner"><span class="moon">○</span> MOON PRISM REFLECTION <span class="card-num">28 / 32</span></div>
+<div class="audience-bar"><span class="aud-tag aud-all">Everyone</span><span style="font-family:Arial;font-size:6.5px;color:#888">All players respond</span></div>
+<div class="card-body">
+<div class="card-title">The Future Room</div>
+<div class="card-descriptor">On who you are building this for</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="main-prompt"><p>"Imagine someone who will join your organisation — or this community — ten years from now. They are from a background that is currently underrepresented. What do you want their experience to be? What would it take to build that?"</p></div>
+<div class="section">
+<div class="section-label">Facilitator Note</div>
+<div class="section-text">Future-orientation helps people move from describing problems to imagining solutions. It also connects current actions to long-term purpose — which is often where real motivation lives.</div>
+</div>
+<div class="section followup">
+<div class="section-label">Deepening Question</div>
+<div class="section-text">"What is one decision you or your organisation could make this year that would move closer to that future — and what is stopping you from making it?"</div>
+</div>
+</div>
+<div class="safety-note"><span>○ Passing is always a valid choice · All voices are honoured ○</span></div>
+</div>
+</div><!-- page 7 -->
+<!-- PAGE 8 -->
+<div class="page">
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☿</div>
+<div class="card-type-banner"><span class="moon">○</span> MOON PRISM REFLECTION <span class="card-num">29 / 32</span></div>
+<div class="audience-bar"><span class="aud-tag aud-all">Everyone</span><span style="font-family:Arial;font-size:6.5px;color:#888">All players respond</span></div>
+<div class="card-body">
+<div class="card-title">The Micromoment</div>
+<div class="card-descriptor">On the power of a small act</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="main-prompt"><p>"Has anyone ever done something small — a word, a gesture, a moment of attention — that had a disproportionately large effect on how you felt? What happened? Why did it matter so much?"</p></div>
+<div class="section">
+<div class="section-label">Facilitator Note</div>
+<div class="section-text">This prompt demonstrates that inclusion doesn't require grand gestures — it is often built in the smallest moments. It is powerfully motivating for people who feel they can't "do enough."</div>
+</div>
+<div class="section followup">
+<div class="section-label">Deepening Question</div>
+<div class="section-text">"What is one micromoment of inclusion you could create for someone this week — someone who might not expect it from you?"</div>
+</div>
+</div>
+<div class="safety-note"><span>○ Passing is always a valid choice · All voices are honoured ○</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☿</div>
+<div class="card-type-banner"><span class="moon">○</span> MOON PRISM REFLECTION <span class="card-num">30 / 32</span></div>
+<div class="audience-bar"><span class="aud-tag aud-all">Everyone</span><span style="font-family:Arial;font-size:6.5px;color:#888">All players respond</span></div>
+<div class="card-body">
+<div class="card-title">The Bystander</div>
+<div class="card-descriptor">On what it means to witness without acting</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="main-prompt"><p>"Think of a time when you were a bystander to something that wasn't right — when harm was happening to someone else and you had the option to act but didn't. What did you feel in that moment? What do you feel now?"</p></div>
+<div class="section">
+<div class="section-label">Facilitator Note</div>
+<div class="section-text">Bystander experiences carry both guilt and learning. Avoid letting people spiral into self-judgment — redirect toward what they would do now and what systems make bystander intervention harder or easier.</div>
+</div>
+<div class="section followup">
+<div class="section-label">Deepening Question</div>
+<div class="section-text">"What would make it easier to act in that kind of moment — for you personally, and for your organisation's culture more broadly?"</div>
+</div>
+</div>
+<div class="safety-note"><span>○ Passing is always a valid choice · All voices are honoured ○</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☿</div>
+<div class="card-type-banner"><span class="moon">○</span> MOON PRISM REFLECTION <span class="card-num">31 / 32</span></div>
+<div class="audience-bar"><span class="aud-tag aud-scout">Scout Role</span><span style="font-family:Arial;font-size:6.5px;color:#888">Speak from your Scout identity</span></div>
+<div class="card-body">
+<div class="card-title">The Offer</div>
+<div class="card-descriptor">On what you would ask of the people in this room</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="main-prompt"><p>"Speaking as your Scout identity — if you could ask one thing of the other people in this room, right now, what would it be? Not something grand or systemic: something they could actually do, or stop doing, starting today."</p></div>
+<div class="section">
+<div class="section-label">Facilitator Note</div>
+<div class="section-text">This prompt is a profound act of trust. Make sure the room is ready for it — if trust has not built adequately, this can feel exposing. Have a Luna Card ready if needed.</div>
+</div>
+<div class="section followup">
+<div class="section-label">Deepening Question</div>
+<div class="section-text">To the group: "What do you want to say to [Name] in response to their ask? What do you commit to?"</div>
+</div>
+</div>
+<div class="safety-note"><span>○ Passing is always a valid choice · All voices are honoured ○</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">☿</div>
+<div class="card-type-banner"><span class="moon">○</span> MOON PRISM REFLECTION <span class="card-num">32 / 32</span></div>
+<div class="audience-bar"><span class="aud-tag aud-all">Everyone</span><span style="font-family:Arial;font-size:6.5px;color:#888">Closing round — all players</span></div>
+<div class="card-body">
+<div class="card-title">What You're Carrying Out</div>
+<div class="card-descriptor">Closing reflection — to be used at the end of every session</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="main-prompt"><p>"As we close this session — what is one thing you are carrying out of this room that you were not carrying in? It could be a thought, a question, a feeling, or a commitment. Just one thing."</p></div>
+<div class="section">
+<div class="section-label">Facilitator Note</div>
+<div class="section-text">This is the standard closing prompt for every Moonlight Voices session. Go around the full circle. Do not allow discussion after each answer — just listen. End in silence for ten seconds before closing.</div>
+</div>
+<div class="section followup">
+<div class="section-label">Facilitator Closing</div>
+<div class="section-text">"In the name of Love and Justice — thank you for being here, fully. What you shared today matters. Now go and do something with it."</div>
+</div>
+</div>
+<div class="safety-note"><span>○ Passing is always a valid choice · All voices are honoured ○</span></div>
+</div>
+</div><!-- page 8 -->
+</body>
+</html>

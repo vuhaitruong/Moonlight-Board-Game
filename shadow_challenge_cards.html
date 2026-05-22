@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Moonlight Voices – Shadow Challenge Cards</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Georgia', serif;
+    background: #e8d5f0;
+    padding: 20px;
+  }
+
+  h1.deck-title {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    color: #4A235A;
+    font-size: 22px;
+    margin-bottom: 6px;
+    letter-spacing: 2px;
+  }
+  p.deck-subtitle {
+    text-align: center;
+    color: #888;
+    font-size: 12px;
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif;
+  }
+
+  .page {
+    width: 8.5in;
+    min-height: 11in;
+    background: white;
+    margin: 0 auto 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 2.75in);
+    grid-template-rows: repeat(2, 4.75in);
+    gap: 0.375in;
+    padding: 0.5625in 1.125in;
+    page-break-after: always;
+  }
+
+  /* ── CARD ───────────────────────────────────────────────── */
+  .card {
+    width: 2.75in;
+    height: 4.75in;
+    border: 1.5px solid #4A235A;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(74,35,90,0.18);
+  }
+
+  /* Type banner — deep purple */
+  .card-type-banner {
+    background: linear-gradient(135deg, #4A235A, #7B1FA2);
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 8px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-align: center;
+    padding: 5px 8px 4px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+  .card-type-banner .dot { font-size: 10px; }
+  .card-num {
+    margin-left: auto;
+    font-size: 7px;
+    opacity: 0.8;
+    font-weight: normal;
+    letter-spacing: 0;
+  }
+
+  /* Card body */
+  .card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 8px 9px 7px;
+    overflow: hidden;
+  }
+
+  /* Title */
+  .card-title {
+    font-family: 'Georgia', serif;
+    font-size: 13px;
+    font-weight: bold;
+    color: #1A1A2E;
+    text-align: center;
+    line-height: 1.2;
+    margin-bottom: 3px;
+  }
+  .card-descriptor {
+    font-family: Arial, sans-serif;
+    font-size: 7.5px;
+    color: #7B1FA2;
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 6px;
+    letter-spacing: 0.3px;
+  }
+
+  /* Divider */
+  .divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #7B1FA2, transparent);
+    margin-bottom: 7px;
+    flex-shrink: 0;
+  }
+
+  /* Sections */
+  .section {
+    margin-bottom: 5px;
+    flex-shrink: 0;
+  }
+  .section-label {
+    font-family: Arial, sans-serif;
+    font-size: 6.5px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #7B1FA2;
+    text-transform: uppercase;
+    margin-bottom: 1.5px;
+  }
+  .section-text {
+    font-family: Arial, sans-serif;
+    font-size: 7.5px;
+    color: #333;
+    line-height: 1.35;
+  }
+
+  /* Impact section — highlighted */
+  .section.impact .section-text {
+    background: #F0E6F6;
+    border-left: 2px solid #7B1FA2;
+    padding: 3px 5px;
+    border-radius: 2px;
+    color: #4A235A;
+    font-style: italic;
+  }
+
+  /* Discussion prompt */
+  .section.discussion {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-top: 0.5px solid #d5b0e8;
+    padding-top: 5px;
+    margin-top: 2px;
+  }
+  .section.discussion .section-text {
+    font-style: italic;
+    color: #4A235A;
+    font-size: 7.5px;
+  }
+
+  /* Card footer */
+  .card-footer {
+    background: #F0E6F6;
+    padding: 4px 9px;
+    text-align: center;
+    flex-shrink: 0;
+    border-top: 1px solid #d5b0e8;
+  }
+  .card-footer span {
+    font-family: Arial, sans-serif;
+    font-size: 7px;
+    color: #7B1FA2;
+    letter-spacing: 1px;
+  }
+
+  @media print {
+    body { background: white; padding: 0; }
+    h1.deck-title, p.deck-subtitle { display: none; }
+    .page { margin: 0; box-shadow: none; page-break-after: always; }
+    .card { box-shadow: none; }
+  }
+
+
+/* ═══════════════════════════════════════════════════════════
+   RENAISSANCE × SAILOR MOON — DECORATIVE REDESIGN
+   ═══════════════════════════════════════════════════════════ */
+
+/* Parchment ground + celestial star-dot constellation pattern */
+.card {
+  background-color:  #FFFDF6 !important;
+  background-image:
+    radial-gradient(circle, rgba(106,27,154,0.09) 0.65px, transparent 0.65px),
+    radial-gradient(ellipse at 50% 5%,   #EDE7F699 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 95%,  #EDE7F666 0%, transparent 40%);
+  background-size: 13px 13px, 100% 100%, 100% 100% !important;
+  box-shadow:
+    inset 0 0 0 4.5px #FFFDF6,
+    inset 0 0 0 6.5px rgba(106,27,154,0.22),
+    0 3px 14px rgba(0,0,0,0.14) !important;
+  position: relative !important;
+}
+
+/* Four ✦ corner ornaments */
+.c {
+  position: absolute;
+  font-size: 8pt;
+  color: #6A1B9A;
+  opacity: 0.52;
+  z-index: 20;
+  pointer-events: none;
+  line-height: 1;
+  font-family: Georgia, serif;
+}
+.tl { top: 7px;    left:  8px; }
+.tr { top: 7px;    right: 8px; }
+.bl { bottom: 7px; left:  8px; }
+.br { bottom: 7px; right: 8px; }
+
+/* Planetary watermark (☽ ♄ ♃ ☿ ♀) */
+.card-watermark {
+  position:   absolute;
+  top:  50%;
+  left: 50%;
+  transform:  translate(-50%, -48%) rotate(-12deg);
+  font-size:  70pt;
+  color:      #6A1B9A;
+  opacity:    0.045;
+  pointer-events: none;
+  z-index: 1;
+  line-height: 1;
+  user-select: none;
+  font-family: Georgia, 'Times New Roman', serif;
+  white-space: nowrap;
+}
+
+/* Ornate ─── ✦ ─── divider (replaces plain .divider) */
+.ornate-div {
+  text-align:     center;
+  font-size:      6.5pt;
+  letter-spacing: 0.18em;
+  flex-shrink:    0;
+  opacity:        0.60;
+  margin:         3px 0 2px;
+  color:          #6A1B9A;
+  font-family:    Georgia, serif;
+}
+.divider { display: none !important; }
+
+/* Richer banner — deep illuminated gradient */
+.card-type-banner {
+  background: linear-gradient(135deg,
+    #38006b 0%,
+    #6A1B9A      38%,
+    #6A1B9A      62%,
+    #38006b 100%) !important;
+  padding: 6px 9px !important;
+  letter-spacing: 0.13em !important;
+  border-bottom: 1px solid rgba(255,255,255,0.28) !important;
+  position: relative;
+  z-index: 5;
+}
+
+/* Elegant serif section labels */
+.section-label {
+  font-family: 'Palatino Linotype', Georgia, serif !important;
+  font-size:   6pt !important;
+  font-weight: bold !important;
+  letter-spacing: 0.18em !important;
+  color: #38006b !important;
+  text-transform: uppercase !important;
+}
+
+/* Warm serif body text */
+.section-text {
+  font-family: Georgia, 'Palatino Linotype', serif !important;
+  font-size:   7.5pt !important;
+  line-height: 1.48 !important;
+  color: #261212 !important;
+}
+
+/* Stronger title */
+.card-title {
+  font-family: 'Palatino Linotype', Georgia, serif !important;
+  font-size:   12pt !important;
+  color: #38006b !important;
+  letter-spacing: 0.02em !important;
+  margin-bottom: 2px !important;
+}
+.card-descriptor {
+  font-family: Georgia, serif !important;
+  font-size:   7pt !important;
+  color: #6A1B9A !important;
+  letter-spacing: 0.04em !important;
+}
+
+/* Reflection box — illuminated margin note */
+.section.reflection {
+  background: linear-gradient(135deg, #EDE7F6, #FFFDF6 80%) !important;
+  border-left: 2.5px solid #6A1B9A !important;
+  border-radius: 0 5px 5px 0 !important;
+  padding: 5px 6px !important;
+  margin-top: 3px !important;
+}
+.section.reflection .section-text {
+  font-style: italic !important;
+  color: #38006b !important;
+}
+
+/* Warm gradient footer */
+.card-footer {
+  background: linear-gradient(to right, #EDE7F6, #CE93D866, #EDE7F6) !important;
+  border-top: 1px solid #CE93D8 !important;
+  padding: 4px 9px !important;
+  position: relative;
+  z-index: 5;
+}
+.card-footer, .card-footer span {
+  font-family: 'Palatino Linotype', Georgia, serif !important;
+  font-size:   5pt !important;
+  color: #38006b !important;
+  letter-spacing: 0.16em !important;
+}
+
+/* Crystal Wisdom card — green overrides */
+.card.crystal {
+  background-color: #FFFDF6 !important;
+  background-image:
+    radial-gradient(circle, rgba(29,106,57,0.09) 0.65px, transparent 0.65px),
+    radial-gradient(ellipse at 50% 5%,  #E8F5EE99 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 95%, #E8F5EE66 0%, transparent 40%);
+  background-size: 13px 13px, 100% 100%, 100% 100% !important;
+  box-shadow:
+    inset 0 0 0 4.5px #FFFDF6,
+    inset 0 0 0 6.5px rgba(29,106,57,0.22),
+    0 3px 14px rgba(0,0,0,0.14) !important;
+}
+.card.crystal .c { color: #1D6A39 !important; }
+.card.crystal .card-watermark { color: #1D6A39 !important; }
+
+/* Luna Facilitator card — silver/indigo overrides */
+.card.luna {
+  background-color: #FDFCFF !important;
+  background-image:
+    radial-gradient(circle, rgba(74,85,104,0.09) 0.65px, transparent 0.65px),
+    radial-gradient(ellipse at 50% 5%, rgba(240,241,243,0.7) 0%, transparent 50%);
+  background-size: 13px 13px, 100% 100% !important;
+  box-shadow:
+    inset 0 0 0 4.5px #FDFCFF,
+    inset 0 0 0 6.5px rgba(74,85,104,0.22),
+    0 3px 14px rgba(0,0,0,0.14) !important;
+}
+.card.luna .c { color: #5C6470 !important; }
+.card.luna .card-watermark { color: #5C6470 !important; }
+
+/* Courage pip override — keep gold */
+.pip { border-color: #B8860B !important; }
+.pip.filled { background: #C9A227 !important; }
+
+/* Audience tag overrides — keep category colours */
+.aud-scout { background: #E91E8C !important; color: white !important; }
+.aud-all   { background: #1565C0 !important; color: white !important; }
+.aud-obs   { background: #B8860B !important; color: white !important; }
+
+@media print {
+  body { background: white !important; padding: 0 !important; gap: 0 !important; }
+  h1, p, h1.section-title { display: none !important; }
+  .page {
+    margin: 0 !important;
+    box-shadow: none !important;
+    page-break-after: always !important;
+    break-after: page !important;
+  }
+  .card { box-shadow: none !important; }
+}
+</style>
+</head>
+<body>
+<h1 class="deck-title">● MOONLIGHT VOICES ● — Shadow Challenge Cards</h1>
+<p class="deck-subtitle">36 cards · Tarot size (2.75" × 4.75") · Print on letter paper · Cut along card borders · Recommended: card stock</p>
+<!-- PAGE 1 -->
+<div class="page">
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♄</div>
+<div class="card-type-banner"><span class="dot">●</span> SHADOW CHALLENGE <span class="card-num">01 / 36</span></div>
+<div class="card-body">
+<div class="card-title">The Stolen Idea</div>
+<div class="card-descriptor">Credit for your work migrates to someone else</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Scenario</div>
+<div class="section-text">In a team meeting, you propose a new approach to a persistent problem. There is a pause. The conversation moves on. Ten minutes later, a colleague repeats your idea almost word for word — and the room responds with enthusiasm. Your manager thanks them.</div>
+</div>
+<div class="section impact">
+<div class="section-label">The Impact</div>
+<div class="section-text">Research shows this happens disproportionately to women, people of colour, and those with quieter communication styles. Each occurrence chips at credibility and confidence.</div>
+</div>
+<div class="section discussion">
+<div class="section-label">Discussion Prompt</div>
+<div class="section-text">"What would you do in this moment — and what would make it easier or harder to act?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♄</div>
+<div class="card-type-banner"><span class="dot">●</span> SHADOW CHALLENGE <span class="card-num">02 / 36</span></div>
+<div class="card-body">
+<div class="card-title">The Spokesperson</div>
+<div class="card-descriptor">Asked to represent your entire racial or cultural group</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Scenario</div>
+<div class="section-text">A colleague turns to you in a team meeting about a policy change: "You can give us the Black perspective on this, right?" You are the only Black person in the room. No one seems to notice anything unusual about this request.</div>
+</div>
+<div class="section impact">
+<div class="section-label">The Impact</div>
+<div class="section-text">This places an unfair cognitive and emotional burden on one person — and implies that all members of a group share a single view. It is dehumanising even when well-intentioned.</div>
+</div>
+<div class="section discussion">
+<div class="section-label">Discussion Prompt</div>
+<div class="section-text">"How could an ally in this room have intervened — before you were asked to respond?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♄</div>
+<div class="card-type-banner"><span class="dot">●</span> SHADOW CHALLENGE <span class="card-num">03 / 36</span></div>
+<div class="card-body">
+<div class="card-title">The Fluency Compliment</div>
+<div class="card-descriptor">A "compliment" that reveals an assumption</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Scenario</div>
+<div class="section-text">After a presentation you've spent two weeks preparing, a senior leader approaches you: "You speak English so well! Where did you learn?" They are smiling. They mean it as a compliment. You were born in this country.</div>
+</div>
+<div class="section impact">
+<div class="section-label">The Impact</div>
+<div class="section-text">This microaggression signals that the speaker assumed you were foreign based on your appearance. It places your belonging in question — even as it praises you.</div>
+</div>
+<div class="section discussion">
+<div class="section-label">Discussion Prompt</div>
+<div class="section-text">"What assumption sits underneath this 'compliment'? How would you want a colleague to respond?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♄</div>
+<div class="card-type-banner"><span class="dot">●</span> SHADOW CHALLENGE <span class="card-num">04 / 36</span></div>
+<div class="card-body">
+<div class="card-title">The Social Invisible</div>
+<div class="card-descriptor">Excluded from the informal networks that shape careers</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Scenario</div>
+<div class="section-text">On Monday morning you hear colleagues discussing Friday's after-work drinks — an event you weren't told about. This is the third time this has happened. The group who went out together are the ones who get stretch assignments and introductions to senior leaders.</div>
+</div>
+<div class="section impact">
+<div class="section-label">The Impact</div>
+<div class="section-text">Informal exclusion is often invisible to those doing the excluding. It compounds over time into measurable career disadvantage — fewer sponsors, less visibility, slower promotion.</div>
+</div>
+<div class="section discussion">
+<div class="section-label">Discussion Prompt</div>
+<div class="section-text">"Who gets included in informal social networks at your organisation — and who doesn't? What drives that?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+</div><!-- page 1 -->
+<!-- PAGE 2 -->
+<div class="page">
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♄</div>
+<div class="card-type-banner"><span class="dot">●</span> SHADOW CHALLENGE <span class="card-num">05 / 36</span></div>
+<div class="card-body">
+<div class="card-title">The Commitment Question</div>
+<div class="card-descriptor">Disability accommodation labelled as lacking dedication</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Scenario</div>
+<div class="section-text">You've requested to work from home two days a week to manage a chronic health condition — a request supported by your doctor. Your manager approves it reluctantly, then mentions in your performance review that your "commitment and visibility" are concerns.</div>
+</div>
+<div class="section impact">
+<div class="section-label">The Impact</div>
+<div class="section-text">Flexibility accommodations are legal rights, not favours. When penalised informally, disabled employees face a choice between health and career advancement — a choice their peers don't face.</div>
+</div>
+<div class="section discussion">
+<div class="section-label">Discussion Prompt</div>
+<div class="section-text">"What does 'commitment' really mean in your workplace — and whose needs does that definition centre?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♄</div>
+<div class="card-type-banner"><span class="dot">●</span> SHADOW CHALLENGE <span class="card-num">06 / 36</span></div>
+<div class="card-body">
+<div class="card-title">The Wrong Name</div>
+<div class="card-descriptor">Repeatedly confused with the only other person who looks like you</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Scenario</div>
+<div class="section-text">For the third time this month, a senior colleague calls you by the name of the only other person of your ethnicity on the team. They apologise briefly. Next week it happens again. Your names sound nothing alike.</div>
+</div>
+<div class="section impact">
+<div class="section-label">The Impact</div>
+<div class="section-text">Being confused with another person based on race signals that the offender sees a category rather than an individual. Each repetition communicates: you are interchangeable. You do not fully exist as yourself.</div>
+</div>
+<div class="section discussion">
+<div class="section-label">Discussion Prompt</div>
+<div class="section-text">"What responsibility does an organisation have when a pattern like this continues unchallenged?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♄</div>
+<div class="card-type-banner"><span class="dot">●</span> SHADOW CHALLENGE <span class="card-num">07 / 36</span></div>
+<div class="card-body">
+<div class="card-title">The Tone Police</div>
+<div class="card-descriptor">Your message dismissed because of how you delivered it</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Scenario</div>
+<div class="section-text">You raise a concern about a discriminatory comment in a team meeting — calmly, with specific examples. Afterwards, a colleague pulls you aside: "Your point might have landed better if you weren't so intense. People got defensive." The comment itself is never addressed.</div>
+</div>
+<div class="section impact">
+<div class="section-label">The Impact</div>
+<div class="section-text">Tone policing shifts focus from a valid complaint to the manner of delivery — and disproportionately silences women and people of colour who are already navigating respectability politics.</div>
+</div>
+<div class="section discussion">
+<div class="section-label">Discussion Prompt</div>
+<div class="section-text">"When we focus on how something was said rather than what was said, whose interests does that serve?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♄</div>
+<div class="card-type-banner"><span class="dot">●</span> SHADOW CHALLENGE <span class="card-num">08 / 36</span></div>
+<div class="card-body">
+<div class="card-title">The Inconvenient Prayer</div>
+<div class="card-descriptor">Religious observance treated as a scheduling problem</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Scenario</div>
+<div class="section-text">A critical all-hands meeting is scheduled for Friday at 1pm — exactly when Friday prayers take place. When you raise this, HR says they'll "try to keep it brief." The meeting runs until 2:30pm. This is the fourth time this year.</div>
+</div>
+<div class="section impact">
+<div class="section-label">The Impact</div>
+<div class="section-text">When the same group's observance is repeatedly treated as less important than scheduling convenience, the message is clear: your faith belongs outside working hours, even when it cannot be separated from who you are.</div>
+</div>
+<div class="section discussion">
+<div class="section-label">Discussion Prompt</div>
+<div class="section-text">"What religious and cultural observances does your organisation plan around — and which ones does it not? What does that pattern reveal?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+</div><!-- page 2 -->
+<!-- PAGE 3 -->
+<div class="page">
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♄</div>
+<div class="card-type-banner"><span class="dot">●</span> SHADOW CHALLENGE <span class="card-num">09 / 36</span></div>
+<div class="card-body">
+<div class="card-title">The Wellness Trap</div>
+<div class="card-descriptor">A "wellness" initiative that excludes those it claims to support</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Scenario</div>
+<div class="section-text">Your company launches a Wellness Initiative with mandatory 6am yoga sessions and a team step-count leaderboard. Participation is "strongly encouraged." Opting out is noted. For your Scout identity — someone with fibromyalgia — 6am movement could trigger a flare-up lasting days.</div>
+</div>
+<div class="section impact">
+<div class="section-label">The Impact</div>
+<div class="section-text">Wellness programmes designed around a narrow idea of healthy bodies can exclude, humiliate, and penalise people with chronic illness, disability, or different cultural relationships to health.</div>
+</div>
+<div class="section discussion">
+<div class="section-label">Discussion Prompt</div>
+<div class="section-text">"Whose body and whose schedule is your organisation's wellness culture designed for?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♄</div>
+<div class="card-type-banner"><span class="dot">●</span> SHADOW CHALLENGE <span class="card-num">10 / 36</span></div>
+<div class="card-body">
+<div class="card-title">The Fragility Shield</div>
+<div class="card-descriptor">A complaint becomes about the person you complained about</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Scenario</div>
+<div class="section-text">You raise a concern with your manager about a colleague's repeated exclusionary comments. Your manager listens, then says: "I'm going to have to talk to them — they're going to be really upset. They didn't mean any harm." The conversation becomes about protecting that colleague's feelings.</div>
+</div>
+<div class="section impact">
+<div class="section-label">The Impact</div>
+<div class="section-text">When the emotional discomfort of the person causing harm is centred over the harm itself, it teaches people from marginalised groups that complaining causes more problems than silence.</div>
+</div>
+<div class="section discussion">
+<div class="section-label">Discussion Prompt</div>
+<div class="section-text">"In your organisation, what happens to people who raise concerns? What does that outcome teach everyone else?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♄</div>
+<div class="card-type-banner"><span class="dot">●</span> SHADOW CHALLENGE <span class="card-num">11 / 36</span></div>
+<div class="card-body">
+<div class="card-title">The Diversity Prop</div>
+<div class="card-descriptor">Included for the photo, not the decision</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Scenario</div>
+<div class="section-text">You are asked to join a high-profile panel and appear in the company's annual report photography. You are not consulted about any of the policy decisions the report discusses. A colleague congratulates you on your "increased visibility." You smile and say nothing.</div>
+</div>
+<div class="section impact">
+<div class="section-label">The Impact</div>
+<div class="section-text">Performative inclusion — diversity in image without power or voice — is a form of exploitation. It benefits the organisation's reputation while giving nothing substantive to the person included.</div>
+</div>
+<div class="section discussion">
+<div class="section-label">Discussion Prompt</div>
+<div class="section-text">"What is the difference between being visible and having influence? How does your organisation confuse the two?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♄</div>
+<div class="card-type-banner"><span class="dot">●</span> SHADOW CHALLENGE <span class="card-num">12 / 36</span></div>
+<div class="card-body">
+<div class="card-title">The Invisible Promotion</div>
+<div class="card-descriptor">Passed over despite being the most qualified candidate</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Scenario</div>
+<div class="section-text">A senior role opens up. You meet every criterion listed — and exceed most. The role goes to a colleague with fewer years of experience and weaker results. When you ask for feedback, you are told you need to "work on your executive presence."</div>
+</div>
+<div class="section impact">
+<div class="section-label">The Impact</div>
+<div class="section-text">"Executive presence" is often code for conforming to a narrow cultural standard — one that disproportionately disadvantages women, people of colour, and those from non-dominant backgrounds.</div>
+</div>
+<div class="section discussion">
+<div class="section-label">Discussion Prompt</div>
+<div class="section-text">"What does 'executive presence' actually mean at your organisation — and whose image does it describe?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+</div><!-- page 3 -->
+<!-- PAGE 4 -->
+<div class="page">
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♄</div>
+<div class="card-type-banner"><span class="dot">●</span> SHADOW CHALLENGE <span class="card-num">13 / 36</span></div>
+<div class="card-body">
+<div class="card-title">The Really From</div>
+<div class="card-descriptor">Your stated answer to "where are you from?" is not accepted</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Scenario</div>
+<div class="section-text">A new colleague asks where you're from. You say Birmingham. They smile: "No, but where are you really from?" You say Birmingham again. "But your parents — where are they from originally?" This is the third conversation like this you've had this month.</div>
+</div>
+<div class="section impact">
+<div class="section-label">The Impact</div>
+<div class="section-text">Refusing to accept someone's stated origin communicates that their appearance overrides their answer — that they do not belong where they say they belong. Belonging is being denied in real time.</div>
+</div>
+<div class="section discussion">
+<div class="section-label">Discussion Prompt</div>
+<div class="section-text">"What does it feel like to have your own answer about yourself treated as insufficient? Who gets to decide where you're from?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♄</div>
+<div class="card-type-banner"><span class="dot">●</span> SHADOW CHALLENGE <span class="card-num">14 / 36</span></div>
+<div class="card-body">
+<div class="card-title">The Interrupted Room</div>
+<div class="card-descriptor">Consistently talked over in meetings</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Scenario</div>
+<div class="section-text">You are the only woman in a leadership meeting. You begin a point — you are interrupted by a male colleague. You try again — interrupted again. You wait, then raise a hand. The facilitator calls on you, you speak three sentences, and another colleague begins talking over your third.</div>
+</div>
+<div class="section impact">
+<div class="section-label">The Impact</div>
+<div class="section-text">Research shows women — especially women of colour — are interrupted at significantly higher rates than men in professional settings. Over time, people stop speaking, and the room loses their perspective entirely.</div>
+</div>
+<div class="section discussion">
+<div class="section-label">Discussion Prompt</div>
+<div class="section-text">"What is lost to the team when some voices are systematically prevented from completing a thought?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♄</div>
+<div class="card-type-banner"><span class="dot">●</span> SHADOW CHALLENGE <span class="card-num">15 / 36</span></div>
+<div class="card-body">
+<div class="card-title">The Bathroom Calculation</div>
+<div class="card-descriptor">A basic need becomes a source of stress and danger</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Scenario</div>
+<div class="section-text">You are non-binary and use they/them pronouns. Your office has gendered bathrooms only. Using either one risks a confrontation or a complaint to HR. You have started timing your bathroom use for quiet moments and avoiding the office kitchen, where colleagues congregate.</div>
+</div>
+<div class="section impact">
+<div class="section-label">The Impact</div>
+<div class="section-text">When basic physical needs require strategic planning and emotional labour, an employee cannot give their full attention to their work. Safety is a precondition for performance, not a luxury.</div>
+</div>
+<div class="section discussion">
+<div class="section-label">Discussion Prompt</div>
+<div class="section-text">"What would it take for your organisation to make every employee feel physically safe and welcome in its spaces?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♄</div>
+<div class="card-type-banner"><span class="dot">●</span> SHADOW CHALLENGE <span class="card-num">16 / 36</span></div>
+<div class="card-body">
+<div class="card-title">The Code Switch Tax</div>
+<div class="card-descriptor">Expected to present a version of yourself that isn't yours</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Scenario</div>
+<div class="section-text">Before your quarterly presentation, a well-meaning mentor advises you to "dial down the slang" and dress "more corporate." You weren't using slang. You were speaking normally. Your white colleagues are not given this advice.</div>
+</div>
+<div class="section impact">
+<div class="section-label">The Impact</div>
+<div class="section-text">Code-switching — the exhausting performance of a culturally "acceptable" self — is demanded disproportionately of people of colour, costing cognitive energy, authenticity, and long-term wellbeing.</div>
+</div>
+<div class="section discussion">
+<div class="section-label">Discussion Prompt</div>
+<div class="section-text">"What is the hidden cost of professionalism standards that are culturally specific but presented as universal?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+</div><!-- page 4 -->
+<!-- PAGE 5 -->
+<div class="page">
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♄</div>
+<div class="card-type-banner"><span class="dot">●</span> SHADOW CHALLENGE <span class="card-num">17 / 36</span></div>
+<div class="card-body">
+<div class="card-title">The Ally Who Isn't</div>
+<div class="card-descriptor">A self-declared ally who speaks over you</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Scenario</div>
+<div class="section-text">A colleague who calls themselves your ally raises an issue on your behalf in a meeting — without telling you they planned to, and without accurately representing what you said you experienced. They receive praise for "speaking up." You weren't asked if you wanted them to.</div>
+</div>
+<div class="section impact">
+<div class="section-label">The Impact</div>
+<div class="section-text">Allyship that centres the ally's visibility rather than the affected person's agency reproduces the same power dynamic it claims to challenge. True allyship asks: what do you need from me?</div>
+</div>
+<div class="section discussion">
+<div class="section-label">Discussion Prompt</div>
+<div class="section-text">"What is the difference between speaking up for someone and speaking over them? How do you tell the difference in the moment?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♄</div>
+<div class="card-type-banner"><span class="dot">●</span> SHADOW CHALLENGE <span class="card-num">18 / 36</span></div>
+<div class="card-body">
+<div class="card-title">The Empty Chair</div>
+<div class="card-descriptor">An inaccessible venue makes participation impossible</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Scenario</div>
+<div class="section-text">Your team's offsite strategy day is held at a venue with steps at the entrance and no lift. As a wheelchair user, you cannot attend. You are sent the slides afterwards and told the event was "really valuable." No one thought to check the venue before booking.</div>
+</div>
+<div class="section impact">
+<div class="section-label">The Impact</div>
+<div class="section-text">Inaccessible venues exclude disabled employees from exactly the events where relationships are built and decisions are made — compounding career disadvantage through physical oversight.</div>
+</div>
+<div class="section discussion">
+<div class="section-label">Discussion Prompt</div>
+<div class="section-text">"What would it take to make accessibility the first question asked — not the afterthought — when planning any work event?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♄</div>
+<div class="card-type-banner"><span class="dot">●</span> SHADOW CHALLENGE <span class="card-num">19 / 36</span></div>
+<div class="card-body">
+<div class="card-title">The DEI Volunteer</div>
+<div class="card-descriptor">Expected to lead all diversity work as the only person of colour</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Scenario</div>
+<div class="section-text">You are the only person of colour on your team. Without being formally asked, you have somehow become the go-to person for DEI advice, the unofficial planner of cultural celebrations, and the first call when a colleague says something offensive. None of this is in your job description.</div>
+</div>
+<div class="section impact">
+<div class="section-label">The Impact</div>
+<div class="section-text">This invisible labour is unpaid, unrecognised, and disproportionate. It also places the burden of an organisation's inclusion failures on the people most affected by them — a profound structural injustice.</div>
+</div>
+<div class="section discussion">
+<div class="section-label">Discussion Prompt</div>
+<div class="section-text">"Who in your organisation carries the informal labour of diversity and inclusion — and is it equitably distributed?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♄</div>
+<div class="card-type-banner"><span class="dot">●</span> SHADOW CHALLENGE <span class="card-num">20 / 36</span></div>
+<div class="card-body">
+<div class="card-title">The Credibility Test</div>
+<div class="card-descriptor">Your expertise is questioned; a white colleague's is not</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Scenario</div>
+<div class="section-text">You make a technical recommendation in a team meeting. A colleague asks for sources and evidence. Two minutes later, a white male colleague makes a similar recommendation — no one asks him to justify it. The meeting moves forward on his suggestion.</div>
+</div>
+<div class="section impact">
+<div class="section-label">The Impact</div>
+<div class="section-text">Differential credibility standards — where some people must prove expertise others are assumed to have — undermine performance, fairness, and team cohesion over time.</div>
+</div>
+<div class="section discussion">
+<div class="section-label">Discussion Prompt</div>
+<div class="section-text">"In your organisation, whose expertise is assumed and whose must be earned? What drives that difference?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+</div><!-- page 5 -->
+<!-- PAGE 6 -->
+<div class="page">
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♄</div>
+<div class="card-type-banner"><span class="dot">●</span> SHADOW CHALLENGE <span class="card-num">21 / 36</span></div>
+<div class="card-body">
+<div class="card-title">The Pregnancy Penalty</div>
+<div class="card-descriptor">Excluded from opportunities after announcing a pregnancy</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Scenario</div>
+<div class="section-text">Three weeks after announcing your pregnancy, you notice that two high-profile projects that should have come to you have gone to junior colleagues. When you ask, your manager says they "didn't want to overload you." You were never asked what you wanted.</div>
+</div>
+<div class="section impact">
+<div class="section-label">The Impact</div>
+<div class="section-text">The "maternal wall" — assumptions that pregnancy reduces ambition, capability, or availability — is a documented form of discrimination that derails careers and communicates that parenthood disqualifies women from serious work.</div>
+</div>
+<div class="section discussion">
+<div class="section-label">Discussion Prompt</div>
+<div class="section-text">"What does 'protecting' a pregnant employee from opportunities actually communicate — and to whom?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♄</div>
+<div class="card-type-banner"><span class="dot">●</span> SHADOW CHALLENGE <span class="card-num">22 / 36</span></div>
+<div class="card-body">
+<div class="card-title">The CV Filter</div>
+<div class="card-descriptor">Rejected before the interview based on your name</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Scenario</div>
+<div class="section-text">You apply for a role you are exceptionally qualified for. You hear nothing. A friend with identical qualifications and a more Anglo-sounding name applies to the same role and is invited to interview the next day. You have tested this before. It is not the first time.</div>
+</div>
+<div class="section impact">
+<div class="section-label">The Impact</div>
+<div class="section-text">Studies show CVs with "white-sounding" names receive significantly more interview callbacks than identical CVs with names perceived as ethnic — a systemic bias that operates before any human ever reads your qualifications.</div>
+</div>
+<div class="section discussion">
+<div class="section-label">Discussion Prompt</div>
+<div class="section-text">"What hiring practices in your organisation might be filtering out candidates based on irrelevant signals before a human even reads their application?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♄</div>
+<div class="card-type-banner"><span class="dot">●</span> SHADOW CHALLENGE <span class="card-num">23 / 36</span></div>
+<div class="card-body">
+<div class="card-title">The Mental Health Joke</div>
+<div class="card-descriptor">Psychiatric terms used casually as insults</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Scenario</div>
+<div class="section-text">In a team Slack channel, a colleague describes a busy project as "totally OCD" and another says a difficult client is "acting psychotic." Everyone laughs. You are managing a mental health condition in secret. You do not laugh. No one notices.</div>
+</div>
+<div class="section impact">
+<div class="section-label">The Impact</div>
+<div class="section-text">Casual misuse of psychiatric language stigmatises mental illness and signals to people managing these conditions that their experiences are fair game for mockery — making disclosure feel unsafe and dangerous.</div>
+</div>
+<div class="section discussion">
+<div class="section-label">Discussion Prompt</div>
+<div class="section-text">"What does the casual use of mental illness language in your workplace communicate about how the organisation views mental health?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♄</div>
+<div class="card-type-banner"><span class="dot">●</span> SHADOW CHALLENGE <span class="card-num">24 / 36</span></div>
+<div class="card-body">
+<div class="card-title">The Charity Case</div>
+<div class="card-descriptor">Treated as if your position is owed to diversity quotas</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Scenario</div>
+<div class="section-text">After being promoted — fairly, based on outstanding results — a colleague says to a mutual friend (who tells you): "It's great for them, of course, but you have to wonder if the best person got it, or if they just needed the numbers." The colleague considers themselves progressive.</div>
+</div>
+<div class="section impact">
+<div class="section-label">The Impact</div>
+<div class="section-text">Attributing someone's success to their identity rather than their merit is a form of discrimination. It denies accomplishment, undermines confidence, and follows people of colour and women throughout their careers.</div>
+</div>
+<div class="section discussion">
+<div class="section-label">Discussion Prompt</div>
+<div class="section-text">"Why do we rarely ask whether a white man 'really deserved' his promotion — and what does that inconsistency reveal?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+</div><!-- page 6 -->
+<!-- PAGE 7 -->
+<div class="page">
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♄</div>
+<div class="card-type-banner"><span class="dot">●</span> SHADOW CHALLENGE <span class="card-num">25 / 36</span></div>
+<div class="card-body">
+<div class="card-title">The Pay Gap Discovery</div>
+<div class="card-descriptor">Learning you earn significantly less than less-qualified peers</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Scenario</div>
+<div class="section-text">A new colleague accidentally shares their salary in a document. They are less experienced, were hired after you, and have had one fewer positive performance review. They earn 18% more than you. When you raise this with HR, you are told salaries are confidential and "individually negotiated."</div>
+</div>
+<div class="section impact">
+<div class="section-label">The Impact</div>
+<div class="section-text">The gender and racial pay gap is well-documented globally. Salary secrecy often protects these gaps rather than those who are underpaid — because the people who negotiate most confidently are rarely the ones disadvantaged by the gap.</div>
+</div>
+<div class="section discussion">
+<div class="section-label">Discussion Prompt</div>
+<div class="section-text">"What systems in your organisation make it possible for pay gaps to persist — and what would pay transparency actually require?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♄</div>
+<div class="card-type-banner"><span class="dot">●</span> SHADOW CHALLENGE <span class="card-num">26 / 36</span></div>
+<div class="card-body">
+<div class="card-title">The Glass Cliff</div>
+<div class="card-descriptor">Given leadership only in a crisis set up to fail</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Scenario</div>
+<div class="section-text">Your organisation faces a major public crisis around its diversity record. You — the most senior person of colour — are appointed to lead the recovery task force with a six-week timeline, minimal budget, and unclear authority. When it doesn't fully succeed, your leadership is questioned.</div>
+</div>
+<div class="section impact">
+<div class="section-label">The Impact</div>
+<div class="section-text">The "glass cliff" — the pattern of appointing women and minorities to leadership in precarious situations — means these leaders are set up to fail, and their failure reinforces false narratives about capability.</div>
+</div>
+<div class="section discussion">
+<div class="section-label">Discussion Prompt</div>
+<div class="section-text">"Who in your organisation gets given leadership in times of stability — and who gets it in times of crisis? What does that pattern say?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♄</div>
+<div class="card-type-banner"><span class="dot">●</span> SHADOW CHALLENGE <span class="card-num">27 / 36</span></div>
+<div class="card-body">
+<div class="card-title">The Interview Question</div>
+<div class="card-descriptor">Asked about family plans during a job interview</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Scenario</div>
+<div class="section-text">You are interviewing for a senior role. The interviewer, friendly and casual, asks: "Do you see yourself having children in the next few years? We just want to understand your long-term commitment." Your male colleague who interviewed for the same role was not asked this question.</div>
+</div>
+<div class="section impact">
+<div class="section-label">The Impact</div>
+<div class="section-text">This question is illegal in many jurisdictions and reveals that the interviewer is factoring family planning into their assessment — treating potential parenthood as a professional risk for women but not men.</div>
+</div>
+<div class="section discussion">
+<div class="section-label">Discussion Prompt</div>
+<div class="section-text">"What does this question assume — about women, about parents, and about what 'commitment' means?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♄</div>
+<div class="card-type-banner"><span class="dot">●</span> SHADOW CHALLENGE <span class="card-num">28 / 36</span></div>
+<div class="card-body">
+<div class="card-title">The Reverse Card</div>
+<div class="card-descriptor">Equity efforts labelled as "reverse discrimination"</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Scenario</div>
+<div class="section-text">Your organisation announces a targeted mentoring programme for women of colour. In the all-staff forum, a white male colleague asks: "Isn't this just discrimination in reverse? Shouldn't we treat everyone the same?" He receives several "likes" on his post.</div>
+</div>
+<div class="section impact">
+<div class="section-label">The Impact</div>
+<div class="section-text">Treating equity as discrimination misunderstands both. Equal treatment in an unequal system reproduces inequality. The question privileges the comfort of those who already benefit over the rights of those who don't.</div>
+</div>
+<div class="section discussion">
+<div class="section-label">Discussion Prompt</div>
+<div class="section-text">"What is the difference between equality (same treatment) and equity (what each person actually needs)? Why does that distinction matter?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+</div><!-- page 7 -->
+<!-- PAGE 8 -->
+<div class="page">
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♄</div>
+<div class="card-type-banner"><span class="dot">●</span> SHADOW CHALLENGE <span class="card-num">29 / 36</span></div>
+<div class="card-body">
+<div class="card-title">The Extra Scrutiny</div>
+<div class="card-descriptor">Your work held to higher standards than your peers'</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Scenario</div>
+<div class="section-text">You notice that your reports are reviewed in detail and sent back with extensive edits, while your colleagues' work is approved with minimal changes. When you submit the same quality of work a second time with a male colleague's name on it, it is approved immediately.</div>
+</div>
+<div class="section impact">
+<div class="section-label">The Impact</div>
+<div class="section-text">Differential standards — requiring more proof of quality from some employees than others — are a form of bias that exhausts and demoralises without ever being named or acknowledged as unfair.</div>
+</div>
+<div class="section discussion">
+<div class="section-label">Discussion Prompt</div>
+<div class="section-text">"How would you even notice if the quality bar was being applied differently to different people in your team? What would you do if you did?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♄</div>
+<div class="card-type-banner"><span class="dot">●</span> SHADOW CHALLENGE <span class="card-num">30 / 36</span></div>
+<div class="card-body">
+<div class="card-title">The Deadname</div>
+<div class="card-descriptor">Called by a name you no longer use — in public</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Scenario</div>
+<div class="section-text">You are trans and have informed HR of your name change. In a company-wide virtual meeting, the presenter reads from an old list and calls you by your deadname in front of 200 colleagues. They don't realise their error. You spend the rest of the meeting managing your response.</div>
+</div>
+<div class="section impact">
+<div class="section-label">The Impact</div>
+<div class="section-text">Deadnaming — even accidentally — can be deeply distressing, and exposes someone's trans status without consent. It signals that the organisation's systems have not caught up with the person's reality.</div>
+</div>
+<div class="section discussion">
+<div class="section-label">Discussion Prompt</div>
+<div class="section-text">"What systems, lists, and processes in your organisation might be holding outdated information — and whose responsibility is it to update them?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♄</div>
+<div class="card-type-banner"><span class="dot">●</span> SHADOW CHALLENGE <span class="card-num">31 / 36</span></div>
+<div class="card-body">
+<div class="card-title">The Single Story</div>
+<div class="card-descriptor">Your country and culture reduced to a stereotype</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Scenario</div>
+<div class="section-text">You are from Nigeria. A colleague, learning this, says: "Oh wow — what was it like growing up there? Is it safe?" They look surprised when you mention you grew up in Lagos, attended university in Ibadan, and come from a family of professionals. They expected a different story.</div>
+</div>
+<div class="section impact">
+<div class="section-label">The Impact</div>
+<div class="section-text">The "single story" — reducing a continent, country, or culture to its most dramatic or tragic representation — is a form of dehumanisation that erases the diversity, modernity, and complexity of entire societies.</div>
+</div>
+<div class="section discussion">
+<div class="section-label">Discussion Prompt</div>
+<div class="section-text">"Where do our mental images of other countries come from — and how do those images affect how we treat the people who come from them?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♄</div>
+<div class="card-type-banner"><span class="dot">●</span> SHADOW CHALLENGE <span class="card-num">32 / 36</span></div>
+<div class="card-body">
+<div class="card-title">The Micromanaged</div>
+<div class="card-descriptor">Monitored more closely than your peers for no clear reason</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Scenario</div>
+<div class="section-text">Your manager checks in on your work multiple times a day, asks for updates your colleagues aren't asked for, and reviews your work before it goes to clients. Others on the team work independently. No performance issue has ever been formally raised with you.</div>
+</div>
+<div class="section impact">
+<div class="section-label">The Impact</div>
+<div class="section-text">Excessive monitoring signals distrust and communicates that the employee is not seen as competent. When applied unequally, it constitutes a form of discrimination — even when the manager believes they're being "thorough."</div>
+</div>
+<div class="section discussion">
+<div class="section-label">Discussion Prompt</div>
+<div class="section-text">"If the same management behaviour is applied to some people and not others, is it still just management style? At what point does it become bias?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+</div><!-- page 8 -->
+<!-- PAGE 9 -->
+<div class="page">
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♄</div>
+<div class="card-type-banner"><span class="dot">●</span> SHADOW CHALLENGE <span class="card-num">33 / 36</span></div>
+<div class="card-body">
+<div class="card-title">The Exit Interview Truth</div>
+<div class="card-descriptor">Critical feedback given only after you've already resigned</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Scenario</div>
+<div class="section-text">You resign after years of being overlooked and underpaid. In your exit interview, your manager shares detailed, specific feedback about your strengths and what they could have done to retain you — feedback they never shared while you were still there. It is too late. You already know where you're going.</div>
+</div>
+<div class="section impact">
+<div class="section-label">The Impact</div>
+<div class="section-text">Withholding development feedback deprives employees of the chance to grow and signals that their career investment matters to the organisation only when they are leaving it.</div>
+</div>
+<div class="section discussion">
+<div class="section-label">Discussion Prompt</div>
+<div class="section-text">"Why are we sometimes more honest with people on their way out than while they're with us — and what does that say about our culture?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♄</div>
+<div class="card-type-banner"><span class="dot">●</span> SHADOW CHALLENGE <span class="card-num">34 / 36</span></div>
+<div class="card-body">
+<div class="card-title">The Unseen Interpreter</div>
+<div class="card-descriptor">No interpreter provided; expected to manage without</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Scenario</div>
+<div class="section-text">You are Deaf and requested a BSL interpreter for a critical team training session three weeks in advance. The day arrives — no interpreter has been booked. You are handed a notepad and told someone will summarise for you. The session lasts four hours. You receive a PowerPoint file by email the next morning.</div>
+</div>
+<div class="section impact">
+<div class="section-label">The Impact</div>
+<div class="section-text">Failing to provide required accommodations is not just inconvenient — it is a legal failure and communicates that the organisation's administrative convenience outranks your right to participate fully.</div>
+</div>
+<div class="section discussion">
+<div class="section-label">Discussion Prompt</div>
+<div class="section-text">"What does it take for an accommodation request to be taken seriously in your organisation — and why should it take anything at all?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♄</div>
+<div class="card-type-banner"><span class="dot">●</span> SHADOW CHALLENGE <span class="card-num">35 / 36</span></div>
+<div class="card-body">
+<div class="card-title">The Last Voice</div>
+<div class="card-descriptor">In virtual meetings, called upon only after everyone else</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Scenario</div>
+<div class="section-text">In remote team calls, you notice a pattern: you are consistently the last person asked for input — after the discussion has already reached a conclusion. When you agree with that conclusion, you are seen as confirming it. When you don't, you are "reopening" a decided matter. Your camera is always on. It doesn't seem to matter.</div>
+</div>
+<div class="section impact">
+<div class="section-label">The Impact</div>
+<div class="section-text">Speaking order in meetings signals perceived importance. When some voices are structurally last, their contributions are framed as additions rather than inputs — shaping outcomes without appearing to.</div>
+</div>
+<div class="section discussion">
+<div class="section-label">Discussion Prompt</div>
+<div class="section-text">"Who speaks first, last, and most in your meetings — and what does that order communicate about whose ideas matter?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♄</div>
+<div class="card-type-banner"><span class="dot">●</span> SHADOW CHALLENGE <span class="card-num">36 / 36</span></div>
+<div class="card-body">
+<div class="card-title">The Cultural Costume</div>
+<div class="card-descriptor">Your culture used as a theme party concept</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Scenario</div>
+<div class="section-text">Your company's annual party has a "Around the World" theme. Colleagues arrive dressed in cultural costumes — including several in attire that represents your heritage, worn as a novelty. Everyone seems to be having fun. You are asked to pose for a photo with a colleague wearing a costume from your culture. You smile.</div>
+</div>
+<div class="section impact">
+<div class="section-label">The Impact</div>
+<div class="section-text">Cultural appropriation in social settings — wearing another group's cultural symbols as entertainment — signals that those cultures are props rather than living traditions connected to real people with real feelings in the room.</div>
+</div>
+<div class="section discussion">
+<div class="section-label">Discussion Prompt</div>
+<div class="section-text">"What is the difference between cultural appreciation and cultural appropriation — and where is that line in your organisation's social events?"</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+</div><!-- page 9 -->
+</body>
+</html>

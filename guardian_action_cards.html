@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Moonlight Voices – Guardian Action Cards</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Georgia', serif; background: #fef3cd; padding: 20px; }
+  h1.deck-title { font-family: Arial, sans-serif; text-align: center; color: #7A5C00; font-size: 22px; margin-bottom: 6px; letter-spacing: 2px; }
+  p.deck-subtitle { text-align: center; color: #888; font-size: 12px; margin-bottom: 20px; font-family: Arial, sans-serif; }
+
+  .page {
+    width: 8.5in; min-height: 11in; background: white;
+    margin: 0 auto 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 2.75in);
+    grid-template-rows: repeat(2, 4.75in);
+    gap: 0.375in;
+    padding: 0.5625in 1.125in;
+    page-break-after: always;
+  }
+
+  .card {
+    width: 2.75in; height: 4.75in;
+    border: 1.5px solid #C9A227;
+    border-radius: 10px; overflow: hidden;
+    display: flex; flex-direction: column;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(201,162,39,0.2);
+  }
+
+  /* Gold banner */
+  .card-type-banner {
+    background: linear-gradient(135deg, #C9A227, #A07C00);
+    color: #1A1A2E;
+    font-family: Arial, sans-serif; font-size: 8px; font-weight: bold;
+    letter-spacing: 1.5px; text-align: center;
+    padding: 5px 8px 4px; text-transform: uppercase;
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    flex-shrink: 0;
+  }
+  .card-type-banner .star { font-size: 10px; }
+  .card-num { margin-left: auto; font-size: 7px; opacity: 0.75; font-weight: normal; letter-spacing: 0; }
+
+  /* Courage meter banner */
+  .courage-bar {
+    background: #FEF9E7;
+    border-bottom: 1px solid #F0D060;
+    padding: 4px 9px;
+    display: flex; align-items: center; gap: 6px;
+    flex-shrink: 0;
+  }
+  .courage-label { font-family: Arial, sans-serif; font-size: 6.5px; font-weight: bold; color: #A07C00; letter-spacing: 0.8px; text-transform: uppercase; }
+  .courage-pips { display: flex; gap: 2px; }
+  .pip { width: 8px; height: 8px; border-radius: 50%; border: 1px solid #C9A227; }
+  .pip.filled { background: #C9A227; }
+
+  .card-body { flex: 1; display: flex; flex-direction: column; padding: 8px 9px 7px; overflow: hidden; }
+
+  .card-title { font-family: 'Georgia', serif; font-size: 14px; font-weight: bold; color: #1A1A2E; text-align: center; line-height: 1.2; margin-bottom: 3px; }
+  .card-descriptor { font-family: Arial, sans-serif; font-size: 7.5px; color: #A07C00; text-align: center; font-style: italic; margin-bottom: 6px; }
+
+  .divider { height: 1px; background: linear-gradient(to right, transparent, #C9A227, transparent); margin-bottom: 7px; flex-shrink: 0; }
+
+  .section { margin-bottom: 5px; flex-shrink: 0; }
+  .section-label { font-family: Arial, sans-serif; font-size: 6.5px; font-weight: bold; letter-spacing: 1px; color: #A07C00; text-transform: uppercase; margin-bottom: 1.5px; }
+  .section-text { font-family: Arial, sans-serif; font-size: 7.5px; color: #333; line-height: 1.35; }
+
+  /* Script box */
+  .section.script .section-text {
+    background: #FEF9E7;
+    border-left: 2.5px solid #C9A227;
+    padding: 4px 6px;
+    border-radius: 2px;
+    font-style: italic;
+    color: #4A3800;
+    font-size: 7.5px;
+  }
+
+  /* Why it matters */
+  .section.matters {
+    flex: 1; display: flex; flex-direction: column;
+    border-top: 0.5px solid #F0D060; padding-top: 5px; margin-top: 2px;
+  }
+  .section.matters .section-text { font-size: 7.5px; color: #555; font-style: italic; }
+
+  .card-footer { background: #FEF9E7; padding: 4px 9px; text-align: center; flex-shrink: 0; border-top: 1px solid #F0D060; }
+  .card-footer span { font-family: Arial, sans-serif; font-size: 7px; color: #A07C00; letter-spacing: 1px; }
+
+  @media print {
+    body { background: white; padding: 0; }
+    h1.deck-title, p.deck-subtitle { display: none; }
+    .page { margin: 0; box-shadow: none; page-break-after: always; }
+    .card { box-shadow: none; }
+  }
+
+
+/* ═══════════════════════════════════════════════════════════
+   RENAISSANCE × SAILOR MOON — DECORATIVE REDESIGN
+   ═══════════════════════════════════════════════════════════ */
+
+/* Parchment ground + celestial star-dot constellation pattern */
+.card {
+  background-color:  #FFFDF6 !important;
+  background-image:
+    radial-gradient(circle, rgba(184,134,11,0.09) 0.65px, transparent 0.65px),
+    radial-gradient(ellipse at 50% 5%,   #FFF8E199 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 95%,  #FFF8E166 0%, transparent 40%);
+  background-size: 13px 13px, 100% 100%, 100% 100% !important;
+  box-shadow:
+    inset 0 0 0 4.5px #FFFDF6,
+    inset 0 0 0 6.5px rgba(184,134,11,0.22),
+    0 3px 14px rgba(0,0,0,0.14) !important;
+  position: relative !important;
+}
+
+/* Four ✦ corner ornaments */
+.c {
+  position: absolute;
+  font-size: 8pt;
+  color: #B8860B;
+  opacity: 0.52;
+  z-index: 20;
+  pointer-events: none;
+  line-height: 1;
+  font-family: Georgia, serif;
+}
+.tl { top: 7px;    left:  8px; }
+.tr { top: 7px;    right: 8px; }
+.bl { bottom: 7px; left:  8px; }
+.br { bottom: 7px; right: 8px; }
+
+/* Planetary watermark (☽ ♄ ♃ ☿ ♀) */
+.card-watermark {
+  position:   absolute;
+  top:  50%;
+  left: 50%;
+  transform:  translate(-50%, -48%) rotate(-12deg);
+  font-size:  70pt;
+  color:      #B8860B;
+  opacity:    0.045;
+  pointer-events: none;
+  z-index: 1;
+  line-height: 1;
+  user-select: none;
+  font-family: Georgia, 'Times New Roman', serif;
+  white-space: nowrap;
+}
+
+/* Ornate ─── ✦ ─── divider (replaces plain .divider) */
+.ornate-div {
+  text-align:     center;
+  font-size:      6.5pt;
+  letter-spacing: 0.18em;
+  flex-shrink:    0;
+  opacity:        0.60;
+  margin:         3px 0 2px;
+  color:          #B8860B;
+  font-family:    Georgia, serif;
+}
+.divider { display: none !important; }
+
+/* Richer banner — deep illuminated gradient */
+.card-type-banner {
+  background: linear-gradient(135deg,
+    #7a5700 0%,
+    #B8860B      38%,
+    #B8860B      62%,
+    #7a5700 100%) !important;
+  padding: 6px 9px !important;
+  letter-spacing: 0.13em !important;
+  border-bottom: 1px solid rgba(255,255,255,0.28) !important;
+  position: relative;
+  z-index: 5;
+}
+
+/* Elegant serif section labels */
+.section-label {
+  font-family: 'Palatino Linotype', Georgia, serif !important;
+  font-size:   6pt !important;
+  font-weight: bold !important;
+  letter-spacing: 0.18em !important;
+  color: #7a5700 !important;
+  text-transform: uppercase !important;
+}
+
+/* Warm serif body text */
+.section-text {
+  font-family: Georgia, 'Palatino Linotype', serif !important;
+  font-size:   7.5pt !important;
+  line-height: 1.48 !important;
+  color: #261212 !important;
+}
+
+/* Stronger title */
+.card-title {
+  font-family: 'Palatino Linotype', Georgia, serif !important;
+  font-size:   12pt !important;
+  color: #7a5700 !important;
+  letter-spacing: 0.02em !important;
+  margin-bottom: 2px !important;
+}
+.card-descriptor {
+  font-family: Georgia, serif !important;
+  font-size:   7pt !important;
+  color: #B8860B !important;
+  letter-spacing: 0.04em !important;
+}
+
+/* Reflection box — illuminated margin note */
+.section.reflection {
+  background: linear-gradient(135deg, #FFF8E1, #FFFDF6 80%) !important;
+  border-left: 2.5px solid #B8860B !important;
+  border-radius: 0 5px 5px 0 !important;
+  padding: 5px 6px !important;
+  margin-top: 3px !important;
+}
+.section.reflection .section-text {
+  font-style: italic !important;
+  color: #7a5700 !important;
+}
+
+/* Warm gradient footer */
+.card-footer {
+  background: linear-gradient(to right, #FFF8E1, #FFD54F66, #FFF8E1) !important;
+  border-top: 1px solid #FFD54F !important;
+  padding: 4px 9px !important;
+  position: relative;
+  z-index: 5;
+}
+.card-footer, .card-footer span {
+  font-family: 'Palatino Linotype', Georgia, serif !important;
+  font-size:   5pt !important;
+  color: #7a5700 !important;
+  letter-spacing: 0.16em !important;
+}
+
+/* Crystal Wisdom card — green overrides */
+.card.crystal {
+  background-color: #FFFDF6 !important;
+  background-image:
+    radial-gradient(circle, rgba(29,106,57,0.09) 0.65px, transparent 0.65px),
+    radial-gradient(ellipse at 50% 5%,  #E8F5EE99 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 95%, #E8F5EE66 0%, transparent 40%);
+  background-size: 13px 13px, 100% 100%, 100% 100% !important;
+  box-shadow:
+    inset 0 0 0 4.5px #FFFDF6,
+    inset 0 0 0 6.5px rgba(29,106,57,0.22),
+    0 3px 14px rgba(0,0,0,0.14) !important;
+}
+.card.crystal .c { color: #1D6A39 !important; }
+.card.crystal .card-watermark { color: #1D6A39 !important; }
+
+/* Luna Facilitator card — silver/indigo overrides */
+.card.luna {
+  background-color: #FDFCFF !important;
+  background-image:
+    radial-gradient(circle, rgba(74,85,104,0.09) 0.65px, transparent 0.65px),
+    radial-gradient(ellipse at 50% 5%, rgba(240,241,243,0.7) 0%, transparent 50%);
+  background-size: 13px 13px, 100% 100% !important;
+  box-shadow:
+    inset 0 0 0 4.5px #FDFCFF,
+    inset 0 0 0 6.5px rgba(74,85,104,0.22),
+    0 3px 14px rgba(0,0,0,0.14) !important;
+}
+.card.luna .c { color: #5C6470 !important; }
+.card.luna .card-watermark { color: #5C6470 !important; }
+
+/* Courage pip override — keep gold */
+.pip { border-color: #B8860B !important; }
+.pip.filled { background: #C9A227 !important; }
+
+/* Audience tag overrides — keep category colours */
+.aud-scout { background: #E91E8C !important; color: white !important; }
+.aud-all   { background: #1565C0 !important; color: white !important; }
+.aud-obs   { background: #B8860B !important; color: white !important; }
+
+@media print {
+  body { background: white !important; padding: 0 !important; gap: 0 !important; }
+  h1, p, h1.section-title { display: none !important; }
+  .page {
+    margin: 0 !important;
+    box-shadow: none !important;
+    page-break-after: always !important;
+    break-after: page !important;
+  }
+  .card { box-shadow: none !important; }
+}
+</style>
+</head>
+<body>
+<h1 class="deck-title">✴ MOONLIGHT VOICES ✴ — Guardian Action Cards</h1>
+<p class="deck-subtitle">24 cards · Tarot size (2.75" × 4.75") · Courage rating: ★ low risk → ★★★★★ high risk · Print on card stock</p>
+<!-- PAGE 1 -->
+<div class="page">
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♃</div>
+<div class="card-type-banner"><span class="star">✴</span> GUARDIAN ACTION <span class="card-num">01 / 24</span></div>
+<div class="courage-bar">
+<span class="courage-label">Courage Level</span>
+<div class="courage-pips"><div class="pip filled"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+<span class="courage-label" style="margin-left:4px">1 / 5 — Low risk</span>
+</div>
+<div class="card-body">
+<div class="card-title">Bear Witness</div>
+<div class="card-descriptor">Acknowledge without trying to fix or explain</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Action</div>
+<div class="section-text">When someone shares a difficult experience, you stay present with them — without immediately problem-solving, minimising, or redirecting to your own story. You hold the space.</div>
+</div>
+<div class="section script">
+<div class="section-label">Script</div>
+<div class="section-text">"Thank you for trusting me with that. I hear you. I won't pretend I fully understand — but I'm here, and what you're describing matters."</div>
+</div>
+<div class="section matters">
+<div class="section-label">Why It Matters</div>
+<div class="section-text">Often the most healing response is simply being genuinely heard — not advised, not compared, not fixed. Bearing witness is a skill. It is also a gift.</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♃</div>
+<div class="card-type-banner"><span class="star">✴</span> GUARDIAN ACTION <span class="card-num">02 / 24</span></div>
+<div class="courage-bar">
+<span class="courage-label">Courage Level</span>
+<div class="courage-pips"><div class="pip filled"></div><div class="pip filled"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+<span class="courage-label" style="margin-left:4px">2 / 5 — Low-medium</span>
+</div>
+<div class="card-body">
+<div class="card-title">Amplify</div>
+<div class="card-descriptor">Repeat and credit someone's idea so it lands</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Action</div>
+<div class="section-text">When you notice someone's contribution being ignored or talked over, you repeat it clearly, attribute it to them by name, and ensure the room engages with it before the conversation moves on.</div>
+</div>
+<div class="section script">
+<div class="section-label">Script</div>
+<div class="section-text">"I want to come back to what [Name] said a moment ago — that point about [X] is really important and I don't think we've fully explored it yet."</div>
+</div>
+<div class="section matters">
+<div class="section-label">Why It Matters</div>
+<div class="section-text">Amplification protects credit and ensures that quieter voices — or voices the room has learned to talk over — shape the conversation. Attribution is not optional: it is the point.</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♃</div>
+<div class="card-type-banner"><span class="star">✴</span> GUARDIAN ACTION <span class="card-num">03 / 24</span></div>
+<div class="courage-bar">
+<span class="courage-label">Courage Level</span>
+<div class="courage-pips"><div class="pip filled"></div><div class="pip filled"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+<span class="courage-label" style="margin-left:4px">2 / 5 — Low-medium</span>
+</div>
+<div class="card-body">
+<div class="card-title">Make Space</div>
+<div class="card-descriptor">Actively invite voices that haven't been heard</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Action</div>
+<div class="section-text">You notice whose voice has not been in the room and actively create an opening for them — without forcing, but with genuine invitation. You also stop talking when you realise you've been dominating.</div>
+</div>
+<div class="section script">
+<div class="section-label">Script</div>
+<div class="section-text">"We haven't heard from everyone. [Name], I'd love to know your perspective on this — you've worked closely with this area."</div>
+</div>
+<div class="section matters">
+<div class="section-label">Why It Matters</div>
+<div class="section-text">The best decisions come from the widest range of perspectives. Space doesn't open itself — someone has to create it deliberately and with respect.</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♃</div>
+<div class="card-type-banner"><span class="star">✴</span> GUARDIAN ACTION <span class="card-num">04 / 24</span></div>
+<div class="courage-bar">
+<span class="courage-label">Courage Level</span>
+<div class="courage-pips"><div class="pip filled"></div><div class="pip filled"></div><div class="pip filled"></div><div class="pip"></div><div class="pip"></div></div>
+<span class="courage-label" style="margin-left:4px">3 / 5 — Medium</span>
+</div>
+<div class="card-body">
+<div class="card-title">Call In</div>
+<div class="card-descriptor">A private, caring conversation about harmful behaviour</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Action</div>
+<div class="section-text">Rather than calling someone out publicly, you approach them privately — with curiosity, not accusation. You describe what you observed and its impact, and give them space to reflect and respond.</div>
+</div>
+<div class="section script">
+<div class="section-label">Script</div>
+<div class="section-text">"Hey — do you have five minutes? I wanted to share something I noticed in the meeting. I don't think you intended harm, but I'd like to talk about the impact."</div>
+</div>
+<div class="section matters">
+<div class="section-label">Why It Matters</div>
+<div class="section-text">Calling in preserves the relationship and gives people the chance to grow without public humiliation. It's often more effective than public correction — and harder, which is why it takes real courage.</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+</div><!-- page 1 -->
+<!-- PAGE 2 -->
+<div class="page">
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♃</div>
+<div class="card-type-banner"><span class="star">✴</span> GUARDIAN ACTION <span class="card-num">05 / 24</span></div>
+<div class="courage-bar">
+<span class="courage-label">Courage Level</span>
+<div class="courage-pips"><div class="pip filled"></div><div class="pip filled"></div><div class="pip filled"></div><div class="pip filled"></div><div class="pip"></div></div>
+<span class="courage-label" style="margin-left:4px">4 / 5 — High</span>
+</div>
+<div class="card-body">
+<div class="card-title">Call Out</div>
+<div class="card-descriptor">Name a bias or harm in the moment, publicly</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Action</div>
+<div class="section-text">When something harmful happens in a group setting, you name it in the moment — clearly, calmly, without attacking the person. You redirect the conversation to the impact rather than the intent.</div>
+</div>
+<div class="section script">
+<div class="section-label">Script</div>
+<div class="section-text">"I want to pause on that — I don't think that comment landed the way it was intended, and I'd like us to think about its impact before we move on."</div>
+</div>
+<div class="section matters">
+<div class="section-label">Why It Matters</div>
+<div class="section-text">Silence in the face of harm is read as consent by everyone in the room. Public naming — done with care — sets a visible standard and shows those affected that they are not alone.</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♃</div>
+<div class="card-type-banner"><span class="star">✴</span> GUARDIAN ACTION <span class="card-num">06 / 24</span></div>
+<div class="courage-bar">
+<span class="courage-label">Courage Level</span>
+<div class="courage-pips"><div class="pip filled"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+<span class="courage-label" style="margin-left:4px">1 / 5 — Low risk</span>
+</div>
+<div class="card-body">
+<div class="card-title">Educate Yourself</div>
+<div class="card-descriptor">Research before asking a marginalised person to explain</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Action</div>
+<div class="section-text">Before asking a colleague from a marginalised group to explain their experience or educate you about their community, you spend time researching independently — through books, articles, documentaries, or existing resources.</div>
+</div>
+<div class="section script">
+<div class="section-label">Script</div>
+<div class="section-text">(Internal check): "Is there a book, article, or resource I could read rather than asking [Name] to spend their time explaining this to me?"</div>
+</div>
+<div class="section matters">
+<div class="section-label">Why It Matters</div>
+<div class="section-text">Asking marginalised people to explain their own oppression is unpaid emotional labour. Resources exist. Using them first shows respect and preserves that person's energy for work that is actually theirs.</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♃</div>
+<div class="card-type-banner"><span class="star">✴</span> GUARDIAN ACTION <span class="card-num">07 / 24</span></div>
+<div class="courage-bar">
+<span class="courage-label">Courage Level</span>
+<div class="courage-pips"><div class="pip filled"></div><div class="pip filled"></div><div class="pip filled"></div><div class="pip filled"></div><div class="pip"></div></div>
+<span class="courage-label" style="margin-left:4px">4 / 5 — High</span>
+</div>
+<div class="card-body">
+<div class="card-title">Hold the Door</div>
+<div class="card-descriptor">Sponsor and recommend someone for opportunities</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Action</div>
+<div class="section-text">You actively use your access and influence to open doors for someone who may not have visibility with decision-makers. You name them, champion their work, and stake some of your own reputation on their behalf.</div>
+</div>
+<div class="section script">
+<div class="section-label">Script</div>
+<div class="section-text">"I want to recommend [Name] for this — I've worked closely with them and their work on [X] has been outstanding. I think they should be in this conversation."</div>
+</div>
+<div class="section matters">
+<div class="section-label">Why It Matters</div>
+<div class="section-text">Mentoring gives advice; sponsorship gives opportunity. Many people in marginalised groups are over-mentored and under-sponsored. Holding the door requires risking your own social capital — and that is what makes it powerful.</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♃</div>
+<div class="card-type-banner"><span class="star">✴</span> GUARDIAN ACTION <span class="card-num">08 / 24</span></div>
+<div class="courage-bar">
+<span class="courage-label">Courage Level</span>
+<div class="courage-pips"><div class="pip filled"></div><div class="pip filled"></div><div class="pip filled"></div><div class="pip filled"></div><div class="pip filled"></div></div>
+<span class="courage-label" style="margin-left:4px">5 / 5 — Very high</span>
+</div>
+<div class="card-body">
+<div class="card-title">Change the System</div>
+<div class="card-descriptor">Challenge the policy, not just the individual incident</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Action</div>
+<div class="section-text">You recognise that an incident is not isolated but structural, and you take action at the policy or process level — raising it in the right forums, proposing concrete changes, and following up until something shifts.</div>
+</div>
+<div class="section script">
+<div class="section-label">Script</div>
+<div class="section-text">"I've noticed this is a pattern, not a one-off. I'd like to put forward a proposal to change how we [recruit / review / schedule / evaluate] — can we get this on the agenda?"</div>
+</div>
+<div class="section matters">
+<div class="section-label">Why It Matters</div>
+<div class="section-text">Individual acts of allyship are necessary but insufficient. Lasting change requires changing the systems that produce the incidents. This is harder, slower — and the most meaningful thing an ally can do.</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+</div><!-- page 2 -->
+<!-- PAGE 3 -->
+<div class="page">
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♃</div>
+<div class="card-type-banner"><span class="star">✴</span> GUARDIAN ACTION <span class="card-num">09 / 24</span></div>
+<div class="courage-bar">
+<span class="courage-label">Courage Level</span>
+<div class="courage-pips"><div class="pip filled"></div><div class="pip filled"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+<span class="courage-label" style="margin-left:4px">2 / 5 — Low-medium</span>
+</div>
+<div class="card-body">
+<div class="card-title">Interrupt the Interrupt</div>
+<div class="card-descriptor">Stop someone from being talked over mid-sentence</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Action</div>
+<div class="section-text">When you notice someone being interrupted — especially in a pattern that targets certain voices — you step in immediately and redirect the floor back to the person who was speaking.</div>
+</div>
+<div class="section script">
+<div class="section-label">Script</div>
+<div class="section-text">"Hold on — [Name] was mid-sentence. [Name], please go ahead — I want to hear the rest of your point before we move on."</div>
+</div>
+<div class="section matters">
+<div class="section-label">Why It Matters</div>
+<div class="section-text">Being interrupted repeatedly teaches people to stop speaking. Every time someone reclaims the floor for an interrupted voice, they reset the social norm in the room — one moment at a time.</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♃</div>
+<div class="card-type-banner"><span class="star">✴</span> GUARDIAN ACTION <span class="card-num">10 / 24</span></div>
+<div class="courage-bar">
+<span class="courage-label">Courage Level</span>
+<div class="courage-pips"><div class="pip filled"></div><div class="pip filled"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+<span class="courage-label" style="margin-left:4px">2 / 5 — Low-medium</span>
+</div>
+<div class="card-body">
+<div class="card-title">Ask First</div>
+<div class="card-descriptor">Check what support someone actually wants</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Action</div>
+<div class="section-text">Before acting on someone's behalf or assuming what kind of support they need, you ask them directly. You resist the urge to "help" in the way that feels most natural to you — and listen to their answer.</div>
+</div>
+<div class="section script">
+<div class="section-label">Script</div>
+<div class="section-text">"I heard what happened and I want to support you. Before I do anything, what would actually be most helpful to you right now?"</div>
+</div>
+<div class="section matters">
+<div class="section-label">Why It Matters</div>
+<div class="section-text">Unsolicited "help" can take away someone's agency and centre the ally's needs over the affected person's. Asking first treats people as experts on their own situations — because they are.</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♃</div>
+<div class="card-type-banner"><span class="star">✴</span> GUARDIAN ACTION <span class="card-num">11 / 24</span></div>
+<div class="courage-bar">
+<span class="courage-label">Courage Level</span>
+<div class="courage-pips"><div class="pip filled"></div><div class="pip filled"></div><div class="pip filled"></div><div class="pip"></div><div class="pip"></div></div>
+<span class="courage-label" style="margin-left:4px">3 / 5 — Medium</span>
+</div>
+<div class="card-body">
+<div class="card-title">Name the Pattern</div>
+<div class="card-descriptor">Surface a recurring dynamic that others have not named</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Action</div>
+<div class="section-text">When you notice that something has been happening repeatedly — not just once — you name it as a pattern rather than an isolated incident, and invite the group to reflect on what is driving it.</div>
+</div>
+<div class="section script">
+<div class="section-label">Script</div>
+<div class="section-text">"I've been noticing something over the past few weeks — it seems like [X] keeps happening, and I think it's worth us pausing to talk about why that might be."</div>
+</div>
+<div class="section matters">
+<div class="section-label">Why It Matters</div>
+<div class="section-text">Patterns are invisible to those who benefit from them and exhausting to those who don't. Naming the pattern out loud converts a personal experience into a shared systemic question the whole group must engage with.</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♃</div>
+<div class="card-type-banner"><span class="star">✴</span> GUARDIAN ACTION <span class="card-num">12 / 24</span></div>
+<div class="courage-bar">
+<span class="courage-label">Courage Level</span>
+<div class="courage-pips"><div class="pip filled"></div><div class="pip filled"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+<span class="courage-label" style="margin-left:4px">2 / 5 — Low-medium</span>
+</div>
+<div class="card-body">
+<div class="card-title">Use Your Privilege</div>
+<div class="card-descriptor">Leverage access others don't have to open a door</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Action</div>
+<div class="section-text">You recognise an advantage you have — access to a person, a room, a network — and actively use it to benefit someone who does not have that access. You name your privilege and put it to work.</div>
+</div>
+<div class="section script">
+<div class="section-label">Script</div>
+<div class="section-text">"I know [senior leader] well and can make an introduction. Let me set that up for you — I think it's a connection that could be really valuable."</div>
+</div>
+<div class="section matters">
+<div class="section-label">Why It Matters</div>
+<div class="section-text">Privilege is not a problem in itself — it becomes one when it remains unexamined and unused. Deploying access in service of equity is one of the most tangible acts of allyship available to those who hold it.</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+</div><!-- page 3 -->
+<!-- PAGE 4 -->
+<div class="page">
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♃</div>
+<div class="card-type-banner"><span class="star">✴</span> GUARDIAN ACTION <span class="card-num">13 / 24</span></div>
+<div class="courage-bar">
+<span class="courage-label">Courage Level</span>
+<div class="courage-pips"><div class="pip filled"></div><div class="pip filled"></div><div class="pip filled"></div><div class="pip"></div><div class="pip"></div></div>
+<span class="courage-label" style="margin-left:4px">3 / 5 — Medium</span>
+</div>
+<div class="card-body">
+<div class="card-title">Correct the Record</div>
+<div class="card-descriptor">Restore accurate credit after it has been misattributed</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Action</div>
+<div class="section-text">When you notice that credit for someone's idea or work has been given to the wrong person — in a meeting, an email, or a report — you step in and correct it clearly and without drama.</div>
+</div>
+<div class="section script">
+<div class="section-label">Script</div>
+<div class="section-text">"Just to give credit where it's due — that approach was actually [Name]'s idea, first raised in last Thursday's session. I want to make sure that's clear."</div>
+</div>
+<div class="section matters">
+<div class="section-label">Why It Matters</div>
+<div class="section-text">Misattributed credit costs people professionally. Restoring it — even when awkward, even after the moment has passed — is an act of integrity and a signal that accuracy about contribution matters in this team.</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♃</div>
+<div class="card-type-banner"><span class="star">✴</span> GUARDIAN ACTION <span class="card-num">14 / 24</span></div>
+<div class="courage-bar">
+<span class="courage-label">Courage Level</span>
+<div class="courage-pips"><div class="pip filled"></div><div class="pip filled"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+<span class="courage-label" style="margin-left:4px">2 / 5 — Low-medium</span>
+</div>
+<div class="card-body">
+<div class="card-title">Share the Mic</div>
+<div class="card-descriptor">Voluntarily step back so others can step forward</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Action</div>
+<div class="section-text">When invited to speak, lead, or present — you consider whether someone with less access or visibility could do this instead. You actively share or redirect opportunities rather than accumulating them.</div>
+</div>
+<div class="section script">
+<div class="section-label">Script</div>
+<div class="section-text">"Actually, [Name] has much deeper expertise on this than I do — I'd recommend having them present to the leadership team instead. I can support them in preparing."</div>
+</div>
+<div class="section matters">
+<div class="section-label">Why It Matters</div>
+<div class="section-text">Visibility creates opportunity. Those who already have access to platforms tend to accumulate more. Choosing to share rather than add to your own profile is one of the quietest and most powerful acts of allyship.</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♃</div>
+<div class="card-type-banner"><span class="star">✴</span> GUARDIAN ACTION <span class="card-num">15 / 24</span></div>
+<div class="courage-bar">
+<span class="courage-label">Courage Level</span>
+<div class="courage-pips"><div class="pip filled"></div><div class="pip filled"></div><div class="pip filled"></div><div class="pip filled"></div><div class="pip"></div></div>
+<span class="courage-label" style="margin-left:4px">4 / 5 — High</span>
+</div>
+<div class="card-body">
+<div class="card-title">Disagree Upward</div>
+<div class="card-descriptor">Challenge bias when it comes from someone with power over you</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Action</div>
+<div class="section-text">When a manager, senior leader, or authority figure says or does something harmful — even unintentionally — you find a way to raise it, even knowing there is a power imbalance and potential personal risk.</div>
+</div>
+<div class="section script">
+<div class="section-label">Script</div>
+<div class="section-text">"I respect your view and I want to share a different perspective — I think [what was said/done] may have had an impact that wasn't intended. Would you be open to hearing that?"</div>
+</div>
+<div class="section matters">
+<div class="section-label">Why It Matters</div>
+<div class="section-text">The most impactful harm often comes from people in power. Challenging upward is the highest-risk form of allyship — and the one that most directly changes the culture of an organisation from the inside.</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♃</div>
+<div class="card-type-banner"><span class="star">✴</span> GUARDIAN ACTION <span class="card-num">16 / 24</span></div>
+<div class="courage-bar">
+<span class="courage-label">Courage Level</span>
+<div class="courage-pips"><div class="pip filled"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+<span class="courage-label" style="margin-left:4px">1 / 5 — Low risk</span>
+</div>
+<div class="card-body">
+<div class="card-title">Normalise Difference</div>
+<div class="card-descriptor">Include diverse references naturally in everyday conversation</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Action</div>
+<div class="section-text">In casual conversation, presentations, and examples, you naturally include references that reflect diverse experiences — different cultures, abilities, family structures, and identities — without making a point of it.</div>
+</div>
+<div class="section script">
+<div class="section-label">Script</div>
+<div class="section-text">(When giving an example): "Say your colleague takes time off for Eid, or a team member needs to leave for school pickup..." — include diversity in your hypotheticals as the norm.</div>
+</div>
+<div class="section matters">
+<div class="section-label">Why It Matters</div>
+<div class="section-text">When diverse experiences appear only in "diversity conversations," they remain exceptional. When they appear in everyday language and examples, they become part of the fabric of how the organisation thinks about people.</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+</div><!-- page 4 -->
+<!-- PAGE 5 -->
+<div class="page">
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♃</div>
+<div class="card-type-banner"><span class="star">✴</span> GUARDIAN ACTION <span class="card-num">17 / 24</span></div>
+<div class="courage-bar">
+<span class="courage-label">Courage Level</span>
+<div class="courage-pips"><div class="pip filled"></div><div class="pip filled"></div><div class="pip filled"></div><div class="pip"></div><div class="pip"></div></div>
+<span class="courage-label" style="margin-left:4px">3 / 5 — Medium</span>
+</div>
+<div class="card-body">
+<div class="card-title">Refuse the Burden</div>
+<div class="card-descriptor">Push back when DEI labour is assigned to the wrong person</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Action</div>
+<div class="section-text">When you notice that the only person of colour, woman, or disabled person is being asked to lead diversity work on top of their actual job, you raise it — and offer to share that labour or ensure it is properly resourced.</div>
+</div>
+<div class="section script">
+<div class="section-label">Script</div>
+<div class="section-text">"I want to flag something — I've noticed that [Name] tends to be the default person for DEI questions. That's not equitable. I'd like to share that work. Where can I take something off their plate?"</div>
+</div>
+<div class="section matters">
+<div class="section-label">Why It Matters</div>
+<div class="section-text">Placing the burden of an organisation's inclusion failures on the people most harmed by them is a double injustice. Redistribution of this labour is one of the most concrete acts of allyship an organisation can take.</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♃</div>
+<div class="card-type-banner"><span class="star">✴</span> GUARDIAN ACTION <span class="card-num">18 / 24</span></div>
+<div class="courage-bar">
+<span class="courage-label">Courage Level</span>
+<div class="courage-pips"><div class="pip filled"></div><div class="pip filled"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+<span class="courage-label" style="margin-left:4px">2 / 5 — Low-medium</span>
+</div>
+<div class="card-body">
+<div class="card-title">Get the Pronunciation Right</div>
+<div class="card-descriptor">Learn and use someone's actual name</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Action</div>
+<div class="section-text">When you are unsure how to pronounce a colleague's name, you ask them — once, privately, with genuine care. You then practise until you get it right consistently, and correct others when they don't.</div>
+</div>
+<div class="section script">
+<div class="section-label">Script</div>
+<div class="section-text">"I want to make sure I'm saying your name correctly — could you say it for me? I'll get it right." And later: "It's actually [correct pronunciation] — let me make sure we get that right."</div>
+</div>
+<div class="section matters">
+<div class="section-label">Why It Matters</div>
+<div class="section-text">A name is a person's most fundamental identity. Mispronouncing it repeatedly — especially when it's "too hard" — signals that their difference is an inconvenience. Getting it right signals they are worth the effort.</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♃</div>
+<div class="card-type-banner"><span class="star">✴</span> GUARDIAN ACTION <span class="card-num">19 / 24</span></div>
+<div class="courage-bar">
+<span class="courage-label">Courage Level</span>
+<div class="courage-pips"><div class="pip filled"></div><div class="pip filled"></div><div class="pip filled"></div><div class="pip filled"></div><div class="pip filled"></div></div>
+<span class="courage-label" style="margin-left:4px">5 / 5 — Very high</span>
+</div>
+<div class="card-body">
+<div class="card-title">Walk Away from the Table</div>
+<div class="card-descriptor">Decline an opportunity when it comes at someone else's expense</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Action</div>
+<div class="section-text">When offered an opportunity that you recognise was given to you — consciously or not — because of bias rather than merit, you raise it and suggest the process be reconsidered or the opportunity extended to others.</div>
+</div>
+<div class="section script">
+<div class="section-label">Script</div>
+<div class="section-text">"I'm honoured to be considered, but I noticed [Name] wasn't included in this conversation — and I think they should have been. Can we revisit how this opportunity was scoped?"</div>
+</div>
+<div class="section matters">
+<div class="section-label">Why It Matters</div>
+<div class="section-text">This is the highest act of allyship — giving up something you could have kept. It demonstrates that you understand equity is not abstract. It also demonstrates to organisations that their biased processes have visible costs.</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♃</div>
+<div class="card-type-banner"><span class="star">✴</span> GUARDIAN ACTION <span class="card-num">20 / 24</span></div>
+<div class="courage-bar">
+<span class="courage-label">Courage Level</span>
+<div class="courage-pips"><div class="pip filled"></div><div class="pip filled"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+<span class="courage-label" style="margin-left:4px">2 / 5 — Low-medium</span>
+</div>
+<div class="card-body">
+<div class="card-title">Check the Guest List</div>
+<div class="card-descriptor">Notice who's missing before the meeting starts</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Action</div>
+<div class="section-text">Before a significant meeting or event, you look at who's been invited and proactively ask whether the right people — especially those from underrepresented groups most affected by the topic — are in the room.</div>
+</div>
+<div class="section script">
+<div class="section-label">Script</div>
+<div class="section-text">"Before we finalise the invite list, I want to check — are we missing anyone whose perspective is important to this decision? Specifically, who does this affect most?"</div>
+</div>
+<div class="section matters">
+<div class="section-label">Why It Matters</div>
+<div class="section-text">Decisions about people are frequently made without those people in the room. Once the decision is made, the omission is invisible. Preventing it requires someone willing to ask the question before the door closes.</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+</div><!-- page 5 -->
+<!-- PAGE 6 -->
+<div class="page">
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♃</div>
+<div class="card-type-banner"><span class="star">✴</span> GUARDIAN ACTION <span class="card-num">21 / 24</span></div>
+<div class="courage-bar">
+<span class="courage-label">Courage Level</span>
+<div class="courage-pips"><div class="pip filled"></div><div class="pip filled"></div><div class="pip filled"></div><div class="pip"></div><div class="pip"></div></div>
+<span class="courage-label" style="margin-left:4px">3 / 5 — Medium</span>
+</div>
+<div class="card-body">
+<div class="card-title">Say "I Got It Wrong"</div>
+<div class="card-descriptor">Acknowledge and own a mistake without over-explaining</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Action</div>
+<div class="section-text">When you realise you said or did something harmful — even if it was unintentional — you acknowledge it directly to the person affected, without lengthy justification or making it about your feelings.</div>
+</div>
+<div class="section script">
+<div class="section-label">Script</div>
+<div class="section-text">"I've been thinking about what I said, and I got it wrong. I'm sorry. What I should have done was [X]. I'll do better."</div>
+</div>
+<div class="section matters">
+<div class="section-label">Why It Matters</div>
+<div class="section-text">The quality of an apology is measured by the absence of "but." A real acknowledgment takes responsibility without redirecting attention to intent. It models the culture that makes accountability feel possible for everyone.</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♃</div>
+<div class="card-type-banner"><span class="star">✴</span> GUARDIAN ACTION <span class="card-num">22 / 24</span></div>
+<div class="courage-bar">
+<span class="courage-label">Courage Level</span>
+<div class="courage-pips"><div class="pip filled"></div><div class="pip filled"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+<span class="courage-label" style="margin-left:4px">2 / 5 — Low-medium</span>
+</div>
+<div class="card-body">
+<div class="card-title">Follow Up</div>
+<div class="card-descriptor">Check in after a difficult moment, not just during it</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Action</div>
+<div class="section-text">After a difficult incident, you check in with the person who was affected — not in the immediate aftermath when they may be managing their response, but a day or two later when the moment has passed.</div>
+</div>
+<div class="section script">
+<div class="section-label">Script</div>
+<div class="section-text">"Hey — I've been thinking about what happened in the meeting on Tuesday. I just wanted to check in and see how you're doing. No pressure to talk about it — just wanted you to know I haven't forgotten."</div>
+</div>
+<div class="section matters">
+<div class="section-label">Why It Matters</div>
+<div class="section-text">People who experience harm often feel forgotten once the moment passes. Following up communicates that what happened mattered beyond the room — and that the person matters beyond their role.</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♃</div>
+<div class="card-type-banner"><span class="star">✴</span> GUARDIAN ACTION <span class="card-num">23 / 24</span></div>
+<div class="courage-bar">
+<span class="courage-label">Courage Level</span>
+<div class="courage-pips"><div class="pip filled"></div><div class="pip filled"></div><div class="pip filled"></div><div class="pip"></div><div class="pip"></div></div>
+<span class="courage-label" style="margin-left:4px">3 / 5 — Medium</span>
+</div>
+<div class="card-body">
+<div class="card-title">Sit with Discomfort</div>
+<div class="card-descriptor">Stay in the conversation when it gets hard</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Action</div>
+<div class="section-text">When a conversation about bias or discrimination makes you feel defensive, guilty, or overwhelmed, you resist the urge to shut it down, change the subject, or walk away — and instead stay present with the discomfort.</div>
+</div>
+<div class="section script">
+<div class="section-label">Script</div>
+<div class="section-text">(Internal): "I am feeling defensive right now. That feeling is data about me — not evidence that this conversation is unfair. I will stay in it."</div>
+</div>
+<div class="section matters">
+<div class="section-label">Why It Matters</div>
+<div class="section-text">Growth happens at the edge of comfort. When those with privilege exit difficult conversations, they leave behind the people for whom discomfort is not optional. Staying is an act of solidarity.</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+<div class="card"><span class="c tl">✦</span><span class="c tr">✦</span><span class="c bl">✦</span><span class="c br">✦</span><div class="card-watermark">♃</div>
+<div class="card-type-banner"><span class="star">✴</span> GUARDIAN ACTION <span class="card-num">24 / 24</span></div>
+<div class="courage-bar">
+<span class="courage-label">Courage Level</span>
+<div class="courage-pips"><div class="pip filled"></div><div class="pip filled"></div><div class="pip filled"></div><div class="pip filled"></div><div class="pip"></div></div>
+<span class="courage-label" style="margin-left:4px">4 / 5 — High</span>
+</div>
+<div class="card-body">
+<div class="card-title">Make the Invisible Visible</div>
+<div class="card-descriptor">Surface hidden data or patterns and bring them to leadership</div>
+<div class="ornate-div">─── ✦ ───</div>
+<div class="section">
+<div class="section-label">The Action</div>
+<div class="section-text">You gather data about a pattern you've noticed — promotions, speaking time, project assignments, pay — and present it clearly to decision-makers, making the invisible visible in a form that demands a response.</div>
+</div>
+<div class="section script">
+<div class="section-label">Script</div>
+<div class="section-text">"I've put together some data I'd like to share. Over the last two years, [X pattern] appears in our [promotions / assignments / pay]. I think we need to look at what's driving this."</div>
+</div>
+<div class="section matters">
+<div class="section-label">Why It Matters</div>
+<div class="section-text">Organisations rarely change because of feelings alone — they change when patterns are documented and named in terms they can act on. Data transforms a personal experience into an organisational problem that requires an organisational solution.</div>
+</div>
+</div>
+<div class="card-footer"><span>MOONLIGHT VOICES ✦ DEI CARD GAME</span></div>
+</div>
+</div><!-- page 6 -->
+</body>
+</html>
